@@ -4,4 +4,6 @@ requests
 pandas
 python-dotenv
 transformers
-torch
+
+-f https://download.pytorch.org/whl/cpu/torch_stable.html
+torch==2.4.1+cpu
