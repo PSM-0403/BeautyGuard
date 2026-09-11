@@ -1,0 +1,10 @@
+.env
+.env*.local
+.DS_Store
+node_modules/
+.next/
+tsconfig.tsbuildinfo
+*.zip
+*_preview.html
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,26 @@
+{
+  "name": "ingredient-intelligence-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"next,api\" -c \"blue,green\" \"next dev\" \"python -m uvicorn backend.fastapi_app:app --reload --port 8000\"",
+    "dev:all": "concurrently -n \"next,api\" -c \"blue,green\" \"next dev\" \"python -m uvicorn backend.fastapi_app:app --reload --port 8000\"",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.105.4",
+    "next": "^14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.28",
+    "concurrently": "^9.2.1",
+    "eslint": "^8.57.1",
+    "typescript": "^5.7.2"
+  }
+}
