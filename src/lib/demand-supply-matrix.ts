@@ -96,12 +96,12 @@ export const DEFAULT_DEMAND_SUPPLY_MATRIX_CONFIG: DemandSupplyMatrixConfig = {
 };
 
 const MATRIX_INGREDIENT_TARGETS: MatrixIngredientTarget[] = [
-  { id: "retinol", label: "레티놀", aliases: ["레티놀", "retinol"] },
+  { id: "retinol", label: "레티놀", aliases: ["레티놀", "레티날", "레틴알", "retinol", "retinal"] },
   { id: "pdrn", label: "PDRN", aliases: ["PDRN", "피디알엔", "pdrn"] },
   { id: "niacinamide", label: "나이아신아마이드", aliases: ["나이아신아마이드", "나이아신 아마이드", "niacinamide"] },
   { id: "ceramide", label: "세라마이드", aliases: ["세라마이드", "ceramide"] },
   { id: "panthenol", label: "판테놀", aliases: ["판테놀", "panthenol"] },
-  { id: "hyaluronic_acid", label: "히알루론산", aliases: ["히알루론산", "히알루론", "hyaluronic acid", "hyaluronic_acid", "HA"] },
+  { id: "hyaluronic_acid", label: "히알루론산", aliases: ["히알루론산", "히알루론", "하이알루론산", "하이알루로닉", "hyaluronic acid", "hyaluronic_acid", "HA"] },
   { id: "centella", label: "병풀/시카", aliases: ["병풀/시카", "병풀", "시카", "centella", "cica"] },
 ];
 

@@ -31,12 +31,12 @@ export const MAIN_INGREDIENT_LIST: MainIngredient[] = [
   {
     key: "hyaluronic_acid",
     label: "히알루론산",
-    aliases: ["히알루론산", "히알루론", "히알루로닉", "hyaluronic"],
+    aliases: ["히알루론산", "히알루론", "히알루로닉", "하이알루론산", "하이알루로닉", "hyaluronic"],
   },
   {
     key: "retinol",
     label: "레티놀",
-    aliases: ["레티놀", "레티날", "retinol", "retinal"],
+    aliases: ["레티놀", "레티날", "레틴알", "retinol", "retinal"],
   },
   {
     key: "centella",

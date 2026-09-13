@@ -93,10 +93,10 @@ export type ReviewAnalysisResult = {
 
 const INGREDIENT_ALIASES: Record<string, string[]> = {
   "나이아신아마이드": ["나이아신아마이드", "니아신아마이드", "나이아신"],
-  "히알루론산": ["히알루론산", "히알루로닉", "히알루론"],
+  "히알루론산": ["히알루론산", "히알루로닉", "히알루론", "하이알루론산", "하이알루로닉"],
   "병풀/시카": ["병풀", "시카", "센텔라", "cica", "centella"],
   PDRN: ["PDRN", "pdrn", "피디알엔", "피디알앤"],
-  "레티놀": ["레티놀", "레티날", "retinol", "retinal"],
+  "레티놀": ["레티놀", "레티날", "레틴알", "retinol", "retinal"],
 };
 
 const SKIN_TYPES = [
