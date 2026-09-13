@@ -630,8 +630,9 @@ def _get_sentiment_pipeline():
             from transformers import pipeline as hf_pipeline
             _sentiment_pipeline = hf_pipeline(
                 "sentiment-analysis",
-                model="nlptown/bert-base-multilingual-uncased-sentiment",
+                model="monologg/koelectra-small-finetuned-nsmc",
                 device=-1,
+                top_k=None,
             )
         except Exception as exc:
             _sentiment_unavailable = True
@@ -650,11 +651,19 @@ def _fallback_sentiment(text: str) -> str:
     return "neutral"
 
 
-def _label_to_sentiment(label: str) -> str:
-    if "1" in label or "2" in label:
-        return "negative"
-    if "4" in label or "5" in label:
+# KoELECTRA-nsmc는 긍정/부정 2-class만 예측하므로, 확신도가 낮은 경계 구간(35~65%)은
+# 중립으로 취급해 3단계(긍정/중립/부정) 분류를 만든다.
+SENTIMENT_CONFIDENCE_THRESHOLD = 0.65
+
+
+def _scores_to_sentiment(scores: list[dict]) -> str:
+    score_by_label = {item["label"]: item["score"] for item in scores}
+    positive_score = score_by_label.get("positive", 0.0)
+    negative_score = score_by_label.get("negative", 0.0)
+    if positive_score >= SENTIMENT_CONFIDENCE_THRESHOLD:
         return "positive"
+    if negative_score >= SENTIMENT_CONFIDENCE_THRESHOLD:
+        return "negative"
     return "neutral"
 
 
@@ -673,7 +682,7 @@ def analyze_sentiment(body: dict = Body(...)):
         for i in range(0, len(texts), 16):
             batch = texts[i:i + 16]
             results = classifier(batch, truncation=True, max_length=512)
-            labels.extend(_label_to_sentiment(r["label"]) for r in results)
+            labels.extend(_scores_to_sentiment(r) for r in results)
         return {"labels": labels}
     except Exception as exc:
         print(f"감성 분석 실행 실패: {exc}")
