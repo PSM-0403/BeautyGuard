@@ -499,6 +499,21 @@ function normalizeDirectDemandRow(
   };
 }
 
+const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+// "전주 대비"를 실제로 latestDate 기준 7일 전 스냅샷과 비교하기 위한 날짜를 찾는다.
+// 아직 7일치 데이터가 없으면(크롤링 시작 초반), 최대한 과거인 날짜로 대체한다.
+function findWeekAgoDate(dates: string[], latestDate: string): string {
+  const candidates = dates.filter((date) => date !== latestDate);
+  if (!latestDate || candidates.length === 0) return "";
+
+  const targetTime = new Date(latestDate).getTime() - WEEK_MS;
+  const onOrBeforeTarget = candidates.filter((date) => new Date(date).getTime() <= targetTime);
+  if (onOrBeforeTarget.length > 0) return onOrBeforeTarget.at(-1) as string;
+
+  return candidates[0];
+}
+
 function buildSupplyMetrics(rows: SupplyRawDatum[], targets: MatrixIngredientTarget[]) {
   const grouped = new Map<string, {
     goodsNos: Set<string>;
@@ -509,7 +524,7 @@ function buildSupplyMetrics(rows: SupplyRawDatum[], targets: MatrixIngredientTar
   }>();
   const dates = Array.from(new Set(rows.flatMap((row) => row.collectedDates))).filter(Boolean).sort();
   const latestDate = dates.at(-1) || "";
-  const previousDate = dates.at(-2) || "";
+  const previousDate = findWeekAgoDate(dates, latestDate);
 
   targets.forEach((target) => {
     grouped.set(target.label, {
