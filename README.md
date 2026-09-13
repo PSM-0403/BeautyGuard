@@ -1,7 +1,16 @@
 # Beauty Guard — Ingredient Intelligence Dashboard
 
 화장품 MD를 위한 **성분 기반 시장 분석 대시보드**입니다.  
-네이버 DataLab 검색 트렌드, 올리브영 리뷰 감성 분석(BERT), 수요-공급 매트릭스를 하나의 화면에서 제공합니다.
+네이버 DataLab 검색 트렌드, 올리브영 리뷰 감성 분석, 수요-공급 매트릭스를 하나의 화면에서 제공합니다.
+
+## 배포
+
+| 구성요소 | 플랫폼 | 주소 |
+|---|---|---|
+| 프론트엔드 (Next.js) | Vercel | https://beautyguard-dashboard.vercel.app |
+| 백엔드 (FastAPI) | Render (무료 티어) | https://beautyguard-api.onrender.com |
+
+백엔드는 Render 무료 티어라 15분 미사용 시 슬립되고, 첫 요청 시 재기동에 30~60초 정도 걸릴 수 있습니다.
 
 ---
 
@@ -11,8 +20,8 @@
 |--------|------|
 | 프론트엔드 | Next.js 14, React 18, TypeScript |
 | 백엔드 | FastAPI (Python), uvicorn |
-| 데이터베이스 | Supabase (PostgreSQL) — 2025-05-01부터 일 단위 크롤링 |
-| 감성 분석 | `nlptown/bert-base-multilingual-uncased-sentiment` (HuggingFace) |
+| 데이터베이스 | Supabase (PostgreSQL) — 올리브영 상품/리뷰 일 단위 크롤링 |
+| 감성 분석 | `monologg/koelectra-small-finetuned-nsmc` (한국어 전용 ELECTRA-small, 긍정/부정 + 확신도 임계값으로 중립 합성) |
 | AI 인사이트 | OpenAI `gpt-4.1-mini` (선택적 활성화) |
 | 외부 API | 네이버 DataLab |
 
@@ -124,10 +133,15 @@ npm run dev
 product_reviews (Supabase)
     ↓ 성분 별칭 포함 검색 → 최신순 정렬
     ↓ 3페이지: 상위 300건 / 4페이지 경보: 상위 100건
-    ↓ FastAPI /sentiment → BERT 감성 분류 (배치 16건)
-       1~2점 → negative / 3점 → neutral / 4~5점 → positive
+    ↓ FastAPI /sentiment → KoELECTRA 감성 분류 (배치 16건)
+       긍정확률 ≥ 65% → positive / 부정확률 ≥ 65% → negative / 그 외 → neutral
     ↓ 키워드 매칭 · 스코어링 · 경보 생성
 ```
+
+`monologg/koelectra-small-finetuned-nsmc`는 긍정/부정 2-class만 예측하는 한국어 전용 모델이라,
+두 확률 모두 임계값(65%) 미만인 애매한 구간을 neutral로 합성해 3단계 분류를 유지합니다.
+Render 무료 티어(RAM 512MB)에서도 안정적으로 돌아가도록 원래 쓰던 다국어 BERT-base(약 110M 파라미터,
+한국어는 학습 데이터에 없었음) 대신 한국어로 직접 학습된 ELECTRA-small(약 14M 파라미터)로 교체했습니다.
 
 ### 기능 급상승 순위 정렬 기준
 
@@ -141,6 +155,12 @@ product_reviews (Supabase)
 각 페이지 데이터를 JSON으로 OpenAI `gpt-4.1-mini`에 전달,  
 MD 의사결정에 바로 쓸 수 있는 문장 2~5개를 JSON Schema로 강제 출력합니다.
 
+### 데이터 수집 (올리브영 크롤러)
+
+`올리브영 크롤러/[Module]oliveyoung_crawler/`의 Selenium 크롤러로 매일 두 카테고리(스킨케어 > 크림, 스킨케어 > 에센스/세럼/앰플)의
+판매순·신상품순 상위 24개 상품 정보를 수집해 `scripts/import_csv_to_supabase.py`로 Supabase에 적재합니다.
+사용법은 해당 폴더의 [README](<올리브영 크롤러/[Module]oliveyoung_crawler/README.md>) 참고.
+
 ---
 
 ## 디렉터리 구조
@@ -148,7 +168,11 @@ MD 의사결정에 바로 쓸 수 있는 문장 2~5개를 JSON Schema로 강제 
 ```
 .
 ├── backend/
-│   └── fastapi_app.py            # 감성 분석 API (BERT), DataLab 프록시
+│   └── fastapi_app.py            # 감성 분석 API (KoELECTRA), DataLab 프록시
+├── 올리브영 크롤러/
+│   └── [Module]oliveyoung_crawler/  # 상품/리뷰 수집 크롤러 (Selenium)
+├── scripts/
+│   └── import_csv_to_supabase.py # 크롤러 CSV → Supabase 적재
 ├── src/
 │   ├── app/
 │   │   └── api/

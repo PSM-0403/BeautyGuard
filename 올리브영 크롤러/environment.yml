@@ -1,4 +1,4 @@
-name: archive920913-cmyk-env
+name: oliveyoung-crawler-env
 channels:
   - defaults
   - conda-forge

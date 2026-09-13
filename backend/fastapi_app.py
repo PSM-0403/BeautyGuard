@@ -13,13 +13,11 @@ import pandas as pd
 from dotenv import load_dotenv
 from fastapi import Body, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse
 
 
 BASE_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = BASE_DIR.parent
-LEGACY_DIR = PROJECT_DIR / "legacy"
 load_dotenv(PROJECT_DIR / ".env")
 load_dotenv(BASE_DIR / ".env", override=True)
 NAVER_DATALAB_URL = "https://openapi.naver.com/v1/datalab/search"
@@ -49,9 +47,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-if (LEGACY_DIR / "assets").exists():
-    app.mount("/assets", StaticFiles(directory=LEGACY_DIR / "assets"), name="assets")
-
 
 @app.on_event("startup")
 def preload_sentiment_model():
@@ -427,7 +422,6 @@ def build_market_products() -> list[dict[str, Any]]:
             path
             for path in [
                 PROJECT_DIR / "data" / "processed" / "ingredient_candidate_stats.csv",
-                LEGACY_DIR / "data" / "processed" / "ingredient_candidate_stats.csv",
                 BASE_DIR / "data" / "processed" / "ingredient_candidate_stats.csv",
             ]
             if path.exists()
@@ -501,9 +495,8 @@ def build_ingredient_trend(period_key: str) -> dict[str, Any]:
 
 
 @app.get("/")
-@app.get("/index.html")
-def read_index() -> FileResponse:
-    return FileResponse(LEGACY_DIR / "index.html")
+def read_root() -> dict[str, str]:
+    return {"service": "BeautyMD Insight API", "docs": "/docs"}
 
 
 @app.get("/health")
