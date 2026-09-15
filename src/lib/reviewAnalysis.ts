@@ -159,38 +159,8 @@ async function fetchReviewRows(ingredient: string) {
     .order("collected_date", { ascending: false })
     .limit(1000);
 
-  if (error) throw new Error(`product_reviews 조회 실패: ${error.message}: filter=${ingredientFilter}`);
+  if (error) throw new Error(`product_reviews 조회 실패: ${error.message}`);
   return (data || []) as ProductReviewRow[];
-}
-
-export async function debugFetchReviewRows(ingredient: string) {
-  const supabase = createSupabaseClient();
-  const aliases = INGREDIENT_ALIASES[ingredient] || [ingredient];
-  const ingredientFilter = aliases
-    .map((alias) => `main_ingredients.ilike.%${escapeSupabaseOrValue(alias)}%`)
-    .join(",");
-
-  const withStarNoOrder = await supabase
-    .from("product_reviews")
-    .select("*")
-    .or(ingredientFilter)
-    .not("review_text", "is", null)
-    .limit(1000);
-
-  const namedWithOrder = await supabase
-    .from("product_reviews")
-    .select("id, goods_no, main_ingredients, review_text, collected_date")
-    .or(ingredientFilter)
-    .not("review_text", "is", null)
-    .order("collected_date", { ascending: false })
-    .limit(1000);
-
-  return {
-    ingredient,
-    ingredientFilter,
-    withStarNoOrder: { error: withStarNoOrder.error, count: withStarNoOrder.data?.length },
-    namedWithOrder: { error: namedWithOrder.error, count: namedWithOrder.data?.length },
-  };
 }
 
 async function fetchProductSummaries(goodsNos: string[]) {
@@ -553,7 +523,14 @@ function createSupabaseClient() {
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
   if (!url || !key) throw new Error("Supabase 환경변수가 필요합니다.");
 
-  return createClient(url, key);
+  // Next.js는 App Router 라우트 핸들러 안의 fetch 호출을 자동으로 캐싱하려고 하는데,
+  // supabase-js 내부 fetch 호출은 이 자동 캐싱의 영향을 받아 오래된 빈 결과가
+  // 고정되어버리는 경우가 있다. no-store를 명시해서 매 요청마다 새로 조회하도록 강제한다.
+  return createClient(url, key, {
+    global: {
+      fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }),
+    },
+  });
 }
 
 function ensureInsightRange(insights: string[], fallback: string[], minItems: number, maxItems: number) {

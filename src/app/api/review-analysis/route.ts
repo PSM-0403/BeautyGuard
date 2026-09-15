@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { REVIEW_INGREDIENT_OPTIONS } from "@/lib/reviewConstants";
-import { analyzeIngredientReviews, debugFetchReviewRows } from "@/lib/reviewAnalysis";
+import { analyzeIngredientReviews } from "@/lib/reviewAnalysis";
 import { generateInsights } from "@/lib/generateInsights";
 
 export const runtime = "nodejs";
@@ -20,11 +20,6 @@ export async function GET(request: Request) {
 
     if (!ingredient.trim()) {
       return NextResponse.json({ message: "성분명이 필요합니다." }, { status: 400 });
-    }
-
-    if (url.searchParams.get("debug") === "1") {
-      const debugResult = await debugFetchReviewRows(ingredient);
-      return NextResponse.json(debugResult);
     }
 
     const result = await analyzeIngredientReviews(ingredient);
