@@ -159,8 +159,23 @@ async function fetchReviewRows(ingredient: string) {
     .order("collected_date", { ascending: false })
     .limit(1000);
 
-  if (error) throw new Error(`product_reviews 조회 실패: ${error.message}`);
+  if (error) throw new Error(`product_reviews 조회 실패: ${error.message}: filter=${ingredientFilter}`);
   return (data || []) as ProductReviewRow[];
+}
+
+export async function debugFetchReviewRows(ingredient: string) {
+  const supabase = createSupabaseClient();
+  const aliases = INGREDIENT_ALIASES[ingredient] || [ingredient];
+  const ingredientFilter = aliases
+    .map((alias) => `main_ingredients.ilike.%${escapeSupabaseOrValue(alias)}%`)
+    .join(",");
+  const { data, error } = await supabase
+    .from("product_reviews")
+    .select("id, goods_no, main_ingredients")
+    .or(ingredientFilter)
+    .not("review_text", "is", null)
+    .limit(5);
+  return { ingredient, aliases, ingredientFilter, error, sample: data };
 }
 
 async function fetchProductSummaries(goodsNos: string[]) {
