@@ -169,14 +169,28 @@ export async function debugFetchReviewRows(ingredient: string) {
   const ingredientFilter = aliases
     .map((alias) => `main_ingredients.ilike.%${escapeSupabaseOrValue(alias)}%`)
     .join(",");
-  const { data, error } = await supabase
+
+  const withStarNoOrder = await supabase
     .from("product_reviews")
     .select("*")
     .or(ingredientFilter)
     .not("review_text", "is", null)
+    .limit(1000);
+
+  const namedWithOrder = await supabase
+    .from("product_reviews")
+    .select("id, goods_no, main_ingredients, review_text, collected_date")
+    .or(ingredientFilter)
+    .not("review_text", "is", null)
     .order("collected_date", { ascending: false })
     .limit(1000);
-  return { ingredient, aliases, ingredientFilter, error, count: data?.length, sample: data?.slice(0, 3) };
+
+  return {
+    ingredient,
+    ingredientFilter,
+    withStarNoOrder: { error: withStarNoOrder.error, count: withStarNoOrder.data?.length },
+    namedWithOrder: { error: namedWithOrder.error, count: namedWithOrder.data?.length },
+  };
 }
 
 async function fetchProductSummaries(goodsNos: string[]) {
