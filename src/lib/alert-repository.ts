@@ -125,7 +125,15 @@ export function createServerSupabaseClient() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!url || !key) throw new Error("Supabase 환경변수가 필요합니다.");
-  return createClient(url, key, { auth: { persistSession: false } });
+  // Next.js가 supabase-js 내부 fetch 호출을 캐싱해서, 오늘자 경보가 아직 없을 때의
+  // 빈 응답이 고정되어버리면 매번 재계산을 반복하게 된다 (src/lib/reviewAnalysis.ts의
+  // 같은 문제 참고). no-store로 매 요청마다 새로 조회하도록 강제한다.
+  return createClient(url, key, {
+    auth: { persistSession: false },
+    global: {
+      fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }),
+    },
+  });
 }
 
 function snapshotFromRow(row: DailyMetricSnapshotRow): DailyMetricSnapshot {
