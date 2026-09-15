@@ -87,9 +87,16 @@ export async function ensureDailyAlerts({
 
 async function buildDailyMetricSnapshot(alertDate: string, requestUrl: string): Promise<DailyMetricSnapshot> {
   const createdAt = new Date().toISOString();
+  // 경보는 집계된 감성 비율/키워드만 필요하고 원본 리뷰 목록은 쓰지 않으므로,
+  // 3페이지의 최대 300건 대신 훨씬 적은 표본으로 충분하다. Render 백엔드가 단일 워커라
+  // 5개 성분을 병렬로 300건씩 돌리면 감성분석 배치가 순서대로 쌓여 Vercel 함수
+  // 타임아웃을 넘기는 문제가 있었다 (성분당 최소 30건 필요 기준보다 넉넉하게 50건).
+  const ALERT_REVIEW_SAMPLE_SIZE = 50;
   const [ingredientMatrix, reviewResults] = await Promise.all([
     fetchActualIngredientMatrix(requestUrl),
-    Promise.all(REVIEW_INGREDIENT_OPTIONS.map((ingredient) => analyzeIngredientReviews(ingredient))),
+    Promise.all(
+      REVIEW_INGREDIENT_OPTIONS.map((ingredient) => analyzeIngredientReviews(ingredient, ALERT_REVIEW_SAMPLE_SIZE)),
+    ),
   ]);
 
   return {
