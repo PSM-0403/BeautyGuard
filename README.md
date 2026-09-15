@@ -95,7 +95,7 @@ npm run dev
 - 성분별 시장 제품 수 현황
 
 ### 03 소비자 리뷰 분석
-- 성분 선택 → BERT 감성 분석 (최대 300건)
+- 성분 선택 → KoELECTRA 감성 분석 (최대 300건)
 - 긍·부정 키워드 TOP 5, 피부 타입별 감정 비율
 - 리뷰 반응 상위 제품 TOP 3
 - 기회 성분 자동 드롭다운 추가 (2페이지 매트릭스 연동)
@@ -103,7 +103,7 @@ npm run dev
 ### 04 경보
 - 수요-공급 격차 → **신제품 기획 후보 / 재고 리스크** 감지
 - 부정 키워드 빈도 → **부정 리뷰 이슈** 감지
-- 페이지 로드 시 자동 계산 (BERT 100건 기준, 최초 로드 시 소요)
+- 페이지 로드 시 자동 계산 (KoELECTRA 100건 기준, 최초 로드 시 소요)
 
 ### 05 AI Agent
 - 대시보드 데이터 기반 자연어 질의 → 타깃 전략 생성
@@ -158,8 +158,16 @@ MD 의사결정에 바로 쓸 수 있는 문장 2~5개를 JSON Schema로 강제 
 ### 데이터 수집 (올리브영 크롤러)
 
 `올리브영 크롤러/[Module]oliveyoung_crawler/`의 Selenium 크롤러로 매일 두 카테고리(스킨케어 > 크림, 스킨케어 > 에센스/세럼/앰플)의
-판매순·신상품순 상위 24개 상품 정보를 수집해 `scripts/import_csv_to_supabase.py`로 Supabase에 적재합니다.
+판매순·신상품순 상위 24개 **상품 정보**를 수집해 `scripts/import_csv_to_supabase.py`로 Supabase에 적재합니다.
 사용법은 해당 폴더의 [README](<올리브영 크롤러/[Module]oliveyoung_crawler/README.md>) 참고.
+
+**리뷰**는 매일 수집하지 않고, N일치 상품 CSV를 상품 URL(goods_no) 기준으로 병합·중복 제거한 뒤
+그 전체 상품 목록에 대해 한 번에 수집합니다 (`--review-only-product-csv` 옵션). 같은 상품 리뷰를 매일
+반복 수집하지 않아도 되고, 올리브영의 접속 방어(짧은 시간에 너무 많은 상세페이지 요청 시 발생)를
+피하려면 시간 간격을 두고 나눠서 재시도하는 게 안전합니다.
+
+현재 5일치(9/11~9/15) 수집분 기준 고유 상품 107개 중 101개 상품에 리뷰(973건)를 확보했습니다.
+나머지 6개는 신상품이라 원래 리뷰가 없거나 판매 종료된 상품이라 채울 수 없는 케이스입니다.
 
 ---
 
@@ -184,7 +192,7 @@ MD 의사결정에 바로 쓸 수 있는 문장 2~5개를 JSON Schema로 강제 
 │   │   └── review-analysis/
 │   └── lib/
 │       ├── main-ingredients.ts   # 주요 성분 단일 소스 (여기만 수정)
-│       ├── reviewAnalysis.ts     # 리뷰 수집·BERT·키워드·스코어링
+│       ├── reviewAnalysis.ts     # 리뷰 조회·KoELECTRA 감성분석·키워드·스코어링
 │       ├── reviewConstants.ts    # 긍/부정 키워드 사전
 │       ├── generateInsights.ts   # OpenAI 인사이트 생성
 │       ├── daily-alert-service.ts # 경보 계산 서비스
