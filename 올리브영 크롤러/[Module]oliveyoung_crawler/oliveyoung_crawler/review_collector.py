@@ -29,6 +29,14 @@ from .config import ReviewCrawlConfig, SORT_ORDER_MAP
 # ============================================================
 
 
+REVIEW_TAB_EXISTS_JS = """
+const candidates = [
+    ...document.querySelectorAll('button.GoodsDetailTabs_tab-item__tgAnU'),
+    ...document.querySelectorAll('button[role="tab"]')
+];
+return candidates.some(button => (button.innerText || '').includes('리뷰'));
+"""
+
 CLICK_REVIEW_TAB_JS = """
 const candidates = [
     ...document.querySelectorAll('button.GoodsDetailTabs_tab-item__tgAnU'),
@@ -395,7 +403,18 @@ def collect_reviews_for_product(
             lambda d: d.execute_script("return document.readyState") == "complete"
         )
 
-        time.sleep(2)
+        # SPA라 readyState=complete 이후에도 탭 버튼이 늦게 렌더링될 수 있어서,
+        # 고정 sleep 대신 탭 버튼이 실제로 나타날 때까지 폴링합니다 (최대 10초).
+        tab_ready = False
+        for _ in range(10):
+            if driver.execute_script(REVIEW_TAB_EXISTS_JS):
+                tab_ready = True
+                break
+            time.sleep(1)
+
+        if not tab_ready:
+            print("  [리뷰 실패] 리뷰 탭 버튼 미발견 (10초 대기)")
+            return [failed_review_row(product, "review_tab_not_found")]
 
         clicked = driver.execute_script(CLICK_REVIEW_TAB_JS)
 
@@ -405,15 +424,15 @@ def collect_reviews_for_product(
 
         time.sleep(2)
 
-        # 리뷰 Web Component가 실제로 마운트될 때까지 대기 (최대 6회 폴링)
-        for _ in range(6):
+        # 리뷰 Web Component가 실제로 마운트될 때까지 대기 (최대 12회 폴링, 약 12~18초)
+        for _ in range(12):
             if (
                 bool(driver.execute_script(REVIEW_HOST_READY_JS))
                 or int(driver.execute_script(REVIEW_ITEM_COUNT_JS) or 0) > 0
             ):
                 break
             driver.execute_script(SCROLL_REVIEW_AREA_JS, 1200)
-            time.sleep(1)
+            time.sleep(1.5)
 
         raw_reviews: list[dict[str, Any]] = []
         seen_review_keys: set[tuple[str, str, str, str]] = set()
