@@ -171,11 +171,12 @@ export async function debugFetchReviewRows(ingredient: string) {
     .join(",");
   const { data, error } = await supabase
     .from("product_reviews")
-    .select("id, goods_no, main_ingredients")
+    .select("*")
     .or(ingredientFilter)
     .not("review_text", "is", null)
-    .limit(5);
-  return { ingredient, aliases, ingredientFilter, error, sample: data };
+    .order("collected_date", { ascending: false })
+    .limit(1000);
+  return { ingredient, aliases, ingredientFilter, error, count: data?.length, sample: data?.slice(0, 3) };
 }
 
 async function fetchProductSummaries(goodsNos: string[]) {
