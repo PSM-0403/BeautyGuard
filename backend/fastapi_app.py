@@ -1,6 +1,15 @@
 from __future__ import annotations
 
 import os
+
+# Render 무료 티어처럼 CPU가 제한/공유된 컨테이너에서는 PyTorch가 기본값대로
+# 여러 스레드를 쓰려다 서로 경합해서 오히려 훨씬 느려지는 경우가 많다.
+# (실측: 텍스트 5개 감성분석에 27초가 걸리던 문제 — 스레드 수를 1로 고정하면
+# 이런 스레드 경합이 사라진다.) torch를 import하기 전에 설정해야 하므로 최상단에 둔다.
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("MKL_NUM_THREADS", "1")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+
 import time
 import threading
 from datetime import date, timedelta
@@ -620,6 +629,8 @@ def _get_sentiment_pipeline():
         return None
     if _sentiment_pipeline is None:
         try:
+            import torch
+            torch.set_num_threads(1)
             from transformers import pipeline as hf_pipeline
             _sentiment_pipeline = hf_pipeline(
                 "sentiment-analysis",
