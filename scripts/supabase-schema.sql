@@ -58,6 +58,9 @@ create table if not exists product_reviews (
   review_rating numeric,
   skin_type text,
   review_text text,
+  -- 리뷰 텍스트는 적재 후 바뀌지 않으므로, 조회할 때마다 감성분석을 다시 돌리지 않고
+  -- 적재 시점에 한 번 계산해서 저장한다 (positive/neutral/negative).
+  sentiment text,
   created_at timestamptz default now()
 );
 create index if not exists idx_reviews_goods_no on product_reviews (goods_no);

@@ -29,6 +29,30 @@ load_dotenv(ROOT_DIR / ".env")
 
 GOODS_NO_RE = re.compile(r"goodsNo=([A-Za-z0-9]+)")
 CHUNK_SIZE = 500
+SENTIMENT_CHUNK_SIZE = 50
+
+
+def fetch_sentiments(sentiment_api_url: str, texts: list[str]) -> list[str]:
+    """
+    리뷰 본문을 배포된 FastAPI 백엔드의 /sentiment로 보내 감성 라벨을 받아온다.
+    리뷰 텍스트는 적재 후 바뀌지 않으므로, 조회할 때마다 다시 계산하지 않고
+    적재 시점에 한 번만 계산해서 DB에 저장해둔다.
+    """
+    labels: list[str] = []
+    endpoint = f"{sentiment_api_url.rstrip('/')}/sentiment"
+
+    for start in range(0, len(texts), SENTIMENT_CHUNK_SIZE):
+        chunk = texts[start:start + SENTIMENT_CHUNK_SIZE]
+        response = requests.post(endpoint, json={"texts": chunk}, timeout=120)
+        if response.status_code >= 300:
+            raise RuntimeError(f"감성분석 실패 ({response.status_code}): {response.text[:500]}")
+        chunk_labels = response.json().get("labels", [])
+        if len(chunk_labels) != len(chunk):
+            raise RuntimeError(f"감성분석 응답 개수 불일치: 요청 {len(chunk)}건, 응답 {len(chunk_labels)}건")
+        labels.extend(chunk_labels)
+        print(f"[감성분석] {min(start + SENTIMENT_CHUNK_SIZE, len(texts))}/{len(texts)}건 완료")
+
+    return labels
 
 
 def get_supabase_config() -> tuple[str, str]:
@@ -212,6 +236,7 @@ def import_reviews(
     headers: dict[str, str],
     review_rows: list[dict[str, str]],
     product_by_url: dict[str, dict[str, str]],
+    sentiment_api_url: str,
 ) -> None:
     reviews = []
     seen_in_batch: set[tuple[str, str]] = set()
@@ -256,6 +281,12 @@ def import_reviews(
     if skipped:
         print(f"[product_reviews] 이미 저장된 리뷰 {skipped}건 건너뜀 (중복 방지)")
 
+    reviews_with_text = [r for r in new_reviews if r["review_text"]]
+    if reviews_with_text:
+        labels = fetch_sentiments(sentiment_api_url, [r["review_text"] for r in reviews_with_text])
+        for review, label in zip(reviews_with_text, labels):
+            review["sentiment"] = label
+
     insert(base_url, headers, "product_reviews", new_reviews)
 
 
@@ -263,6 +294,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="올리브영 크롤러 CSV를 Supabase에 적재합니다.")
     parser.add_argument("--product-csv", type=Path, action="append", default=[])
     parser.add_argument("--review-csv", type=Path, action="append", default=[])
+    parser.add_argument(
+        "--sentiment-api-url",
+        default=os.environ.get("SENTIMENT_API_URL", "https://beautyguard-api.onrender.com"),
+        help="리뷰 감성분석을 요청할 FastAPI 백엔드 주소 (기본값: 배포된 Render 백엔드)",
+    )
     args = parser.parse_args()
 
     if not args.product_csv and not args.review_csv:
@@ -289,7 +325,7 @@ def main() -> None:
         all_review_rows.extend(read_csv(path))
 
     if all_review_rows:
-        import_reviews(base_url, headers, all_review_rows, product_by_url)
+        import_reviews(base_url, headers, all_review_rows, product_by_url, args.sentiment_api_url)
 
     print("적재 완료")
 
