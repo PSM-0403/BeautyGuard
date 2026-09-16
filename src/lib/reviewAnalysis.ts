@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { NEGATIVE_REVIEW_KEYWORDS, POSITIVE_REVIEW_KEYWORDS } from "@/lib/reviewConstants";
-import { analyzeSentiments, type SentimentLabel } from "@/lib/sentiment";
+import type { SentimentLabel } from "@/lib/sentiment";
 
 export const MAX_ANALYSIS_REVIEWS = 300;
 
@@ -15,6 +15,7 @@ type ProductReviewRow = {
   review_rating: number | string | null;
   skin_type: string | null;
   review_text: string | null;
+  sentiment: string | null;
   created_at: string | null;
 };
 
@@ -132,14 +133,14 @@ export async function analyzeIngredientReviews(ingredient: string, maxReviews = 
     .sort((a, b) => getReviewDate(b).localeCompare(getReviewDate(a)))
     .slice(0, maxReviews);
   const goodsNos = Array.from(new Set(analysisRows.map((row) => row.goods_no).filter(Boolean)));
-  const [labels, productSummaries] = await Promise.all([
-    analyzeSentiments(analysisRows.map((row) => row.review_text)),
-    fetchProductSummaries(goodsNos),
-  ]);
-  const analyzedRows = analysisRows.map((row, index) => ({
+  const productSummaries = await fetchProductSummaries(goodsNos);
+  // 감성분석은 리뷰 적재 시점(scripts/import_csv_to_supabase.py)에 이미 계산해서
+  // product_reviews.sentiment에 저장해둔다 — 조회할 때마다 다시 계산하지 않는다.
+  // 백필 전 데이터 등 값이 비어있는 경우에만 neutral로 대체한다.
+  const analyzedRows = analysisRows.map((row) => ({
     ...row,
     review_text: row.review_text.trim(),
-    sentiment: labels[index] || "neutral",
+    sentiment: (row.sentiment as SentimentLabel) || "neutral",
   }));
 
   return buildReviewAnalysis(ingredient, analyzedRows, productSummaries);
