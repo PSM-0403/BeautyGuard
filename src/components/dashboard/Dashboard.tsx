@@ -1358,20 +1358,22 @@ function DataStatusCard({
 function SupabaseStatusCard({
   isLoading,
   earliestDate,
+  latestDate,
   onRefresh,
 }: {
   isLoading: boolean;
   earliestDate: string | null;
+  latestDate: string | null;
   onRefresh: () => void;
 }) {
-  const today = new Date().toISOString().slice(0, 10);
-
   return (
     <div className="data-status-card">
       <div className="data-status-copy">
         <div className="data-status-line">
           <span>기준일</span>
-          <strong>{earliestDate ? `${earliestDate} ~ ${today}` : "수집 데이터 없음"}</strong>
+          <strong>
+            {earliestDate && latestDate ? `${earliestDate} ~ ${latestDate}` : "수집 데이터 없음"}
+          </strong>
         </div>
         <div className="data-status-line">
           <span>데이터 소스</span>
@@ -2828,6 +2830,7 @@ export default function Dashboard() {
     error: "",
   });
   const [supabaseEarliestDate, setSupabaseEarliestDate] = useState<string | null>(null);
+  const [supabaseLatestDate, setSupabaseLatestDate] = useState<string | null>(null);
   const [selectedReviewIngredient, setSelectedReviewIngredient] = useState("나이아신아마이드");
   const [reviewAnalysis, setReviewAnalysis] = useState<ReviewAnalysisResult | null>(null);
   const [reviewAnalysisState, setReviewAnalysisState] = useState<{ status: ApiState; error: string }>({
@@ -2969,16 +2972,27 @@ export default function Dashboard() {
   async function loadSupabaseEarliestDate() {
     try {
       const supabase = createClient();
-      const { data: rows, error } = await supabase
-        .from("product_snapshots")
-        .select("collected_date")
-        .order("collected_date", { ascending: true })
-        .limit(1);
+      const [earliestResult, latestResult] = await Promise.all([
+        supabase
+          .from("product_snapshots")
+          .select("collected_date")
+          .order("collected_date", { ascending: true })
+          .limit(1),
+        supabase
+          .from("product_snapshots")
+          .select("collected_date")
+          .order("collected_date", { ascending: false })
+          .limit(1),
+      ]);
 
-      if (error) throw error;
-      setSupabaseEarliestDate(rows?.[0]?.collected_date || null);
+      if (earliestResult.error) throw earliestResult.error;
+      if (latestResult.error) throw latestResult.error;
+      setSupabaseEarliestDate(earliestResult.data?.[0]?.collected_date || null);
+      // 실제 오늘 날짜가 아니라, 크롤링이 실제로 마지막으로 수집된 날짜를 써야
+      // 크롤링을 며칠 안 돌린 상태에서도 "오늘까지 최신"이라고 오해하지 않는다.
+      setSupabaseLatestDate(latestResult.data?.[0]?.collected_date || null);
     } catch (error) {
-      console.error("Supabase 최초 수집일 조회 실패", error);
+      console.error("Supabase 수집일 범위 조회 실패", error);
     }
   }
 
@@ -3262,6 +3276,7 @@ export default function Dashboard() {
       <SupabaseStatusCard
         isLoading={isSupabaseLoading}
         earliestDate={supabaseEarliestDate}
+        latestDate={supabaseLatestDate}
         onRefresh={() => void refreshSupabaseData()}
       />
     </div>
