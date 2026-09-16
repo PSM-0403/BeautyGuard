@@ -62,11 +62,16 @@ const ALERT_MATRIX_CONFIG = {
 };
 
 export async function ensureDailyAlerts({
-  alertDate = getKoreaDateString(),
+  alertDate,
   requestUrl,
   forceRefresh = false,
   repository = new SupabaseAlertsRepository(),
 }: EnsureDailyAlertsOptions): Promise<DailyAlertsPayload> {
+  // "기준일"은 실제로 계산을 실행한 달력 날짜가 아니라, 크롤링된 데이터가 실제로
+  // 존재하는 가장 최근 날짜를 의미해야 한다. 크롤링이 며칠 멈춰도 오늘 날짜로
+  // 표시되면 "데이터가 매일 갱신되고 있다"는 오해를 준다.
+  alertDate ??= (await fetchLatestSnapshotDate()) ?? getKoreaDateString();
+
   if (!forceRefresh) {
     const existingAlerts = await repository.listAlertsByDate(alertDate);
     if (existingAlerts.length) return buildDailyAlertsPayload(alertDate, existingAlerts);
@@ -120,6 +125,23 @@ async function fetchActualIngredientMatrix(requestUrl: string) {
   }
 
   return items;
+}
+
+async function fetchLatestSnapshotDate(): Promise<string | null> {
+  const supabase = createServerSupabaseClient();
+  const { data, error } = await supabase
+    .from("product_snapshots")
+    .select("collected_date")
+    .not("collected_date", "is", null)
+    .order("collected_date", { ascending: false })
+    .limit(1);
+
+  if (error) {
+    console.error("최신 크롤링 날짜 조회 실패", error);
+    return null;
+  }
+
+  return data?.[0]?.collected_date ?? null;
 }
 
 async function fetchSupplyRowsForAlerts() {
