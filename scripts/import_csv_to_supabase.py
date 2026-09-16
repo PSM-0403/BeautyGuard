@@ -29,7 +29,7 @@ load_dotenv(ROOT_DIR / ".env")
 
 GOODS_NO_RE = re.compile(r"goodsNo=([A-Za-z0-9]+)")
 CHUNK_SIZE = 500
-SENTIMENT_CHUNK_SIZE = 50
+SENTIMENT_CHUNK_SIZE = 20
 
 
 def fetch_sentiments(sentiment_api_url: str, texts: list[str]) -> list[str]:
@@ -43,7 +43,7 @@ def fetch_sentiments(sentiment_api_url: str, texts: list[str]) -> list[str]:
 
     for start in range(0, len(texts), SENTIMENT_CHUNK_SIZE):
         chunk = texts[start:start + SENTIMENT_CHUNK_SIZE]
-        response = requests.post(endpoint, json={"texts": chunk}, timeout=120)
+        response = requests.post(endpoint, json={"texts": chunk}, timeout=180)
         if response.status_code >= 300:
             raise RuntimeError(f"감성분석 실패 ({response.status_code}): {response.text[:500]}")
         chunk_labels = response.json().get("labels", [])
