@@ -103,7 +103,7 @@ npm run dev
 ### 04 경보
 - 수요-공급 격차 → **신제품 기획 후보 / 재고 리스크** 감지
 - 부정 키워드 빈도 → **부정 리뷰 이슈** 감지
-- 페이지 로드 시 자동 계산 (KoELECTRA 100건 기준, 최초 로드 시 소요)
+- 하루 1회 계산 후 결과를 저장해두고 재사용 (같은 날 재방문 시 즉시 응답)
 
 ### 05 AI Agent
 - 대시보드 데이터 기반 자연어 질의 → 타깃 전략 생성
@@ -127,21 +127,32 @@ npm run dev
 
 ## 주요 로직
 
-### 감성 분석 흐름 (3페이지 / 4페이지 경보)
+### 감성 분석 흐름 — 적재 시점에 미리 계산, 조회는 저장된 값만 읽음
 
 ```
-product_reviews (Supabase)
-    ↓ 성분 별칭 포함 검색 → 최신순 정렬
-    ↓ 3페이지: 상위 300건 / 4페이지 경보: 상위 100건
-    ↓ FastAPI /sentiment → KoELECTRA 감성 분류 (배치 16건)
+[적재 시] scripts/import_csv_to_supabase.py
+    ↓ 리뷰 본문 → FastAPI /sentiment → KoELECTRA 감성 분류 (배치 20건)
        긍정확률 ≥ 65% → positive / 부정확률 ≥ 65% → negative / 그 외 → neutral
-    ↓ 키워드 매칭 · 스코어링 · 경보 생성
+    ↓ product_reviews.sentiment 컬럼에 저장
+
+[조회 시] 3페이지 리뷰 분석 / 4페이지 경보
+    ↓ product_reviews (Supabase) — 성분 별칭 포함 검색 → 최신순 정렬 → 저장된 sentiment 값 바로 읽기
+    ↓ 3페이지: 상위 300건 / 4페이지 경보: 상위 50건 (성분당) → 키워드 매칭 · 스코어링 · 경보 생성
 ```
+
+리뷰 텍스트는 한 번 적재되면 바뀌지 않으므로, 조회할 때마다 감성분석을 다시 돌리지 않고
+**적재 시점에 한 번만 계산해서 DB에 저장**해둡니다. 처음에는 3페이지/4페이지에서 매번 실시간으로
+FastAPI를 호출하는 구조였는데, 리뷰 데이터가 충분히 쌓이자 Render 무료 티어(CPU 제한)가 감당 못 해
+경보 API가 통째로 타임아웃 나는 문제가 있었습니다. 감성분석을 적재 시점으로 옮기면서 리뷰 분석은
+약 8초, 경보 재계산은 약 6초로 단축됐고(이전엔 3분 이상 걸리다 실패), 매 요청마다 반복 계산하던
+비효율도 함께 해소했습니다.
 
 `monologg/koelectra-small-finetuned-nsmc`는 긍정/부정 2-class만 예측하는 한국어 전용 모델이라,
 두 확률 모두 임계값(65%) 미만인 애매한 구간을 neutral로 합성해 3단계 분류를 유지합니다.
 Render 무료 티어(RAM 512MB)에서도 안정적으로 돌아가도록 원래 쓰던 다국어 BERT-base(약 110M 파라미터,
 한국어는 학습 데이터에 없었음) 대신 한국어로 직접 학습된 ELECTRA-small(약 14M 파라미터)로 교체했습니다.
+또한 Render의 제한된 CPU에서 PyTorch가 기본 설정대로 여러 스레드를 쓰려다 서로 경합해 추론이
+비정상적으로 느려지는 문제가 있어, 스레드 수를 1로 고정해 추론 속도를 개선했습니다.
 
 ### 기능 급상승 순위 정렬 기준
 
@@ -180,7 +191,8 @@ MD 의사결정에 바로 쓸 수 있는 문장 2~5개를 JSON Schema로 강제 
 ├── 올리브영 크롤러/
 │   └── [Module]oliveyoung_crawler/  # 상품/리뷰 수집 크롤러 (Selenium)
 ├── scripts/
-│   └── import_csv_to_supabase.py # 크롤러 CSV → Supabase 적재
+│   ├── import_csv_to_supabase.py     # 크롤러 CSV → Supabase 적재 (리뷰는 감성분석까지 계산해서 저장)
+│   └── backfill_review_sentiment.py  # 기존에 sentiment 없이 적재된 리뷰 일괄 백필 (일회성)
 ├── src/
 │   ├── app/
 │   │   └── api/
@@ -192,7 +204,7 @@ MD 의사결정에 바로 쓸 수 있는 문장 2~5개를 JSON Schema로 강제 
 │   │   └── review-analysis/
 │   └── lib/
 │       ├── main-ingredients.ts   # 주요 성분 단일 소스 (여기만 수정)
-│       ├── reviewAnalysis.ts     # 리뷰 조회·KoELECTRA 감성분석·키워드·스코어링
+│       ├── reviewAnalysis.ts     # 리뷰 조회(적재 시 계산된 sentiment 사용)·키워드·스코어링
 │       ├── reviewConstants.ts    # 긍/부정 키워드 사전
 │       ├── generateInsights.ts   # OpenAI 인사이트 생성
 │       ├── daily-alert-service.ts # 경보 계산 서비스
