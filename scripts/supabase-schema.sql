@@ -93,19 +93,23 @@ create table if not exists alerts (
 );
 create index if not exists idx_alerts_date on alerts (alert_date);
 
--- 로그인 없는 공개 대시보드라, 상품/리뷰류 테이블은 읽기 전용이라 RLS를 끕니다.
--- (쓰기는 항상 service_role 키로만 하므로 RLS를 켜도 꺼도 안전하지만, 단순하게 끕니다.)
-alter table products disable row level security;
-alter table product_main_ingredients disable row level security;
-alter table product_snapshots disable row level security;
-alter table product_rankings disable row level security;
-alter table product_reviews disable row level security;
-
--- alerts / daily_metric_snapshot은 서버(API 라우트)가 직접 insert/update/delete를 하므로
--- RLS를 켜고 anon에는 읽기(select)만 허용합니다. 서버 쪽 쓰기는 service_role 키를 쓰므로
--- RLS를 그대로 우회합니다 (src/lib/alert-repository.ts 참고).
+-- 모든 테이블에 RLS를 켜고 anon에는 읽기(select)만 허용합니다.
+-- 서버(API 라우트, 크롤러 임포트 스크립트)의 쓰기는 항상 service_role 키를 쓰므로
+-- RLS를 그대로 우회합니다 (src/lib/alert-repository.ts, scripts/import_csv_to_supabase.py 참고).
+-- RLS를 끄면 브라우저에 노출된 anon 키로 "읽기"뿐 아니라 "쓰기/삭제"까지 가능해지므로
+-- (Supabase 보안 어드바이저가 critical로 잡는 항목), 절대 disable로 두지 않습니다.
+alter table products enable row level security;
+alter table product_main_ingredients enable row level security;
+alter table product_snapshots enable row level security;
+alter table product_rankings enable row level security;
+alter table product_reviews enable row level security;
 alter table daily_metric_snapshot enable row level security;
 alter table alerts enable row level security;
 
+create policy "Public read access" on products for select using (true);
+create policy "Public read access" on product_main_ingredients for select using (true);
+create policy "Public read access" on product_snapshots for select using (true);
+create policy "Public read access" on product_rankings for select using (true);
+create policy "Public read access" on product_reviews for select using (true);
 create policy "Public read access" on daily_metric_snapshot for select using (true);
 create policy "Public read access" on alerts for select using (true);
