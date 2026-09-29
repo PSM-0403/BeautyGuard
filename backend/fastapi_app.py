@@ -661,7 +661,7 @@ def _fallback_sentiment(text: str) -> str:
 # negative 확률이 잘 안 높게 나옴), 긍정/부정 임계값을 분리해서 부정 쪽만 낮춰
 # recall을 개선했다 (src/lib/sentimentValidation.ts로 검증, 튜닝 과정은 git 이력 참고).
 POSITIVE_THRESHOLD = 0.65
-NEGATIVE_THRESHOLD = 0.45
+NEGATIVE_THRESHOLD = 0.65
 
 
 def _scores_to_sentiment(scores: list[dict]) -> str:
