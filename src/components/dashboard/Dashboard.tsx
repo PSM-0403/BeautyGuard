@@ -17,12 +17,14 @@ import { getReviewIngredientOptions } from "@/lib/reviewConstants";
 import { KeywordCards } from "@/components/review-analysis/KeywordCards";
 import { OpportunityInsights } from "@/components/review-analysis/OpportunityInsights";
 import { SentimentDonutChart } from "@/components/review-analysis/SentimentDonutChart";
+import { SentimentValidationCard } from "@/components/review-analysis/SentimentValidationCard";
 import { SkinTypeSentimentTable } from "@/components/review-analysis/SkinTypeSentimentTable";
 import { TopReviewProducts } from "@/components/review-analysis/TopReviewProducts";
 import { createClient } from "@/utils/supabase/client";
 import { IngredientTooltip } from "@/components/dashboard/IngredientTooltip";
 import { getIngredientDescription } from "@/lib/ingredient-descriptions";
 import type { ReviewAnalysisResult } from "@/lib/reviewAnalysis";
+import type { SentimentValidationResult } from "@/lib/sentimentValidation";
 import type {
   AlertItem,
   ConcernMetric,
@@ -2831,6 +2833,8 @@ export default function Dashboard() {
   });
   const [supabaseEarliestDate, setSupabaseEarliestDate] = useState<string | null>(null);
   const [supabaseLatestDate, setSupabaseLatestDate] = useState<string | null>(null);
+  const [sentimentValidation, setSentimentValidation] = useState<SentimentValidationResult | null>(null);
+  const [isSentimentValidationLoading, setIsSentimentValidationLoading] = useState(false);
   const [selectedReviewIngredient, setSelectedReviewIngredient] = useState("나이아신아마이드");
   const [reviewAnalysis, setReviewAnalysis] = useState<ReviewAnalysisResult | null>(null);
   const [reviewAnalysisState, setReviewAnalysisState] = useState<{ status: ApiState; error: string }>({
@@ -2993,6 +2997,18 @@ export default function Dashboard() {
       setSupabaseLatestDate(latestResult.data?.[0]?.collected_date || null);
     } catch (error) {
       console.error("Supabase 수집일 범위 조회 실패", error);
+    }
+  }
+
+  async function loadSentimentValidation() {
+    setIsSentimentValidationLoading(true);
+    try {
+      const payload = await fetchLocalJson<SentimentValidationResult>("/api/dashboard/sentiment-validation");
+      setSentimentValidation(payload);
+    } catch (error) {
+      console.error("감성분석 모델 검증 조회 실패", error);
+    } finally {
+      setIsSentimentValidationLoading(false);
     }
   }
 
@@ -3184,6 +3200,7 @@ export default function Dashboard() {
     void loadDemandSupplyMatrix();
     void loadDailyAlerts();
     void loadSupabaseEarliestDate();
+    void loadSentimentValidation();
   }, []);
 
   useEffect(() => {
@@ -3627,6 +3644,17 @@ export default function Dashboard() {
                   <OpportunityInsights insights={reviewAnalysis.insights} />
                 ) : (
                   <div className="empty-state api-state">{isReviewAnalysisLoading ? "인사이트를 생성 중입니다." : "표시할 인사이트가 없습니다."}</div>
+                )}
+              </section>
+
+              <section className="card model-validation-card">
+                <div className="card-header">감성분석 모델 신뢰도 검증</div>
+                {sentimentValidation ? (
+                  <SentimentValidationCard result={sentimentValidation} />
+                ) : (
+                  <div className="empty-state api-state">
+                    {isSentimentValidationLoading ? "모델 검증을 계산 중입니다." : "표시할 검증 데이터가 없습니다."}
+                  </div>
                 )}
               </section>
             </div>
