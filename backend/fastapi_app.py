@@ -655,18 +655,22 @@ def _fallback_sentiment(text: str) -> str:
     return "neutral"
 
 
-# KoELECTRA-nsmc는 긍정/부정 2-class만 예측하므로, 확신도가 낮은 경계 구간(35~65%)은
-# 중립으로 취급해 3단계(긍정/중립/부정) 분류를 만든다.
-SENTIMENT_CONFIDENCE_THRESHOLD = 0.65
+# KoELECTRA-nsmc는 긍정/부정 2-class만 예측하므로, 확신도가 낮은 경계 구간은
+# 중립으로 취급해 3단계(긍정/중립/부정) 분류를 만든다. 실제 별점 데이터로 검증해보니
+# 부정 리뷰 인식률이 유독 낮았는데(한국어 리뷰가 완곡하게 불만을 표현하는 경우가 많아
+# negative 확률이 잘 안 높게 나옴), 긍정/부정 임계값을 분리해서 부정 쪽만 낮춰
+# recall을 개선했다 (src/lib/sentimentValidation.ts로 검증, 튜닝 과정은 git 이력 참고).
+POSITIVE_THRESHOLD = 0.65
+NEGATIVE_THRESHOLD = 0.45
 
 
 def _scores_to_sentiment(scores: list[dict]) -> str:
     score_by_label = {item["label"]: item["score"] for item in scores}
     positive_score = score_by_label.get("positive", 0.0)
     negative_score = score_by_label.get("negative", 0.0)
-    if positive_score >= SENTIMENT_CONFIDENCE_THRESHOLD:
+    if positive_score >= POSITIVE_THRESHOLD:
         return "positive"
-    if negative_score >= SENTIMENT_CONFIDENCE_THRESHOLD:
+    if negative_score >= NEGATIVE_THRESHOLD:
         return "negative"
     return "neutral"
 
@@ -683,11 +687,18 @@ def analyze_sentiment(body: dict = Body(...)):
 
     try:
         labels = []
+        scores: list[dict[str, float]] = []
         for i in range(0, len(texts), 16):
             batch = texts[i:i + 16]
             results = classifier(batch, truncation=True, max_length=512)
-            labels.extend(_scores_to_sentiment(r) for r in results)
-        return {"labels": labels}
+            for r in results:
+                score_by_label = {item["label"]: item["score"] for item in r}
+                labels.append(_scores_to_sentiment(r))
+                scores.append({
+                    "positive": score_by_label.get("positive", 0.0),
+                    "negative": score_by_label.get("negative", 0.0),
+                })
+        return {"labels": labels, "scores": scores}
     except Exception as exc:
         print(f"감성 분석 실행 실패: {exc}")
         return {"labels": [_fallback_sentiment(t) for t in texts]}
