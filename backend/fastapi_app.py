@@ -657,11 +657,14 @@ def _fallback_sentiment(text: str) -> str:
 
 # KoELECTRA-nsmc는 긍정/부정 2-class만 예측하므로, 확신도가 낮은 경계 구간은
 # 중립으로 취급해 3단계(긍정/중립/부정) 분류를 만든다. 실제 별점 데이터로 검증해보니
-# 부정 리뷰 인식률이 유독 낮았는데(한국어 리뷰가 완곡하게 불만을 표현하는 경우가 많아
-# negative 확률이 잘 안 높게 나옴), 긍정/부정 임계값을 분리해서 부정 쪽만 낮춰
-# recall을 개선했다 (src/lib/sentimentValidation.ts로 검증, 튜닝 과정은 git 이력 참고).
+# 973건 전체 리뷰의 원본 확률 점수를 수집해 임계값을 오프라인으로 스윕한 결과
+# (scripts/tune_sentiment_threshold.py, scripts/sentiment_scores.json 참고):
+# NEGATIVE_THRESHOLD를 0.65에서 0.60으로 낮추면 positive recall(84.7%)과
+# 전체 정확도(83.5%→83.6%)는 그대로인 채 negative recall만 86.8%→89.5%로
+# 개선된다. 그 아래로 더 낮추면(0.45 이하) neutral이 거의 전부 negative로
+# 잡아먹혀 neutral recall이 0%까지 떨어지므로 0.60을 최적값으로 채택했다.
 POSITIVE_THRESHOLD = 0.65
-NEGATIVE_THRESHOLD = 0.65
+NEGATIVE_THRESHOLD = 0.60
 
 
 def _scores_to_sentiment(scores: list[dict]) -> str:

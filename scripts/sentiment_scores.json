@@ -1,0 +1,5840 @@
+[
+  {
+    "id": 41,
+    "review_rating": 4.0,
+    "positive_score": 0.6889484524726868,
+    "negative_score": 0.31105154752731323
+  },
+  {
+    "id": 42,
+    "review_rating": 5.0,
+    "positive_score": 0.9242603182792664,
+    "negative_score": 0.07573966681957245
+  },
+  {
+    "id": 43,
+    "review_rating": 4.0,
+    "positive_score": 0.10947341471910477,
+    "negative_score": 0.8905265927314758
+  },
+  {
+    "id": 44,
+    "review_rating": 5.0,
+    "positive_score": 0.78033447265625,
+    "negative_score": 0.21966558694839478
+  },
+  {
+    "id": 45,
+    "review_rating": 5.0,
+    "positive_score": 0.46383747458457947,
+    "negative_score": 0.5361625552177429
+  },
+  {
+    "id": 46,
+    "review_rating": 5.0,
+    "positive_score": 0.6417359709739685,
+    "negative_score": 0.3582640588283539
+  },
+  {
+    "id": 47,
+    "review_rating": 5.0,
+    "positive_score": 0.9823723435401917,
+    "negative_score": 0.017627693712711334
+  },
+  {
+    "id": 48,
+    "review_rating": 4.0,
+    "positive_score": 0.3443463444709778,
+    "negative_score": 0.6556536555290222
+  },
+  {
+    "id": 49,
+    "review_rating": 5.0,
+    "positive_score": 0.15125106275081635,
+    "negative_score": 0.8487489819526672
+  },
+  {
+    "id": 50,
+    "review_rating": 5.0,
+    "positive_score": 0.9516475796699524,
+    "negative_score": 0.048352401703596115
+  },
+  {
+    "id": 51,
+    "review_rating": 5.0,
+    "positive_score": 0.9862183928489685,
+    "negative_score": 0.01378163043409586
+  },
+  {
+    "id": 52,
+    "review_rating": 5.0,
+    "positive_score": 0.9961795806884766,
+    "negative_score": 0.0038204456213861704
+  },
+  {
+    "id": 53,
+    "review_rating": 5.0,
+    "positive_score": 0.9968047142028809,
+    "negative_score": 0.0031953034922480583
+  },
+  {
+    "id": 54,
+    "review_rating": 5.0,
+    "positive_score": 0.9964568018913269,
+    "negative_score": 0.003543197177350521
+  },
+  {
+    "id": 55,
+    "review_rating": 5.0,
+    "positive_score": 0.9664589166641235,
+    "negative_score": 0.03354112058877945
+  },
+  {
+    "id": 56,
+    "review_rating": 5.0,
+    "positive_score": 0.9935522079467773,
+    "negative_score": 0.0064477999694645405
+  },
+  {
+    "id": 57,
+    "review_rating": 5.0,
+    "positive_score": 0.9732356667518616,
+    "negative_score": 0.026764413341879845
+  },
+  {
+    "id": 58,
+    "review_rating": 5.0,
+    "positive_score": 0.9684971570968628,
+    "negative_score": 0.03150282800197601
+  },
+  {
+    "id": 59,
+    "review_rating": 5.0,
+    "positive_score": 0.9818639755249023,
+    "negative_score": 0.018136071041226387
+  },
+  {
+    "id": 60,
+    "review_rating": 5.0,
+    "positive_score": 0.9902734160423279,
+    "negative_score": 0.009726601652801037
+  },
+  {
+    "id": 61,
+    "review_rating": 3.0,
+    "positive_score": 0.2038549780845642,
+    "negative_score": 0.7961450219154358
+  },
+  {
+    "id": 62,
+    "review_rating": 5.0,
+    "positive_score": 0.5403158068656921,
+    "negative_score": 0.45968425273895264
+  },
+  {
+    "id": 63,
+    "review_rating": 5.0,
+    "positive_score": 0.9956392049789429,
+    "negative_score": 0.004360740073025227
+  },
+  {
+    "id": 64,
+    "review_rating": 4.0,
+    "positive_score": 0.9745897650718689,
+    "negative_score": 0.02541024424135685
+  },
+  {
+    "id": 65,
+    "review_rating": 5.0,
+    "positive_score": 0.8024582266807556,
+    "negative_score": 0.19754180312156677
+  },
+  {
+    "id": 66,
+    "review_rating": 5.0,
+    "positive_score": 0.8013491034507751,
+    "negative_score": 0.19865094125270844
+  },
+  {
+    "id": 67,
+    "review_rating": 5.0,
+    "positive_score": 0.9928287863731384,
+    "negative_score": 0.007171195931732655
+  },
+  {
+    "id": 68,
+    "review_rating": 5.0,
+    "positive_score": 0.9880827069282532,
+    "negative_score": 0.011917312629520893
+  },
+  {
+    "id": 69,
+    "review_rating": 3.0,
+    "positive_score": 0.2597203850746155,
+    "negative_score": 0.7402796149253845
+  },
+  {
+    "id": 70,
+    "review_rating": 5.0,
+    "positive_score": 0.9957529306411743,
+    "negative_score": 0.004247058182954788
+  },
+  {
+    "id": 71,
+    "review_rating": 5.0,
+    "positive_score": 0.15839163959026337,
+    "negative_score": 0.8416084051132202
+  },
+  {
+    "id": 72,
+    "review_rating": 1.0,
+    "positive_score": 0.17987588047981262,
+    "negative_score": 0.8201241493225098
+  },
+  {
+    "id": 73,
+    "review_rating": 5.0,
+    "positive_score": 0.9635476469993591,
+    "negative_score": 0.03645242750644684
+  },
+  {
+    "id": 74,
+    "review_rating": 5.0,
+    "positive_score": 0.9954025745391846,
+    "negative_score": 0.004597410559654236
+  },
+  {
+    "id": 75,
+    "review_rating": 5.0,
+    "positive_score": 0.9949270486831665,
+    "negative_score": 0.005073009058833122
+  },
+  {
+    "id": 76,
+    "review_rating": 5.0,
+    "positive_score": 0.6923952698707581,
+    "negative_score": 0.30760475993156433
+  },
+  {
+    "id": 77,
+    "review_rating": 4.0,
+    "positive_score": 0.3611200153827667,
+    "negative_score": 0.6388800144195557
+  },
+  {
+    "id": 78,
+    "review_rating": 5.0,
+    "positive_score": 0.9885067939758301,
+    "negative_score": 0.011493208818137646
+  },
+  {
+    "id": 79,
+    "review_rating": 5.0,
+    "positive_score": 0.6608163118362427,
+    "negative_score": 0.33918365836143494
+  },
+  {
+    "id": 80,
+    "review_rating": 5.0,
+    "positive_score": 0.12592846155166626,
+    "negative_score": 0.8740715384483337
+  },
+  {
+    "id": 81,
+    "review_rating": 5.0,
+    "positive_score": 0.9602601528167725,
+    "negative_score": 0.03973980247974396
+  },
+  {
+    "id": 82,
+    "review_rating": 5.0,
+    "positive_score": 0.9893667101860046,
+    "negative_score": 0.01063328143209219
+  },
+  {
+    "id": 83,
+    "review_rating": 4.0,
+    "positive_score": 0.0622880645096302,
+    "negative_score": 0.9377119541168213
+  },
+  {
+    "id": 84,
+    "review_rating": 1.0,
+    "positive_score": 0.019046738743782043,
+    "negative_score": 0.9809532761573792
+  },
+  {
+    "id": 85,
+    "review_rating": 4.0,
+    "positive_score": 0.959801971912384,
+    "negative_score": 0.04019802063703537
+  },
+  {
+    "id": 86,
+    "review_rating": 1.0,
+    "positive_score": 0.034743644297122955,
+    "negative_score": 0.96525639295578
+  },
+  {
+    "id": 87,
+    "review_rating": 5.0,
+    "positive_score": 0.7565674185752869,
+    "negative_score": 0.24343258142471313
+  },
+  {
+    "id": 88,
+    "review_rating": 5.0,
+    "positive_score": 0.9142172336578369,
+    "negative_score": 0.08578275144100189
+  },
+  {
+    "id": 89,
+    "review_rating": 5.0,
+    "positive_score": 0.9424663186073303,
+    "negative_score": 0.05753365159034729
+  },
+  {
+    "id": 90,
+    "review_rating": 5.0,
+    "positive_score": 0.9954674243927002,
+    "negative_score": 0.004532523453235626
+  },
+  {
+    "id": 91,
+    "review_rating": 3.0,
+    "positive_score": 0.562164306640625,
+    "negative_score": 0.4378357231616974
+  },
+  {
+    "id": 92,
+    "review_rating": 5.0,
+    "positive_score": 0.7631038427352905,
+    "negative_score": 0.23689615726470947
+  },
+  {
+    "id": 93,
+    "review_rating": 4.0,
+    "positive_score": 0.011001906357705593,
+    "negative_score": 0.9889981150627136
+  },
+  {
+    "id": 94,
+    "review_rating": 3.0,
+    "positive_score": 0.037259846925735474,
+    "negative_score": 0.9627401232719421
+  },
+  {
+    "id": 95,
+    "review_rating": 5.0,
+    "positive_score": 0.9958280920982361,
+    "negative_score": 0.004171858541667461
+  },
+  {
+    "id": 96,
+    "review_rating": 5.0,
+    "positive_score": 0.9257455468177795,
+    "negative_score": 0.07425444573163986
+  },
+  {
+    "id": 97,
+    "review_rating": 5.0,
+    "positive_score": 0.9887017011642456,
+    "negative_score": 0.011298262514173985
+  },
+  {
+    "id": 98,
+    "review_rating": 5.0,
+    "positive_score": 0.9931241869926453,
+    "negative_score": 0.006875850725919008
+  },
+  {
+    "id": 99,
+    "review_rating": 5.0,
+    "positive_score": 0.9936826229095459,
+    "negative_score": 0.006317408289760351
+  },
+  {
+    "id": 100,
+    "review_rating": 5.0,
+    "positive_score": 0.9728266000747681,
+    "negative_score": 0.027173390612006187
+  },
+  {
+    "id": 101,
+    "review_rating": 5.0,
+    "positive_score": 0.9958434700965881,
+    "negative_score": 0.004156549461185932
+  },
+  {
+    "id": 102,
+    "review_rating": 5.0,
+    "positive_score": 0.9831640124320984,
+    "negative_score": 0.016836024820804596
+  },
+  {
+    "id": 103,
+    "review_rating": 5.0,
+    "positive_score": 0.9935072660446167,
+    "negative_score": 0.006492719054222107
+  },
+  {
+    "id": 104,
+    "review_rating": 5.0,
+    "positive_score": 0.9941312670707703,
+    "negative_score": 0.005868703592568636
+  },
+  {
+    "id": 105,
+    "review_rating": 5.0,
+    "positive_score": 0.9937039017677307,
+    "negative_score": 0.006296074483543634
+  },
+  {
+    "id": 106,
+    "review_rating": 5.0,
+    "positive_score": 0.992723286151886,
+    "negative_score": 0.00727668683975935
+  },
+  {
+    "id": 107,
+    "review_rating": 5.0,
+    "positive_score": 0.9932852983474731,
+    "negative_score": 0.0067146699875593185
+  },
+  {
+    "id": 108,
+    "review_rating": 5.0,
+    "positive_score": 0.9566580057144165,
+    "negative_score": 0.04334200546145439
+  },
+  {
+    "id": 109,
+    "review_rating": 5.0,
+    "positive_score": 0.9943139553070068,
+    "negative_score": 0.005686025135219097
+  },
+  {
+    "id": 110,
+    "review_rating": 5.0,
+    "positive_score": 0.9922713041305542,
+    "negative_score": 0.007728737313300371
+  },
+  {
+    "id": 111,
+    "review_rating": 5.0,
+    "positive_score": 0.8391321897506714,
+    "negative_score": 0.1608678251504898
+  },
+  {
+    "id": 112,
+    "review_rating": 5.0,
+    "positive_score": 0.1963956207036972,
+    "negative_score": 0.8036044239997864
+  },
+  {
+    "id": 113,
+    "review_rating": 5.0,
+    "positive_score": 0.9609522819519043,
+    "negative_score": 0.039047759026288986
+  },
+  {
+    "id": 114,
+    "review_rating": 5.0,
+    "positive_score": 0.9964487552642822,
+    "negative_score": 0.003551179077476263
+  },
+  {
+    "id": 115,
+    "review_rating": 5.0,
+    "positive_score": 0.3699137568473816,
+    "negative_score": 0.6300862431526184
+  },
+  {
+    "id": 116,
+    "review_rating": 5.0,
+    "positive_score": 0.9910654425621033,
+    "negative_score": 0.008934504352509975
+  },
+  {
+    "id": 117,
+    "review_rating": 5.0,
+    "positive_score": 0.37105536460876465,
+    "negative_score": 0.6289446353912354
+  },
+  {
+    "id": 118,
+    "review_rating": 5.0,
+    "positive_score": 0.18774612247943878,
+    "negative_score": 0.8122538924217224
+  },
+  {
+    "id": 119,
+    "review_rating": 5.0,
+    "positive_score": 0.9705241322517395,
+    "negative_score": 0.02947586216032505
+  },
+  {
+    "id": 120,
+    "review_rating": 5.0,
+    "positive_score": 0.9647074937820435,
+    "negative_score": 0.035292476415634155
+  },
+  {
+    "id": 121,
+    "review_rating": 5.0,
+    "positive_score": 0.15126095712184906,
+    "negative_score": 0.8487390279769897
+  },
+  {
+    "id": 122,
+    "review_rating": 5.0,
+    "positive_score": 0.25997740030288696,
+    "negative_score": 0.7400226593017578
+  },
+  {
+    "id": 123,
+    "review_rating": 5.0,
+    "positive_score": 0.9783518314361572,
+    "negative_score": 0.02164815366268158
+  },
+  {
+    "id": 124,
+    "review_rating": 4.0,
+    "positive_score": 0.5847943425178528,
+    "negative_score": 0.41520562767982483
+  },
+  {
+    "id": 125,
+    "review_rating": 1.0,
+    "positive_score": 0.030226005241274834,
+    "negative_score": 0.9697740077972412
+  },
+  {
+    "id": 126,
+    "review_rating": 5.0,
+    "positive_score": 0.43407243490219116,
+    "negative_score": 0.5659275650978088
+  },
+  {
+    "id": 127,
+    "review_rating": 4.0,
+    "positive_score": 0.9363904595375061,
+    "negative_score": 0.06360957026481628
+  },
+  {
+    "id": 128,
+    "review_rating": 5.0,
+    "positive_score": 0.3052028715610504,
+    "negative_score": 0.6947970986366272
+  },
+  {
+    "id": 129,
+    "review_rating": 5.0,
+    "positive_score": 0.9114082455635071,
+    "negative_score": 0.08859177678823471
+  },
+  {
+    "id": 130,
+    "review_rating": 5.0,
+    "positive_score": 0.9956117272377014,
+    "negative_score": 0.0043882448226213455
+  },
+  {
+    "id": 131,
+    "review_rating": 5.0,
+    "positive_score": 0.9942300319671631,
+    "negative_score": 0.005770012270659208
+  },
+  {
+    "id": 132,
+    "review_rating": 5.0,
+    "positive_score": 0.9822560548782349,
+    "negative_score": 0.017744002863764763
+  },
+  {
+    "id": 133,
+    "review_rating": 5.0,
+    "positive_score": 0.9951071739196777,
+    "negative_score": 0.004892904311418533
+  },
+  {
+    "id": 134,
+    "review_rating": 5.0,
+    "positive_score": 0.992965579032898,
+    "negative_score": 0.007034394424408674
+  },
+  {
+    "id": 135,
+    "review_rating": 5.0,
+    "positive_score": 0.7217048406600952,
+    "negative_score": 0.2782951593399048
+  },
+  {
+    "id": 136,
+    "review_rating": 5.0,
+    "positive_score": 0.9894275069236755,
+    "negative_score": 0.010572423227131367
+  },
+  {
+    "id": 137,
+    "review_rating": 5.0,
+    "positive_score": 0.9962071180343628,
+    "negative_score": 0.0037928789388388395
+  },
+  {
+    "id": 138,
+    "review_rating": 5.0,
+    "positive_score": 0.9937313199043274,
+    "negative_score": 0.006268621888011694
+  },
+  {
+    "id": 139,
+    "review_rating": 5.0,
+    "positive_score": 0.8533177971839905,
+    "negative_score": 0.1466822475194931
+  },
+  {
+    "id": 140,
+    "review_rating": 5.0,
+    "positive_score": 0.9547697305679321,
+    "negative_score": 0.04523024335503578
+  },
+  {
+    "id": 141,
+    "review_rating": 5.0,
+    "positive_score": 0.8389664888381958,
+    "negative_score": 0.1610334813594818
+  },
+  {
+    "id": 142,
+    "review_rating": 5.0,
+    "positive_score": 0.2248370200395584,
+    "negative_score": 0.7751629948616028
+  },
+  {
+    "id": 143,
+    "review_rating": 5.0,
+    "positive_score": 0.9918462634086609,
+    "negative_score": 0.008153744973242283
+  },
+  {
+    "id": 144,
+    "review_rating": 5.0,
+    "positive_score": 0.9870530962944031,
+    "negative_score": 0.012946953997015953
+  },
+  {
+    "id": 145,
+    "review_rating": 5.0,
+    "positive_score": 0.9840188026428223,
+    "negative_score": 0.015981147065758705
+  },
+  {
+    "id": 146,
+    "review_rating": 4.0,
+    "positive_score": 0.440886914730072,
+    "negative_score": 0.559113085269928
+  },
+  {
+    "id": 147,
+    "review_rating": 4.0,
+    "positive_score": 0.5654242634773254,
+    "negative_score": 0.43457573652267456
+  },
+  {
+    "id": 148,
+    "review_rating": 5.0,
+    "positive_score": 0.9799928069114685,
+    "negative_score": 0.020007185637950897
+  },
+  {
+    "id": 149,
+    "review_rating": 5.0,
+    "positive_score": 0.9222869277000427,
+    "negative_score": 0.07771305739879608
+  },
+  {
+    "id": 150,
+    "review_rating": 5.0,
+    "positive_score": 0.989918053150177,
+    "negative_score": 0.010081911459565163
+  },
+  {
+    "id": 151,
+    "review_rating": 1.0,
+    "positive_score": 0.9016661643981934,
+    "negative_score": 0.09833384305238724
+  },
+  {
+    "id": 152,
+    "review_rating": 5.0,
+    "positive_score": 0.9478525519371033,
+    "negative_score": 0.05214742198586464
+  },
+  {
+    "id": 153,
+    "review_rating": 5.0,
+    "positive_score": 0.9909613728523254,
+    "negative_score": 0.009038591757416725
+  },
+  {
+    "id": 154,
+    "review_rating": 5.0,
+    "positive_score": 0.9928903579711914,
+    "negative_score": 0.0071096718311309814
+  },
+  {
+    "id": 155,
+    "review_rating": 5.0,
+    "positive_score": 0.985184907913208,
+    "negative_score": 0.014815053902566433
+  },
+  {
+    "id": 156,
+    "review_rating": 5.0,
+    "positive_score": 0.9883341789245605,
+    "negative_score": 0.011665863916277885
+  },
+  {
+    "id": 157,
+    "review_rating": 5.0,
+    "positive_score": 0.9638544917106628,
+    "negative_score": 0.03614550828933716
+  },
+  {
+    "id": 158,
+    "review_rating": 5.0,
+    "positive_score": 0.9775171279907227,
+    "negative_score": 0.02248283661901951
+  },
+  {
+    "id": 159,
+    "review_rating": 4.0,
+    "positive_score": 0.6611875891685486,
+    "negative_score": 0.3388124108314514
+  },
+  {
+    "id": 160,
+    "review_rating": 3.0,
+    "positive_score": 0.0917881652712822,
+    "negative_score": 0.908211886882782
+  },
+  {
+    "id": 161,
+    "review_rating": 5.0,
+    "positive_score": 0.7219557762145996,
+    "negative_score": 0.2780442237854004
+  },
+  {
+    "id": 162,
+    "review_rating": 5.0,
+    "positive_score": 0.9883708953857422,
+    "negative_score": 0.011629101820290089
+  },
+  {
+    "id": 163,
+    "review_rating": 5.0,
+    "positive_score": 0.9962027668952942,
+    "negative_score": 0.003797205165028572
+  },
+  {
+    "id": 164,
+    "review_rating": 4.0,
+    "positive_score": 0.94770747423172,
+    "negative_score": 0.05229257047176361
+  },
+  {
+    "id": 165,
+    "review_rating": 5.0,
+    "positive_score": 0.9608303308486938,
+    "negative_score": 0.039169661700725555
+  },
+  {
+    "id": 166,
+    "review_rating": 5.0,
+    "positive_score": 0.9935941100120544,
+    "negative_score": 0.006405850872397423
+  },
+  {
+    "id": 167,
+    "review_rating": 5.0,
+    "positive_score": 0.9929428100585938,
+    "negative_score": 0.007057259790599346
+  },
+  {
+    "id": 168,
+    "review_rating": 5.0,
+    "positive_score": 0.9895680546760559,
+    "negative_score": 0.01043195091187954
+  },
+  {
+    "id": 169,
+    "review_rating": 5.0,
+    "positive_score": 0.92622971534729,
+    "negative_score": 0.07377023249864578
+  },
+  {
+    "id": 170,
+    "review_rating": 5.0,
+    "positive_score": 0.9536728858947754,
+    "negative_score": 0.04632711410522461
+  },
+  {
+    "id": 171,
+    "review_rating": 1.0,
+    "positive_score": 0.006055005360394716,
+    "negative_score": 0.9939450621604919
+  },
+  {
+    "id": 172,
+    "review_rating": 5.0,
+    "positive_score": 0.3195574879646301,
+    "negative_score": 0.6804425120353699
+  },
+  {
+    "id": 173,
+    "review_rating": 5.0,
+    "positive_score": 0.9953155517578125,
+    "negative_score": 0.004684507846832275
+  },
+  {
+    "id": 174,
+    "review_rating": 4.0,
+    "positive_score": 0.32171329855918884,
+    "negative_score": 0.6782866716384888
+  },
+  {
+    "id": 175,
+    "review_rating": 4.0,
+    "positive_score": 0.6204110383987427,
+    "negative_score": 0.3795889616012573
+  },
+  {
+    "id": 176,
+    "review_rating": 5.0,
+    "positive_score": 0.9942082166671753,
+    "negative_score": 0.005791736766695976
+  },
+  {
+    "id": 177,
+    "review_rating": 5.0,
+    "positive_score": 0.9807679057121277,
+    "negative_score": 0.01923212967813015
+  },
+  {
+    "id": 178,
+    "review_rating": 5.0,
+    "positive_score": 0.13351085782051086,
+    "negative_score": 0.8664891719818115
+  },
+  {
+    "id": 179,
+    "review_rating": 5.0,
+    "positive_score": 0.9245943427085876,
+    "negative_score": 0.07540559768676758
+  },
+  {
+    "id": 180,
+    "review_rating": 5.0,
+    "positive_score": 0.703099250793457,
+    "negative_score": 0.2969007194042206
+  },
+  {
+    "id": 181,
+    "review_rating": 5.0,
+    "positive_score": 0.9949589371681213,
+    "negative_score": 0.005041107069700956
+  },
+  {
+    "id": 182,
+    "review_rating": 5.0,
+    "positive_score": 0.9871156811714172,
+    "negative_score": 0.01288425363600254
+  },
+  {
+    "id": 183,
+    "review_rating": 5.0,
+    "positive_score": 0.9964781403541565,
+    "negative_score": 0.0035218920093029737
+  },
+  {
+    "id": 184,
+    "review_rating": 5.0,
+    "positive_score": 0.996304988861084,
+    "negative_score": 0.003695039777085185
+  },
+  {
+    "id": 185,
+    "review_rating": 5.0,
+    "positive_score": 0.9786999821662903,
+    "negative_score": 0.02129996195435524
+  },
+  {
+    "id": 186,
+    "review_rating": 5.0,
+    "positive_score": 0.9612497091293335,
+    "negative_score": 0.038750242441892624
+  },
+  {
+    "id": 187,
+    "review_rating": 5.0,
+    "positive_score": 0.9950394034385681,
+    "negative_score": 0.004960592370480299
+  },
+  {
+    "id": 188,
+    "review_rating": 5.0,
+    "positive_score": 0.9655776023864746,
+    "negative_score": 0.03442235291004181
+  },
+  {
+    "id": 189,
+    "review_rating": 5.0,
+    "positive_score": 0.9954082369804382,
+    "negative_score": 0.004591718781739473
+  },
+  {
+    "id": 190,
+    "review_rating": 5.0,
+    "positive_score": 0.9544280171394348,
+    "negative_score": 0.045572005212306976
+  },
+  {
+    "id": 191,
+    "review_rating": 5.0,
+    "positive_score": 0.9812359809875488,
+    "negative_score": 0.01876397617161274
+  },
+  {
+    "id": 192,
+    "review_rating": 5.0,
+    "positive_score": 0.9950640797615051,
+    "negative_score": 0.004935900215059519
+  },
+  {
+    "id": 193,
+    "review_rating": 5.0,
+    "positive_score": 0.9886795878410339,
+    "negative_score": 0.011320477351546288
+  },
+  {
+    "id": 194,
+    "review_rating": 5.0,
+    "positive_score": 0.8701016306877136,
+    "negative_score": 0.12989841401576996
+  },
+  {
+    "id": 195,
+    "review_rating": 5.0,
+    "positive_score": 0.9863277673721313,
+    "negative_score": 0.013672271743416786
+  },
+  {
+    "id": 196,
+    "review_rating": 5.0,
+    "positive_score": 0.9946497082710266,
+    "negative_score": 0.005350260064005852
+  },
+  {
+    "id": 197,
+    "review_rating": 5.0,
+    "positive_score": 0.15786147117614746,
+    "negative_score": 0.8421385884284973
+  },
+  {
+    "id": 198,
+    "review_rating": 5.0,
+    "positive_score": 0.9951291084289551,
+    "negative_score": 0.004870845936238766
+  },
+  {
+    "id": 199,
+    "review_rating": 5.0,
+    "positive_score": 0.4722963273525238,
+    "negative_score": 0.5277037024497986
+  },
+  {
+    "id": 200,
+    "review_rating": 5.0,
+    "positive_score": 0.9949045181274414,
+    "negative_score": 0.005095518659800291
+  },
+  {
+    "id": 201,
+    "review_rating": 5.0,
+    "positive_score": 0.9960883855819702,
+    "negative_score": 0.0039116437546908855
+  },
+  {
+    "id": 202,
+    "review_rating": 5.0,
+    "positive_score": 0.9739274978637695,
+    "negative_score": 0.02607244998216629
+  },
+  {
+    "id": 203,
+    "review_rating": 5.0,
+    "positive_score": 0.9659681916236877,
+    "negative_score": 0.034031763672828674
+  },
+  {
+    "id": 204,
+    "review_rating": 5.0,
+    "positive_score": 0.9898582100868225,
+    "negative_score": 0.010141808539628983
+  },
+  {
+    "id": 205,
+    "review_rating": 5.0,
+    "positive_score": 0.9951503872871399,
+    "negative_score": 0.004849596414715052
+  },
+  {
+    "id": 206,
+    "review_rating": 5.0,
+    "positive_score": 0.9949306845664978,
+    "negative_score": 0.005069280043244362
+  },
+  {
+    "id": 207,
+    "review_rating": 5.0,
+    "positive_score": 0.793121874332428,
+    "negative_score": 0.20687811076641083
+  },
+  {
+    "id": 208,
+    "review_rating": 5.0,
+    "positive_score": 0.8891316056251526,
+    "negative_score": 0.11086839437484741
+  },
+  {
+    "id": 209,
+    "review_rating": 5.0,
+    "positive_score": 0.984887957572937,
+    "negative_score": 0.01511207316070795
+  },
+  {
+    "id": 210,
+    "review_rating": 5.0,
+    "positive_score": 0.9932307004928589,
+    "negative_score": 0.0067692832089960575
+  },
+  {
+    "id": 211,
+    "review_rating": 5.0,
+    "positive_score": 0.27227964997291565,
+    "negative_score": 0.7277203798294067
+  },
+  {
+    "id": 212,
+    "review_rating": 5.0,
+    "positive_score": 0.962672770023346,
+    "negative_score": 0.037327300757169724
+  },
+  {
+    "id": 213,
+    "review_rating": 3.0,
+    "positive_score": 0.5258795619010925,
+    "negative_score": 0.47412046790122986
+  },
+  {
+    "id": 214,
+    "review_rating": 5.0,
+    "positive_score": 0.2748594582080841,
+    "negative_score": 0.7251405715942383
+  },
+  {
+    "id": 215,
+    "review_rating": 5.0,
+    "positive_score": 0.9782463312149048,
+    "negative_score": 0.021753672510385513
+  },
+  {
+    "id": 216,
+    "review_rating": 5.0,
+    "positive_score": 0.9900588393211365,
+    "negative_score": 0.009941205382347107
+  },
+  {
+    "id": 217,
+    "review_rating": 5.0,
+    "positive_score": 0.9958229064941406,
+    "negative_score": 0.004177069757133722
+  },
+  {
+    "id": 218,
+    "review_rating": 5.0,
+    "positive_score": 0.9746589660644531,
+    "negative_score": 0.025340989232063293
+  },
+  {
+    "id": 219,
+    "review_rating": 5.0,
+    "positive_score": 0.23328179121017456,
+    "negative_score": 0.7667182087898254
+  },
+  {
+    "id": 220,
+    "review_rating": 5.0,
+    "positive_score": 0.9601460695266724,
+    "negative_score": 0.03985387831926346
+  },
+  {
+    "id": 221,
+    "review_rating": 5.0,
+    "positive_score": 0.34622326493263245,
+    "negative_score": 0.6537767648696899
+  },
+  {
+    "id": 222,
+    "review_rating": 5.0,
+    "positive_score": 0.79411780834198,
+    "negative_score": 0.2058822214603424
+  },
+  {
+    "id": 223,
+    "review_rating": 5.0,
+    "positive_score": 0.7867958545684814,
+    "negative_score": 0.21320420503616333
+  },
+  {
+    "id": 224,
+    "review_rating": 5.0,
+    "positive_score": 0.9877843260765076,
+    "negative_score": 0.012215754017233849
+  },
+  {
+    "id": 225,
+    "review_rating": 5.0,
+    "positive_score": 0.5303228497505188,
+    "negative_score": 0.4696771204471588
+  },
+  {
+    "id": 226,
+    "review_rating": 5.0,
+    "positive_score": 0.9660417437553406,
+    "negative_score": 0.033958278596401215
+  },
+  {
+    "id": 227,
+    "review_rating": 4.0,
+    "positive_score": 0.8407048583030701,
+    "negative_score": 0.15929508209228516
+  },
+  {
+    "id": 228,
+    "review_rating": 5.0,
+    "positive_score": 0.9927046895027161,
+    "negative_score": 0.00729529419913888
+  },
+  {
+    "id": 229,
+    "review_rating": 3.0,
+    "positive_score": 0.005563589744269848,
+    "negative_score": 0.9944363832473755
+  },
+  {
+    "id": 230,
+    "review_rating": 5.0,
+    "positive_score": 0.9880091547966003,
+    "negative_score": 0.011990764178335667
+  },
+  {
+    "id": 231,
+    "review_rating": 5.0,
+    "positive_score": 0.8941835761070251,
+    "negative_score": 0.10581637173891068
+  },
+  {
+    "id": 232,
+    "review_rating": 5.0,
+    "positive_score": 0.9678772687911987,
+    "negative_score": 0.03212274610996246
+  },
+  {
+    "id": 233,
+    "review_rating": 5.0,
+    "positive_score": 0.9945757389068604,
+    "negative_score": 0.0054242778569459915
+  },
+  {
+    "id": 234,
+    "review_rating": 5.0,
+    "positive_score": 0.9038006067276001,
+    "negative_score": 0.0961993858218193
+  },
+  {
+    "id": 235,
+    "review_rating": 5.0,
+    "positive_score": 0.9883252382278442,
+    "negative_score": 0.01167482789605856
+  },
+  {
+    "id": 236,
+    "review_rating": 5.0,
+    "positive_score": 0.9919121265411377,
+    "negative_score": 0.008087839931249619
+  },
+  {
+    "id": 237,
+    "review_rating": 5.0,
+    "positive_score": 0.9949148893356323,
+    "negative_score": 0.005085127428174019
+  },
+  {
+    "id": 238,
+    "review_rating": 5.0,
+    "positive_score": 0.819939374923706,
+    "negative_score": 0.18006058037281036
+  },
+  {
+    "id": 239,
+    "review_rating": 5.0,
+    "positive_score": 0.9950466156005859,
+    "negative_score": 0.004953381139785051
+  },
+  {
+    "id": 240,
+    "review_rating": 5.0,
+    "positive_score": 0.9323745369911194,
+    "negative_score": 0.067625492811203
+  },
+  {
+    "id": 241,
+    "review_rating": 5.0,
+    "positive_score": 0.9826734662055969,
+    "negative_score": 0.017326533794403076
+  },
+  {
+    "id": 242,
+    "review_rating": 5.0,
+    "positive_score": 0.9050971865653992,
+    "negative_score": 0.09490286558866501
+  },
+  {
+    "id": 243,
+    "review_rating": 5.0,
+    "positive_score": 0.9966488480567932,
+    "negative_score": 0.003351205727085471
+  },
+  {
+    "id": 244,
+    "review_rating": 5.0,
+    "positive_score": 0.9065160155296326,
+    "negative_score": 0.09348396956920624
+  },
+  {
+    "id": 245,
+    "review_rating": 5.0,
+    "positive_score": 0.9939265847206116,
+    "negative_score": 0.006073468364775181
+  },
+  {
+    "id": 246,
+    "review_rating": 5.0,
+    "positive_score": 0.9460920095443726,
+    "negative_score": 0.05390795320272446
+  },
+  {
+    "id": 247,
+    "review_rating": 5.0,
+    "positive_score": 0.9955060482025146,
+    "negative_score": 0.00449391920119524
+  },
+  {
+    "id": 248,
+    "review_rating": 5.0,
+    "positive_score": 0.9853807091712952,
+    "negative_score": 0.014619325287640095
+  },
+  {
+    "id": 249,
+    "review_rating": 5.0,
+    "positive_score": 0.9739107489585876,
+    "negative_score": 0.02608923800289631
+  },
+  {
+    "id": 250,
+    "review_rating": 5.0,
+    "positive_score": 0.9953601956367493,
+    "negative_score": 0.004639793187379837
+  },
+  {
+    "id": 251,
+    "review_rating": 4.0,
+    "positive_score": 0.09715826064348221,
+    "negative_score": 0.9028417468070984
+  },
+  {
+    "id": 252,
+    "review_rating": 5.0,
+    "positive_score": 0.7713915705680847,
+    "negative_score": 0.2286083996295929
+  },
+  {
+    "id": 253,
+    "review_rating": 5.0,
+    "positive_score": 0.9961252808570862,
+    "negative_score": 0.003874765243381262
+  },
+  {
+    "id": 254,
+    "review_rating": 5.0,
+    "positive_score": 0.4997154474258423,
+    "negative_score": 0.5002846121788025
+  },
+  {
+    "id": 255,
+    "review_rating": 5.0,
+    "positive_score": 0.9955205917358398,
+    "negative_score": 0.004479399882256985
+  },
+  {
+    "id": 256,
+    "review_rating": 5.0,
+    "positive_score": 0.9956670999526978,
+    "negative_score": 0.004332884214818478
+  },
+  {
+    "id": 257,
+    "review_rating": 5.0,
+    "positive_score": 0.9960994720458984,
+    "negative_score": 0.0039005656726658344
+  },
+  {
+    "id": 258,
+    "review_rating": 5.0,
+    "positive_score": 0.9869149327278137,
+    "negative_score": 0.013085143640637398
+  },
+  {
+    "id": 259,
+    "review_rating": 5.0,
+    "positive_score": 0.22944499552249908,
+    "negative_score": 0.7705549597740173
+  },
+  {
+    "id": 260,
+    "review_rating": 3.0,
+    "positive_score": 0.4813424348831177,
+    "negative_score": 0.5186575651168823
+  },
+  {
+    "id": 261,
+    "review_rating": 4.0,
+    "positive_score": 0.7443100810050964,
+    "negative_score": 0.2556898891925812
+  },
+  {
+    "id": 262,
+    "review_rating": 5.0,
+    "positive_score": 0.9864919781684875,
+    "negative_score": 0.013508033007383347
+  },
+  {
+    "id": 263,
+    "review_rating": 5.0,
+    "positive_score": 0.9952167272567749,
+    "negative_score": 0.00478331046178937
+  },
+  {
+    "id": 264,
+    "review_rating": 5.0,
+    "positive_score": 0.9955495595932007,
+    "negative_score": 0.004450409207493067
+  },
+  {
+    "id": 265,
+    "review_rating": 5.0,
+    "positive_score": 0.9916720986366272,
+    "negative_score": 0.008327922783792019
+  },
+  {
+    "id": 266,
+    "review_rating": 5.0,
+    "positive_score": 0.7152802348136902,
+    "negative_score": 0.2847197651863098
+  },
+  {
+    "id": 267,
+    "review_rating": 5.0,
+    "positive_score": 0.9955602884292603,
+    "negative_score": 0.004439645446836948
+  },
+  {
+    "id": 268,
+    "review_rating": 5.0,
+    "positive_score": 0.990138053894043,
+    "negative_score": 0.009862006641924381
+  },
+  {
+    "id": 269,
+    "review_rating": 1.0,
+    "positive_score": 0.00801745243370533,
+    "negative_score": 0.9919825196266174
+  },
+  {
+    "id": 270,
+    "review_rating": 5.0,
+    "positive_score": 0.9877247214317322,
+    "negative_score": 0.01227525807917118
+  },
+  {
+    "id": 271,
+    "review_rating": 5.0,
+    "positive_score": 0.46582233905792236,
+    "negative_score": 0.5341777205467224
+  },
+  {
+    "id": 272,
+    "review_rating": 5.0,
+    "positive_score": 0.7352917194366455,
+    "negative_score": 0.2647083103656769
+  },
+  {
+    "id": 273,
+    "review_rating": 5.0,
+    "positive_score": 0.9761039614677429,
+    "negative_score": 0.023896068334579468
+  },
+  {
+    "id": 274,
+    "review_rating": 5.0,
+    "positive_score": 0.9938756823539734,
+    "negative_score": 0.006124281324446201
+  },
+  {
+    "id": 275,
+    "review_rating": 5.0,
+    "positive_score": 0.8164152503013611,
+    "negative_score": 0.18358471989631653
+  },
+  {
+    "id": 276,
+    "review_rating": 5.0,
+    "positive_score": 0.9959644079208374,
+    "negative_score": 0.00403554318472743
+  },
+  {
+    "id": 277,
+    "review_rating": 5.0,
+    "positive_score": 0.9945874214172363,
+    "negative_score": 0.005412518512457609
+  },
+  {
+    "id": 278,
+    "review_rating": 5.0,
+    "positive_score": 0.9960898160934448,
+    "negative_score": 0.003910158760845661
+  },
+  {
+    "id": 279,
+    "review_rating": 5.0,
+    "positive_score": 0.9942771792411804,
+    "negative_score": 0.005722856614738703
+  },
+  {
+    "id": 280,
+    "review_rating": 5.0,
+    "positive_score": 0.9923995137214661,
+    "negative_score": 0.0076005482114851475
+  },
+  {
+    "id": 281,
+    "review_rating": 4.0,
+    "positive_score": 0.3611200153827667,
+    "negative_score": 0.6388800144195557
+  },
+  {
+    "id": 282,
+    "review_rating": 5.0,
+    "positive_score": 0.9885067939758301,
+    "negative_score": 0.011493208818137646
+  },
+  {
+    "id": 283,
+    "review_rating": 5.0,
+    "positive_score": 0.9841923713684082,
+    "negative_score": 0.015807630494236946
+  },
+  {
+    "id": 284,
+    "review_rating": 5.0,
+    "positive_score": 0.9957964420318604,
+    "negative_score": 0.004203595221042633
+  },
+  {
+    "id": 285,
+    "review_rating": 5.0,
+    "positive_score": 0.9952079653739929,
+    "negative_score": 0.004791970830410719
+  },
+  {
+    "id": 286,
+    "review_rating": 5.0,
+    "positive_score": 0.9385637640953064,
+    "negative_score": 0.0614362396299839
+  },
+  {
+    "id": 287,
+    "review_rating": 5.0,
+    "positive_score": 0.9886542558670044,
+    "negative_score": 0.011345666833221912
+  },
+  {
+    "id": 288,
+    "review_rating": 5.0,
+    "positive_score": 0.993008017539978,
+    "negative_score": 0.006991962436586618
+  },
+  {
+    "id": 289,
+    "review_rating": 3.0,
+    "positive_score": 0.0562271885573864,
+    "negative_score": 0.9437728524208069
+  },
+  {
+    "id": 290,
+    "review_rating": 5.0,
+    "positive_score": 0.36142346262931824,
+    "negative_score": 0.6385765075683594
+  },
+  {
+    "id": 291,
+    "review_rating": 5.0,
+    "positive_score": 0.9915956854820251,
+    "negative_score": 0.008404278196394444
+  },
+  {
+    "id": 292,
+    "review_rating": 5.0,
+    "positive_score": 0.8712367415428162,
+    "negative_score": 0.12876327335834503
+  },
+  {
+    "id": 293,
+    "review_rating": 5.0,
+    "positive_score": 0.954557478427887,
+    "negative_score": 0.04544250667095184
+  },
+  {
+    "id": 294,
+    "review_rating": 5.0,
+    "positive_score": 0.027033541351556778,
+    "negative_score": 0.9729664325714111
+  },
+  {
+    "id": 295,
+    "review_rating": 5.0,
+    "positive_score": 0.9804438352584839,
+    "negative_score": 0.019556201994419098
+  },
+  {
+    "id": 296,
+    "review_rating": 5.0,
+    "positive_score": 0.1674107164144516,
+    "negative_score": 0.8325892090797424
+  },
+  {
+    "id": 297,
+    "review_rating": 5.0,
+    "positive_score": 0.9681195616722107,
+    "negative_score": 0.0318804532289505
+  },
+  {
+    "id": 298,
+    "review_rating": 5.0,
+    "positive_score": 0.9960284233093262,
+    "negative_score": 0.003971615340560675
+  },
+  {
+    "id": 299,
+    "review_rating": 5.0,
+    "positive_score": 0.9877198338508606,
+    "negative_score": 0.01228015124797821
+  },
+  {
+    "id": 300,
+    "review_rating": 5.0,
+    "positive_score": 0.8950560688972473,
+    "negative_score": 0.1049439013004303
+  },
+  {
+    "id": 301,
+    "review_rating": 5.0,
+    "positive_score": 0.7791089415550232,
+    "negative_score": 0.2208910882472992
+  },
+  {
+    "id": 302,
+    "review_rating": 5.0,
+    "positive_score": 0.9949092268943787,
+    "negative_score": 0.005090714897960424
+  },
+  {
+    "id": 303,
+    "review_rating": 5.0,
+    "positive_score": 0.9922171831130981,
+    "negative_score": 0.0077827745117247105
+  },
+  {
+    "id": 304,
+    "review_rating": 5.0,
+    "positive_score": 0.9954110980033875,
+    "negative_score": 0.00458896066993475
+  },
+  {
+    "id": 305,
+    "review_rating": 5.0,
+    "positive_score": 0.9835065007209778,
+    "negative_score": 0.016493583098053932
+  },
+  {
+    "id": 306,
+    "review_rating": 5.0,
+    "positive_score": 0.8494460582733154,
+    "negative_score": 0.1505538821220398
+  },
+  {
+    "id": 307,
+    "review_rating": 5.0,
+    "positive_score": 0.9942979216575623,
+    "negative_score": 0.005702096503227949
+  },
+  {
+    "id": 308,
+    "review_rating": 5.0,
+    "positive_score": 0.9940193891525269,
+    "negative_score": 0.0059806364588439465
+  },
+  {
+    "id": 309,
+    "review_rating": 5.0,
+    "positive_score": 0.9937103986740112,
+    "negative_score": 0.006289592012763023
+  },
+  {
+    "id": 310,
+    "review_rating": 5.0,
+    "positive_score": 0.993452787399292,
+    "negative_score": 0.006547234021127224
+  },
+  {
+    "id": 311,
+    "review_rating": 5.0,
+    "positive_score": 0.8908704519271851,
+    "negative_score": 0.10912954807281494
+  },
+  {
+    "id": 312,
+    "review_rating": 5.0,
+    "positive_score": 0.9602731466293335,
+    "negative_score": 0.03972687944769859
+  },
+  {
+    "id": 313,
+    "review_rating": 5.0,
+    "positive_score": 0.9893989562988281,
+    "negative_score": 0.010601063258945942
+  },
+  {
+    "id": 314,
+    "review_rating": 5.0,
+    "positive_score": 0.9928465485572815,
+    "negative_score": 0.0071534691378474236
+  },
+  {
+    "id": 315,
+    "review_rating": 5.0,
+    "positive_score": 0.9933395981788635,
+    "negative_score": 0.006660404149442911
+  },
+  {
+    "id": 316,
+    "review_rating": 5.0,
+    "positive_score": 0.4304352402687073,
+    "negative_score": 0.5695647597312927
+  },
+  {
+    "id": 317,
+    "review_rating": 5.0,
+    "positive_score": 0.9940224289894104,
+    "negative_score": 0.00597753282636404
+  },
+  {
+    "id": 318,
+    "review_rating": 5.0,
+    "positive_score": 0.9702568650245667,
+    "negative_score": 0.029743129387497902
+  },
+  {
+    "id": 319,
+    "review_rating": 5.0,
+    "positive_score": 0.9474850296974182,
+    "negative_score": 0.05251497030258179
+  },
+  {
+    "id": 320,
+    "review_rating": 5.0,
+    "positive_score": 0.99427729845047,
+    "negative_score": 0.00572274811565876
+  },
+  {
+    "id": 321,
+    "review_rating": 4.0,
+    "positive_score": 0.30436721444129944,
+    "negative_score": 0.695632815361023
+  },
+  {
+    "id": 322,
+    "review_rating": 5.0,
+    "positive_score": 0.9866930842399597,
+    "negative_score": 0.013306948356330395
+  },
+  {
+    "id": 323,
+    "review_rating": 1.0,
+    "positive_score": 0.2975930869579315,
+    "negative_score": 0.7024069428443909
+  },
+  {
+    "id": 324,
+    "review_rating": 2.0,
+    "positive_score": 0.02481924369931221,
+    "negative_score": 0.9751807451248169
+  },
+  {
+    "id": 325,
+    "review_rating": 5.0,
+    "positive_score": 0.1416676640510559,
+    "negative_score": 0.8583323359489441
+  },
+  {
+    "id": 326,
+    "review_rating": 5.0,
+    "positive_score": 0.9961047172546387,
+    "negative_score": 0.0038953074254095554
+  },
+  {
+    "id": 327,
+    "review_rating": 1.0,
+    "positive_score": 0.003428005613386631,
+    "negative_score": 0.9965720176696777
+  },
+  {
+    "id": 328,
+    "review_rating": 5.0,
+    "positive_score": 0.9922885298728943,
+    "negative_score": 0.007711451966315508
+  },
+  {
+    "id": 329,
+    "review_rating": 5.0,
+    "positive_score": 0.9579856395721436,
+    "negative_score": 0.04201432317495346
+  },
+  {
+    "id": 330,
+    "review_rating": 5.0,
+    "positive_score": 0.9959256649017334,
+    "negative_score": 0.004074398428201675
+  },
+  {
+    "id": 331,
+    "review_rating": 5.0,
+    "positive_score": 0.8829168677330017,
+    "negative_score": 0.11708314716815948
+  },
+  {
+    "id": 332,
+    "review_rating": 5.0,
+    "positive_score": 0.9932339787483215,
+    "negative_score": 0.006766010541468859
+  },
+  {
+    "id": 333,
+    "review_rating": 5.0,
+    "positive_score": 0.978617250919342,
+    "negative_score": 0.021382814273238182
+  },
+  {
+    "id": 334,
+    "review_rating": 5.0,
+    "positive_score": 0.9936078786849976,
+    "negative_score": 0.006392123643308878
+  },
+  {
+    "id": 335,
+    "review_rating": 5.0,
+    "positive_score": 0.9839240908622742,
+    "negative_score": 0.016075946390628815
+  },
+  {
+    "id": 336,
+    "review_rating": 5.0,
+    "positive_score": 0.9962853193283081,
+    "negative_score": 0.0037147069815546274
+  },
+  {
+    "id": 337,
+    "review_rating": 5.0,
+    "positive_score": 0.9880930781364441,
+    "negative_score": 0.01190691813826561
+  },
+  {
+    "id": 338,
+    "review_rating": 5.0,
+    "positive_score": 0.9963359832763672,
+    "negative_score": 0.0036640185862779617
+  },
+  {
+    "id": 339,
+    "review_rating": 5.0,
+    "positive_score": 0.9960595369338989,
+    "negative_score": 0.00394049659371376
+  },
+  {
+    "id": 340,
+    "review_rating": 5.0,
+    "positive_score": 0.9961775541305542,
+    "negative_score": 0.0038225005846470594
+  },
+  {
+    "id": 341,
+    "review_rating": 5.0,
+    "positive_score": 0.9808685779571533,
+    "negative_score": 0.019131381064653397
+  },
+  {
+    "id": 342,
+    "review_rating": 4.0,
+    "positive_score": 0.9794452786445618,
+    "negative_score": 0.020554684102535248
+  },
+  {
+    "id": 343,
+    "review_rating": 5.0,
+    "positive_score": 0.5572524070739746,
+    "negative_score": 0.4427475929260254
+  },
+  {
+    "id": 344,
+    "review_rating": 5.0,
+    "positive_score": 0.38306766748428345,
+    "negative_score": 0.6169323325157166
+  },
+  {
+    "id": 345,
+    "review_rating": 5.0,
+    "positive_score": 0.30020323395729065,
+    "negative_score": 0.6997967958450317
+  },
+  {
+    "id": 346,
+    "review_rating": 5.0,
+    "positive_score": 0.30100217461586,
+    "negative_score": 0.6989978551864624
+  },
+  {
+    "id": 347,
+    "review_rating": 5.0,
+    "positive_score": 0.8165605068206787,
+    "negative_score": 0.18343941867351532
+  },
+  {
+    "id": 348,
+    "review_rating": 5.0,
+    "positive_score": 0.9823293089866638,
+    "negative_score": 0.017670700326561928
+  },
+  {
+    "id": 349,
+    "review_rating": 5.0,
+    "positive_score": 0.9953206181526184,
+    "negative_score": 0.004679330158978701
+  },
+  {
+    "id": 350,
+    "review_rating": 5.0,
+    "positive_score": 0.9420475959777832,
+    "negative_score": 0.057952359318733215
+  },
+  {
+    "id": 351,
+    "review_rating": 5.0,
+    "positive_score": 0.9946210384368896,
+    "negative_score": 0.005378931760787964
+  },
+  {
+    "id": 352,
+    "review_rating": 5.0,
+    "positive_score": 0.9941993951797485,
+    "negative_score": 0.005800575949251652
+  },
+  {
+    "id": 353,
+    "review_rating": 5.0,
+    "positive_score": 0.99080491065979,
+    "negative_score": 0.009195071645081043
+  },
+  {
+    "id": 354,
+    "review_rating": 5.0,
+    "positive_score": 0.9959499835968018,
+    "negative_score": 0.004049946554005146
+  },
+  {
+    "id": 355,
+    "review_rating": 5.0,
+    "positive_score": 0.9945151805877686,
+    "negative_score": 0.005484811961650848
+  },
+  {
+    "id": 356,
+    "review_rating": 5.0,
+    "positive_score": 0.9928426742553711,
+    "negative_score": 0.007157310377806425
+  },
+  {
+    "id": 357,
+    "review_rating": 5.0,
+    "positive_score": 0.992968738079071,
+    "negative_score": 0.007031224202364683
+  },
+  {
+    "id": 358,
+    "review_rating": 5.0,
+    "positive_score": 0.9961679577827454,
+    "negative_score": 0.00383202126249671
+  },
+  {
+    "id": 359,
+    "review_rating": 5.0,
+    "positive_score": 0.9928048253059387,
+    "negative_score": 0.007195177488029003
+  },
+  {
+    "id": 360,
+    "review_rating": 5.0,
+    "positive_score": 0.9948214292526245,
+    "negative_score": 0.005178508814424276
+  },
+  {
+    "id": 361,
+    "review_rating": 5.0,
+    "positive_score": 0.7314367294311523,
+    "negative_score": 0.26856330037117004
+  },
+  {
+    "id": 362,
+    "review_rating": 4.0,
+    "positive_score": 0.9891759753227234,
+    "negative_score": 0.010823991149663925
+  },
+  {
+    "id": 363,
+    "review_rating": 5.0,
+    "positive_score": 0.9634600877761841,
+    "negative_score": 0.03653988614678383
+  },
+  {
+    "id": 364,
+    "review_rating": 5.0,
+    "positive_score": 0.15788887441158295,
+    "negative_score": 0.8421111106872559
+  },
+  {
+    "id": 365,
+    "review_rating": 5.0,
+    "positive_score": 0.9897933006286621,
+    "negative_score": 0.010206767357885838
+  },
+  {
+    "id": 366,
+    "review_rating": 5.0,
+    "positive_score": 0.7701020836830139,
+    "negative_score": 0.22989796102046967
+  },
+  {
+    "id": 367,
+    "review_rating": 5.0,
+    "positive_score": 0.9921185970306396,
+    "negative_score": 0.007881407625973225
+  },
+  {
+    "id": 368,
+    "review_rating": 4.0,
+    "positive_score": 0.7339304089546204,
+    "negative_score": 0.266069620847702
+  },
+  {
+    "id": 369,
+    "review_rating": 5.0,
+    "positive_score": 0.9928268194198608,
+    "negative_score": 0.0071731992065906525
+  },
+  {
+    "id": 370,
+    "review_rating": 5.0,
+    "positive_score": 0.990177571773529,
+    "negative_score": 0.009822479449212551
+  },
+  {
+    "id": 371,
+    "review_rating": 5.0,
+    "positive_score": 0.7660223245620728,
+    "negative_score": 0.23397766053676605
+  },
+  {
+    "id": 372,
+    "review_rating": 5.0,
+    "positive_score": 0.10459456592798233,
+    "negative_score": 0.8954054713249207
+  },
+  {
+    "id": 373,
+    "review_rating": 5.0,
+    "positive_score": 0.951099693775177,
+    "negative_score": 0.04890035465359688
+  },
+  {
+    "id": 374,
+    "review_rating": 5.0,
+    "positive_score": 0.8729274868965149,
+    "negative_score": 0.1270725131034851
+  },
+  {
+    "id": 375,
+    "review_rating": 1.0,
+    "positive_score": 0.09687045216560364,
+    "negative_score": 0.9031295776367188
+  },
+  {
+    "id": 376,
+    "review_rating": 5.0,
+    "positive_score": 0.9770975112915039,
+    "negative_score": 0.022902438417077065
+  },
+  {
+    "id": 377,
+    "review_rating": 5.0,
+    "positive_score": 0.6767491102218628,
+    "negative_score": 0.3232508599758148
+  },
+  {
+    "id": 378,
+    "review_rating": 5.0,
+    "positive_score": 0.9570540189743042,
+    "negative_score": 0.042945943772792816
+  },
+  {
+    "id": 379,
+    "review_rating": 5.0,
+    "positive_score": 0.9952248334884644,
+    "negative_score": 0.004775117617100477
+  },
+  {
+    "id": 380,
+    "review_rating": 5.0,
+    "positive_score": 0.9732840657234192,
+    "negative_score": 0.02671586349606514
+  },
+  {
+    "id": 381,
+    "review_rating": 5.0,
+    "positive_score": 0.9037386775016785,
+    "negative_score": 0.09626130014657974
+  },
+  {
+    "id": 382,
+    "review_rating": 5.0,
+    "positive_score": 0.9942501783370972,
+    "negative_score": 0.005749872885644436
+  },
+  {
+    "id": 383,
+    "review_rating": 5.0,
+    "positive_score": 0.9967111349105835,
+    "negative_score": 0.003288864390924573
+  },
+  {
+    "id": 384,
+    "review_rating": 5.0,
+    "positive_score": 0.9957312941551208,
+    "negative_score": 0.004268694203346968
+  },
+  {
+    "id": 385,
+    "review_rating": 4.0,
+    "positive_score": 0.20116369426250458,
+    "negative_score": 0.7988362908363342
+  },
+  {
+    "id": 386,
+    "review_rating": 5.0,
+    "positive_score": 0.9866870641708374,
+    "negative_score": 0.013312997296452522
+  },
+  {
+    "id": 387,
+    "review_rating": 5.0,
+    "positive_score": 0.9950239658355713,
+    "negative_score": 0.004976008553057909
+  },
+  {
+    "id": 388,
+    "review_rating": 5.0,
+    "positive_score": 0.7603708505630493,
+    "negative_score": 0.23962917923927307
+  },
+  {
+    "id": 389,
+    "review_rating": 5.0,
+    "positive_score": 0.8093864321708679,
+    "negative_score": 0.1906135529279709
+  },
+  {
+    "id": 390,
+    "review_rating": 2.0,
+    "positive_score": 0.07113618403673172,
+    "negative_score": 0.9288638234138489
+  },
+  {
+    "id": 391,
+    "review_rating": 5.0,
+    "positive_score": 0.9921916127204895,
+    "negative_score": 0.0078084454871714115
+  },
+  {
+    "id": 392,
+    "review_rating": 5.0,
+    "positive_score": 0.9895392060279846,
+    "negative_score": 0.010460740886628628
+  },
+  {
+    "id": 393,
+    "review_rating": 5.0,
+    "positive_score": 0.9931992888450623,
+    "negative_score": 0.006800700444728136
+  },
+  {
+    "id": 394,
+    "review_rating": 5.0,
+    "positive_score": 0.8839743137359619,
+    "negative_score": 0.1160256415605545
+  },
+  {
+    "id": 395,
+    "review_rating": 3.0,
+    "positive_score": 0.07358693331480026,
+    "negative_score": 0.9264130592346191
+  },
+  {
+    "id": 396,
+    "review_rating": 5.0,
+    "positive_score": 0.992733359336853,
+    "negative_score": 0.007266649976372719
+  },
+  {
+    "id": 397,
+    "review_rating": 4.0,
+    "positive_score": 0.9900513291358948,
+    "negative_score": 0.009948697872459888
+  },
+  {
+    "id": 398,
+    "review_rating": 4.0,
+    "positive_score": 0.8550558090209961,
+    "negative_score": 0.1449441760778427
+  },
+  {
+    "id": 399,
+    "review_rating": 5.0,
+    "positive_score": 0.9734894037246704,
+    "negative_score": 0.02651056833565235
+  },
+  {
+    "id": 400,
+    "review_rating": 5.0,
+    "positive_score": 0.10807015001773834,
+    "negative_score": 0.8919298052787781
+  },
+  {
+    "id": 401,
+    "review_rating": 5.0,
+    "positive_score": 0.9483292698860168,
+    "negative_score": 0.05167066678404808
+  },
+  {
+    "id": 402,
+    "review_rating": 5.0,
+    "positive_score": 0.92911297082901,
+    "negative_score": 0.07088705152273178
+  },
+  {
+    "id": 403,
+    "review_rating": 5.0,
+    "positive_score": 0.9957579970359802,
+    "negative_score": 0.0042420425452291965
+  },
+  {
+    "id": 404,
+    "review_rating": 1.0,
+    "positive_score": 0.10797813534736633,
+    "negative_score": 0.8920218348503113
+  },
+  {
+    "id": 405,
+    "review_rating": 5.0,
+    "positive_score": 0.9146191477775574,
+    "negative_score": 0.08538087457418442
+  },
+  {
+    "id": 406,
+    "review_rating": 5.0,
+    "positive_score": 0.9903672933578491,
+    "negative_score": 0.009632761590182781
+  },
+  {
+    "id": 407,
+    "review_rating": 5.0,
+    "positive_score": 0.9953902959823608,
+    "negative_score": 0.004609663505107164
+  },
+  {
+    "id": 408,
+    "review_rating": 5.0,
+    "positive_score": 0.23597362637519836,
+    "negative_score": 0.764026403427124
+  },
+  {
+    "id": 409,
+    "review_rating": 5.0,
+    "positive_score": 0.9559052586555481,
+    "negative_score": 0.04409469664096832
+  },
+  {
+    "id": 410,
+    "review_rating": 5.0,
+    "positive_score": 0.9937509894371033,
+    "negative_score": 0.006249042693525553
+  },
+  {
+    "id": 411,
+    "review_rating": 5.0,
+    "positive_score": 0.8657801747322083,
+    "negative_score": 0.13421982526779175
+  },
+  {
+    "id": 412,
+    "review_rating": 5.0,
+    "positive_score": 0.5217955708503723,
+    "negative_score": 0.4782044589519501
+  },
+  {
+    "id": 413,
+    "review_rating": 5.0,
+    "positive_score": 0.9849927425384521,
+    "negative_score": 0.015007262118160725
+  },
+  {
+    "id": 414,
+    "review_rating": 5.0,
+    "positive_score": 0.9956849813461304,
+    "negative_score": 0.004315011668950319
+  },
+  {
+    "id": 415,
+    "review_rating": 5.0,
+    "positive_score": 0.980492115020752,
+    "negative_score": 0.019507912918925285
+  },
+  {
+    "id": 416,
+    "review_rating": 5.0,
+    "positive_score": 0.9954853653907776,
+    "negative_score": 0.00451463321223855
+  },
+  {
+    "id": 417,
+    "review_rating": 4.0,
+    "positive_score": 0.661964476108551,
+    "negative_score": 0.3380354940891266
+  },
+  {
+    "id": 418,
+    "review_rating": 5.0,
+    "positive_score": 0.9706686735153198,
+    "negative_score": 0.029331296682357788
+  },
+  {
+    "id": 419,
+    "review_rating": 5.0,
+    "positive_score": 0.9958704113960266,
+    "negative_score": 0.004129522014409304
+  },
+  {
+    "id": 420,
+    "review_rating": 5.0,
+    "positive_score": 0.8992375731468201,
+    "negative_score": 0.10076242685317993
+  },
+  {
+    "id": 421,
+    "review_rating": 5.0,
+    "positive_score": 0.8326987624168396,
+    "negative_score": 0.1673012375831604
+  },
+  {
+    "id": 422,
+    "review_rating": 5.0,
+    "positive_score": 0.9952303767204285,
+    "negative_score": 0.004769535269588232
+  },
+  {
+    "id": 423,
+    "review_rating": 5.0,
+    "positive_score": 0.986585259437561,
+    "negative_score": 0.013414731249213219
+  },
+  {
+    "id": 424,
+    "review_rating": 5.0,
+    "positive_score": 0.9946893453598022,
+    "negative_score": 0.0053106737323105335
+  },
+  {
+    "id": 425,
+    "review_rating": 5.0,
+    "positive_score": 0.9933891296386719,
+    "negative_score": 0.006610885262489319
+  },
+  {
+    "id": 426,
+    "review_rating": 5.0,
+    "positive_score": 0.3653756082057953,
+    "negative_score": 0.6346243619918823
+  },
+  {
+    "id": 427,
+    "review_rating": 5.0,
+    "positive_score": 0.9929901361465454,
+    "negative_score": 0.007009873166680336
+  },
+  {
+    "id": 428,
+    "review_rating": 5.0,
+    "positive_score": 0.995116114616394,
+    "negative_score": 0.004883871413767338
+  },
+  {
+    "id": 429,
+    "review_rating": 5.0,
+    "positive_score": 0.7365411520004272,
+    "negative_score": 0.26345881819725037
+  },
+  {
+    "id": 430,
+    "review_rating": 5.0,
+    "positive_score": 0.9953835606575012,
+    "negative_score": 0.004616416525095701
+  },
+  {
+    "id": 431,
+    "review_rating": 5.0,
+    "positive_score": 0.9765167832374573,
+    "negative_score": 0.02348320372402668
+  },
+  {
+    "id": 432,
+    "review_rating": 5.0,
+    "positive_score": 0.9952580332756042,
+    "negative_score": 0.004741917364299297
+  },
+  {
+    "id": 433,
+    "review_rating": 5.0,
+    "positive_score": 0.9925832748413086,
+    "negative_score": 0.0074167801067233086
+  },
+  {
+    "id": 434,
+    "review_rating": 5.0,
+    "positive_score": 0.9682629704475403,
+    "negative_score": 0.03173702210187912
+  },
+  {
+    "id": 435,
+    "review_rating": 4.0,
+    "positive_score": 0.7235474586486816,
+    "negative_score": 0.27645260095596313
+  },
+  {
+    "id": 436,
+    "review_rating": 5.0,
+    "positive_score": 0.39312103390693665,
+    "negative_score": 0.606878936290741
+  },
+  {
+    "id": 437,
+    "review_rating": 4.0,
+    "positive_score": 0.640238344669342,
+    "negative_score": 0.3597615957260132
+  },
+  {
+    "id": 438,
+    "review_rating": 5.0,
+    "positive_score": 0.986003577709198,
+    "negative_score": 0.013996352441608906
+  },
+  {
+    "id": 439,
+    "review_rating": 5.0,
+    "positive_score": 0.9750419855117798,
+    "negative_score": 0.02495795302093029
+  },
+  {
+    "id": 440,
+    "review_rating": 5.0,
+    "positive_score": 0.7658737897872925,
+    "negative_score": 0.23412618041038513
+  },
+  {
+    "id": 441,
+    "review_rating": 5.0,
+    "positive_score": 0.467524915933609,
+    "negative_score": 0.5324750542640686
+  },
+  {
+    "id": 442,
+    "review_rating": 5.0,
+    "positive_score": 0.8217958807945251,
+    "negative_score": 0.17820416390895844
+  },
+  {
+    "id": 443,
+    "review_rating": 4.0,
+    "positive_score": 0.9741615056991577,
+    "negative_score": 0.025838544592261314
+  },
+  {
+    "id": 444,
+    "review_rating": 5.0,
+    "positive_score": 0.7424534559249878,
+    "negative_score": 0.2575465738773346
+  },
+  {
+    "id": 445,
+    "review_rating": 5.0,
+    "positive_score": 0.9912465214729309,
+    "negative_score": 0.008753477595746517
+  },
+  {
+    "id": 446,
+    "review_rating": 5.0,
+    "positive_score": 0.9876212477684021,
+    "negative_score": 0.012378782033920288
+  },
+  {
+    "id": 447,
+    "review_rating": 5.0,
+    "positive_score": 0.9679134488105774,
+    "negative_score": 0.032086484134197235
+  },
+  {
+    "id": 448,
+    "review_rating": 5.0,
+    "positive_score": 0.9682565927505493,
+    "negative_score": 0.03174344077706337
+  },
+  {
+    "id": 449,
+    "review_rating": 5.0,
+    "positive_score": 0.991790771484375,
+    "negative_score": 0.008209215477108955
+  },
+  {
+    "id": 450,
+    "review_rating": 5.0,
+    "positive_score": 0.9933052659034729,
+    "negative_score": 0.006694705691188574
+  },
+  {
+    "id": 451,
+    "review_rating": 5.0,
+    "positive_score": 0.97845858335495,
+    "negative_score": 0.021541409194469452
+  },
+  {
+    "id": 452,
+    "review_rating": 5.0,
+    "positive_score": 0.48981228470802307,
+    "negative_score": 0.5101877450942993
+  },
+  {
+    "id": 453,
+    "review_rating": 5.0,
+    "positive_score": 0.9960067868232727,
+    "negative_score": 0.003993245307356119
+  },
+  {
+    "id": 454,
+    "review_rating": 5.0,
+    "positive_score": 0.9916489124298096,
+    "negative_score": 0.008351149037480354
+  },
+  {
+    "id": 455,
+    "review_rating": 5.0,
+    "positive_score": 0.27550628781318665,
+    "negative_score": 0.724493682384491
+  },
+  {
+    "id": 456,
+    "review_rating": 5.0,
+    "positive_score": 0.9940444827079773,
+    "negative_score": 0.005955550819635391
+  },
+  {
+    "id": 457,
+    "review_rating": 5.0,
+    "positive_score": 0.593620777130127,
+    "negative_score": 0.40637919306755066
+  },
+  {
+    "id": 458,
+    "review_rating": 5.0,
+    "positive_score": 0.9656974077224731,
+    "negative_score": 0.034302521497011185
+  },
+  {
+    "id": 459,
+    "review_rating": 5.0,
+    "positive_score": 0.7841553092002869,
+    "negative_score": 0.21584472060203552
+  },
+  {
+    "id": 460,
+    "review_rating": 5.0,
+    "positive_score": 0.9853978157043457,
+    "negative_score": 0.014602139592170715
+  },
+  {
+    "id": 461,
+    "review_rating": 5.0,
+    "positive_score": 0.9879916310310364,
+    "negative_score": 0.012008421123027802
+  },
+  {
+    "id": 462,
+    "review_rating": 5.0,
+    "positive_score": 0.9955549836158752,
+    "negative_score": 0.004444977268576622
+  },
+  {
+    "id": 463,
+    "review_rating": 5.0,
+    "positive_score": 0.986946165561676,
+    "negative_score": 0.013053910806775093
+  },
+  {
+    "id": 464,
+    "review_rating": 5.0,
+    "positive_score": 0.454312264919281,
+    "negative_score": 0.545687735080719
+  },
+  {
+    "id": 465,
+    "review_rating": 5.0,
+    "positive_score": 0.7967544794082642,
+    "negative_score": 0.20324550569057465
+  },
+  {
+    "id": 466,
+    "review_rating": 5.0,
+    "positive_score": 0.7958713173866272,
+    "negative_score": 0.2041287124156952
+  },
+  {
+    "id": 467,
+    "review_rating": 1.0,
+    "positive_score": 0.07677122205495834,
+    "negative_score": 0.9232287406921387
+  },
+  {
+    "id": 468,
+    "review_rating": 5.0,
+    "positive_score": 0.9827895164489746,
+    "negative_score": 0.017210446298122406
+  },
+  {
+    "id": 469,
+    "review_rating": 5.0,
+    "positive_score": 0.995134174823761,
+    "negative_score": 0.004865773022174835
+  },
+  {
+    "id": 470,
+    "review_rating": 5.0,
+    "positive_score": 0.9831451177597046,
+    "negative_score": 0.016854923218488693
+  },
+  {
+    "id": 471,
+    "review_rating": 5.0,
+    "positive_score": 0.8863818645477295,
+    "negative_score": 0.11361809819936752
+  },
+  {
+    "id": 472,
+    "review_rating": 5.0,
+    "positive_score": 0.9947890043258667,
+    "negative_score": 0.005210961680859327
+  },
+  {
+    "id": 473,
+    "review_rating": 5.0,
+    "positive_score": 0.8283407092094421,
+    "negative_score": 0.17165933549404144
+  },
+  {
+    "id": 474,
+    "review_rating": 3.0,
+    "positive_score": 0.07733577489852905,
+    "negative_score": 0.9226642847061157
+  },
+  {
+    "id": 475,
+    "review_rating": 4.0,
+    "positive_score": 0.955096960067749,
+    "negative_score": 0.044903092086315155
+  },
+  {
+    "id": 476,
+    "review_rating": 5.0,
+    "positive_score": 0.9744535684585571,
+    "negative_score": 0.025546425953507423
+  },
+  {
+    "id": 477,
+    "review_rating": 5.0,
+    "positive_score": 0.790690004825592,
+    "negative_score": 0.20931003987789154
+  },
+  {
+    "id": 478,
+    "review_rating": 5.0,
+    "positive_score": 0.8642393350601196,
+    "negative_score": 0.13576066493988037
+  },
+  {
+    "id": 479,
+    "review_rating": 5.0,
+    "positive_score": 0.9885892868041992,
+    "negative_score": 0.011410714127123356
+  },
+  {
+    "id": 480,
+    "review_rating": 5.0,
+    "positive_score": 0.9913827776908875,
+    "negative_score": 0.008617258630692959
+  },
+  {
+    "id": 481,
+    "review_rating": 5.0,
+    "positive_score": 0.9888140559196472,
+    "negative_score": 0.01118598785251379
+  },
+  {
+    "id": 482,
+    "review_rating": 4.0,
+    "positive_score": 0.09801577776670456,
+    "negative_score": 0.9019841551780701
+  },
+  {
+    "id": 483,
+    "review_rating": 5.0,
+    "positive_score": 0.9926818013191223,
+    "negative_score": 0.007318221498280764
+  },
+  {
+    "id": 484,
+    "review_rating": 5.0,
+    "positive_score": 0.9849110841751099,
+    "negative_score": 0.01508884597569704
+  },
+  {
+    "id": 485,
+    "review_rating": 5.0,
+    "positive_score": 0.8744420409202576,
+    "negative_score": 0.12555797398090363
+  },
+  {
+    "id": 486,
+    "review_rating": 2.0,
+    "positive_score": 0.006375567056238651,
+    "negative_score": 0.9936244487762451
+  },
+  {
+    "id": 487,
+    "review_rating": 5.0,
+    "positive_score": 0.4917847812175751,
+    "negative_score": 0.5082151889801025
+  },
+  {
+    "id": 488,
+    "review_rating": 5.0,
+    "positive_score": 0.9800938963890076,
+    "negative_score": 0.019906096160411835
+  },
+  {
+    "id": 489,
+    "review_rating": 5.0,
+    "positive_score": 0.9836349487304688,
+    "negative_score": 0.016365008428692818
+  },
+  {
+    "id": 490,
+    "review_rating": 5.0,
+    "positive_score": 0.9943692088127136,
+    "negative_score": 0.005630804225802422
+  },
+  {
+    "id": 491,
+    "review_rating": 4.0,
+    "positive_score": 0.2605646252632141,
+    "negative_score": 0.7394353747367859
+  },
+  {
+    "id": 492,
+    "review_rating": 5.0,
+    "positive_score": 0.8672764897346497,
+    "negative_score": 0.13272348046302795
+  },
+  {
+    "id": 493,
+    "review_rating": 3.0,
+    "positive_score": 0.9903765320777893,
+    "negative_score": 0.009623485617339611
+  },
+  {
+    "id": 494,
+    "review_rating": 5.0,
+    "positive_score": 0.7130973935127258,
+    "negative_score": 0.28690266609191895
+  },
+  {
+    "id": 495,
+    "review_rating": 5.0,
+    "positive_score": 0.7045024633407593,
+    "negative_score": 0.2954975664615631
+  },
+  {
+    "id": 496,
+    "review_rating": 5.0,
+    "positive_score": 0.995786726474762,
+    "negative_score": 0.004213226959109306
+  },
+  {
+    "id": 497,
+    "review_rating": 5.0,
+    "positive_score": 0.8853408694267273,
+    "negative_score": 0.11465910822153091
+  },
+  {
+    "id": 498,
+    "review_rating": 5.0,
+    "positive_score": 0.988235592842102,
+    "negative_score": 0.011764412745833397
+  },
+  {
+    "id": 499,
+    "review_rating": 5.0,
+    "positive_score": 0.9913846254348755,
+    "negative_score": 0.008615384809672832
+  },
+  {
+    "id": 500,
+    "review_rating": 5.0,
+    "positive_score": 0.8510547280311584,
+    "negative_score": 0.14894524216651917
+  },
+  {
+    "id": 501,
+    "review_rating": 5.0,
+    "positive_score": 0.8415723443031311,
+    "negative_score": 0.1584276556968689
+  },
+  {
+    "id": 502,
+    "review_rating": 5.0,
+    "positive_score": 0.9806668758392334,
+    "negative_score": 0.0193331316113472
+  },
+  {
+    "id": 503,
+    "review_rating": 5.0,
+    "positive_score": 0.7767142653465271,
+    "negative_score": 0.2232857346534729
+  },
+  {
+    "id": 504,
+    "review_rating": 1.0,
+    "positive_score": 0.17354336380958557,
+    "negative_score": 0.8264566659927368
+  },
+  {
+    "id": 505,
+    "review_rating": 1.0,
+    "positive_score": 0.05506410822272301,
+    "negative_score": 0.9449359178543091
+  },
+  {
+    "id": 506,
+    "review_rating": 5.0,
+    "positive_score": 0.9872093200683594,
+    "negative_score": 0.012790614739060402
+  },
+  {
+    "id": 507,
+    "review_rating": 5.0,
+    "positive_score": 0.2499077171087265,
+    "negative_score": 0.7500923275947571
+  },
+  {
+    "id": 508,
+    "review_rating": 5.0,
+    "positive_score": 0.9697919487953186,
+    "negative_score": 0.030208105221390724
+  },
+  {
+    "id": 509,
+    "review_rating": 5.0,
+    "positive_score": 0.9078441262245178,
+    "negative_score": 0.0921558365225792
+  },
+  {
+    "id": 510,
+    "review_rating": 5.0,
+    "positive_score": 0.988469660282135,
+    "negative_score": 0.011530376970767975
+  },
+  {
+    "id": 511,
+    "review_rating": 5.0,
+    "positive_score": 0.7231801748275757,
+    "negative_score": 0.2768198549747467
+  },
+  {
+    "id": 512,
+    "review_rating": 5.0,
+    "positive_score": 0.9937990307807922,
+    "negative_score": 0.006200939416885376
+  },
+  {
+    "id": 513,
+    "review_rating": 5.0,
+    "positive_score": 0.9600979089736938,
+    "negative_score": 0.03990211337804794
+  },
+  {
+    "id": 514,
+    "review_rating": 5.0,
+    "positive_score": 0.779400646686554,
+    "negative_score": 0.22059936821460724
+  },
+  {
+    "id": 515,
+    "review_rating": 1.0,
+    "positive_score": 0.003662219038233161,
+    "negative_score": 0.9963377714157104
+  },
+  {
+    "id": 516,
+    "review_rating": 5.0,
+    "positive_score": 0.9602601528167725,
+    "negative_score": 0.03973980247974396
+  },
+  {
+    "id": 517,
+    "review_rating": 5.0,
+    "positive_score": 0.9893667101860046,
+    "negative_score": 0.01063328143209219
+  },
+  {
+    "id": 518,
+    "review_rating": 4.0,
+    "positive_score": 0.0622880645096302,
+    "negative_score": 0.9377119541168213
+  },
+  {
+    "id": 519,
+    "review_rating": 1.0,
+    "positive_score": 0.019046738743782043,
+    "negative_score": 0.9809532761573792
+  },
+  {
+    "id": 520,
+    "review_rating": 4.0,
+    "positive_score": 0.959801971912384,
+    "negative_score": 0.04019802063703537
+  },
+  {
+    "id": 521,
+    "review_rating": 5.0,
+    "positive_score": 0.9340099096298218,
+    "negative_score": 0.06599009037017822
+  },
+  {
+    "id": 522,
+    "review_rating": 5.0,
+    "positive_score": 0.8676683306694031,
+    "negative_score": 0.1323316991329193
+  },
+  {
+    "id": 523,
+    "review_rating": 5.0,
+    "positive_score": 0.9965420365333557,
+    "negative_score": 0.003457944141700864
+  },
+  {
+    "id": 524,
+    "review_rating": 4.0,
+    "positive_score": 0.10576590895652771,
+    "negative_score": 0.8942341208457947
+  },
+  {
+    "id": 525,
+    "review_rating": 5.0,
+    "positive_score": 0.9827612042427063,
+    "negative_score": 0.017238786444067955
+  },
+  {
+    "id": 526,
+    "review_rating": 5.0,
+    "positive_score": 0.528298556804657,
+    "negative_score": 0.47170138359069824
+  },
+  {
+    "id": 527,
+    "review_rating": 5.0,
+    "positive_score": 0.9885674715042114,
+    "negative_score": 0.011432540602982044
+  },
+  {
+    "id": 528,
+    "review_rating": 5.0,
+    "positive_score": 0.9391523003578186,
+    "negative_score": 0.06084767356514931
+  },
+  {
+    "id": 529,
+    "review_rating": 5.0,
+    "positive_score": 0.9553269147872925,
+    "negative_score": 0.044673141092061996
+  },
+  {
+    "id": 530,
+    "review_rating": 5.0,
+    "positive_score": 0.9867628216743469,
+    "negative_score": 0.013237214647233486
+  },
+  {
+    "id": 531,
+    "review_rating": 5.0,
+    "positive_score": 0.8712360262870789,
+    "negative_score": 0.12876395881175995
+  },
+  {
+    "id": 532,
+    "review_rating": 5.0,
+    "positive_score": 0.48849207162857056,
+    "negative_score": 0.5115079283714294
+  },
+  {
+    "id": 533,
+    "review_rating": 5.0,
+    "positive_score": 0.08931896835565567,
+    "negative_score": 0.9106810092926025
+  },
+  {
+    "id": 534,
+    "review_rating": 5.0,
+    "positive_score": 0.8719521760940552,
+    "negative_score": 0.1280478686094284
+  },
+  {
+    "id": 535,
+    "review_rating": 1.0,
+    "positive_score": 0.06718775629997253,
+    "negative_score": 0.9328122735023499
+  },
+  {
+    "id": 536,
+    "review_rating": 5.0,
+    "positive_score": 0.9781001210212708,
+    "negative_score": 0.02189984917640686
+  },
+  {
+    "id": 537,
+    "review_rating": 5.0,
+    "positive_score": 0.426081120967865,
+    "negative_score": 0.573918879032135
+  },
+  {
+    "id": 538,
+    "review_rating": 5.0,
+    "positive_score": 0.9954360127449036,
+    "negative_score": 0.00456398818641901
+  },
+  {
+    "id": 539,
+    "review_rating": 5.0,
+    "positive_score": 0.9078302979469299,
+    "negative_score": 0.09216969460248947
+  },
+  {
+    "id": 540,
+    "review_rating": 5.0,
+    "positive_score": 0.924268901348114,
+    "negative_score": 0.07573108375072479
+  },
+  {
+    "id": 541,
+    "review_rating": 5.0,
+    "positive_score": 0.02501359023153782,
+    "negative_score": 0.9749864339828491
+  },
+  {
+    "id": 542,
+    "review_rating": 5.0,
+    "positive_score": 0.8987765908241272,
+    "negative_score": 0.101223424077034
+  },
+  {
+    "id": 543,
+    "review_rating": 5.0,
+    "positive_score": 0.29331639409065247,
+    "negative_score": 0.7066836357116699
+  },
+  {
+    "id": 544,
+    "review_rating": 5.0,
+    "positive_score": 0.8136497735977173,
+    "negative_score": 0.18635018169879913
+  },
+  {
+    "id": 545,
+    "review_rating": 5.0,
+    "positive_score": 0.7900116443634033,
+    "negative_score": 0.20998835563659668
+  },
+  {
+    "id": 546,
+    "review_rating": 1.0,
+    "positive_score": 0.3741151690483093,
+    "negative_score": 0.6258848309516907
+  },
+  {
+    "id": 547,
+    "review_rating": 5.0,
+    "positive_score": 0.9946861267089844,
+    "negative_score": 0.0053138709627091885
+  },
+  {
+    "id": 548,
+    "review_rating": 5.0,
+    "positive_score": 0.11391977965831757,
+    "negative_score": 0.8860802054405212
+  },
+  {
+    "id": 549,
+    "review_rating": 5.0,
+    "positive_score": 0.9437307119369507,
+    "negative_score": 0.05626930668950081
+  },
+  {
+    "id": 550,
+    "review_rating": 4.0,
+    "positive_score": 0.012082762084901333,
+    "negative_score": 0.9879172444343567
+  },
+  {
+    "id": 551,
+    "review_rating": 5.0,
+    "positive_score": 0.9810703992843628,
+    "negative_score": 0.018929634243249893
+  },
+  {
+    "id": 552,
+    "review_rating": 5.0,
+    "positive_score": 0.9376566410064697,
+    "negative_score": 0.062343399971723557
+  },
+  {
+    "id": 553,
+    "review_rating": 5.0,
+    "positive_score": 0.6480163335800171,
+    "negative_score": 0.35198360681533813
+  },
+  {
+    "id": 554,
+    "review_rating": 3.0,
+    "positive_score": 0.012701766565442085,
+    "negative_score": 0.9872982501983643
+  },
+  {
+    "id": 555,
+    "review_rating": 5.0,
+    "positive_score": 0.16549861431121826,
+    "negative_score": 0.8345013856887817
+  },
+  {
+    "id": 556,
+    "review_rating": 5.0,
+    "positive_score": 0.9757444858551025,
+    "negative_score": 0.02425546944141388
+  },
+  {
+    "id": 557,
+    "review_rating": 5.0,
+    "positive_score": 0.9943320751190186,
+    "negative_score": 0.0056679267436265945
+  },
+  {
+    "id": 558,
+    "review_rating": 5.0,
+    "positive_score": 0.8313468098640442,
+    "negative_score": 0.16865313053131104
+  },
+  {
+    "id": 559,
+    "review_rating": 4.0,
+    "positive_score": 0.9739806652069092,
+    "negative_score": 0.026019349694252014
+  },
+  {
+    "id": 560,
+    "review_rating": 5.0,
+    "positive_score": 0.9882335662841797,
+    "negative_score": 0.011766388081014156
+  },
+  {
+    "id": 561,
+    "review_rating": 5.0,
+    "positive_score": 0.9949158430099487,
+    "negative_score": 0.0050841160118579865
+  },
+  {
+    "id": 562,
+    "review_rating": 4.0,
+    "positive_score": 0.026668548583984375,
+    "negative_score": 0.9733313918113708
+  },
+  {
+    "id": 563,
+    "review_rating": 5.0,
+    "positive_score": 0.9920614957809448,
+    "negative_score": 0.0079385656863451
+  },
+  {
+    "id": 564,
+    "review_rating": 5.0,
+    "positive_score": 0.9861761927604675,
+    "negative_score": 0.013823769055306911
+  },
+  {
+    "id": 565,
+    "review_rating": 5.0,
+    "positive_score": 0.9963217973709106,
+    "negative_score": 0.0036781944800168276
+  },
+  {
+    "id": 566,
+    "review_rating": 5.0,
+    "positive_score": 0.9591568112373352,
+    "negative_score": 0.040843214839696884
+  },
+  {
+    "id": 567,
+    "review_rating": 5.0,
+    "positive_score": 0.979128360748291,
+    "negative_score": 0.020871631801128387
+  },
+  {
+    "id": 568,
+    "review_rating": 5.0,
+    "positive_score": 0.6452566981315613,
+    "negative_score": 0.3547433018684387
+  },
+  {
+    "id": 569,
+    "review_rating": 5.0,
+    "positive_score": 0.9955183267593384,
+    "negative_score": 0.004481609910726547
+  },
+  {
+    "id": 570,
+    "review_rating": 3.0,
+    "positive_score": 0.1358802318572998,
+    "negative_score": 0.864119827747345
+  },
+  {
+    "id": 571,
+    "review_rating": 5.0,
+    "positive_score": 0.9944527745246887,
+    "negative_score": 0.005547244101762772
+  },
+  {
+    "id": 572,
+    "review_rating": 5.0,
+    "positive_score": 0.5601134896278381,
+    "negative_score": 0.4398864805698395
+  },
+  {
+    "id": 573,
+    "review_rating": 5.0,
+    "positive_score": 0.9897480010986328,
+    "negative_score": 0.01025201752781868
+  },
+  {
+    "id": 574,
+    "review_rating": 5.0,
+    "positive_score": 0.4884242117404938,
+    "negative_score": 0.5115758180618286
+  },
+  {
+    "id": 575,
+    "review_rating": 5.0,
+    "positive_score": 0.9918633699417114,
+    "negative_score": 0.008136630058288574
+  },
+  {
+    "id": 576,
+    "review_rating": 5.0,
+    "positive_score": 0.08410696685314178,
+    "negative_score": 0.9158930778503418
+  },
+  {
+    "id": 577,
+    "review_rating": 5.0,
+    "positive_score": 0.9954736828804016,
+    "negative_score": 0.0045263497158885
+  },
+  {
+    "id": 578,
+    "review_rating": 5.0,
+    "positive_score": 0.9529038667678833,
+    "negative_score": 0.047096166759729385
+  },
+  {
+    "id": 579,
+    "review_rating": 5.0,
+    "positive_score": 0.9657220840454102,
+    "negative_score": 0.03427790477871895
+  },
+  {
+    "id": 580,
+    "review_rating": 5.0,
+    "positive_score": 0.9917399883270264,
+    "negative_score": 0.008260000497102737
+  },
+  {
+    "id": 581,
+    "review_rating": 5.0,
+    "positive_score": 0.9738247394561768,
+    "negative_score": 0.02617521584033966
+  },
+  {
+    "id": 582,
+    "review_rating": 5.0,
+    "positive_score": 0.8945272564888,
+    "negative_score": 0.10547281056642532
+  },
+  {
+    "id": 583,
+    "review_rating": 5.0,
+    "positive_score": 0.9962253570556641,
+    "negative_score": 0.0037746119778603315
+  },
+  {
+    "id": 584,
+    "review_rating": 5.0,
+    "positive_score": 0.995353102684021,
+    "negative_score": 0.0046468982473015785
+  },
+  {
+    "id": 585,
+    "review_rating": 5.0,
+    "positive_score": 0.9897889494895935,
+    "negative_score": 0.010211058892309666
+  },
+  {
+    "id": 586,
+    "review_rating": 5.0,
+    "positive_score": 0.9944342970848083,
+    "negative_score": 0.005565750878304243
+  },
+  {
+    "id": 587,
+    "review_rating": 5.0,
+    "positive_score": 0.9943941831588745,
+    "negative_score": 0.0056058247573673725
+  },
+  {
+    "id": 588,
+    "review_rating": 5.0,
+    "positive_score": 0.9891513586044312,
+    "negative_score": 0.010848607867956161
+  },
+  {
+    "id": 589,
+    "review_rating": 5.0,
+    "positive_score": 0.9928390383720398,
+    "negative_score": 0.007161045912653208
+  },
+  {
+    "id": 590,
+    "review_rating": 5.0,
+    "positive_score": 0.9929637312889099,
+    "negative_score": 0.007036350201815367
+  },
+  {
+    "id": 591,
+    "review_rating": 5.0,
+    "positive_score": 0.9953283071517944,
+    "negative_score": 0.004671723581850529
+  },
+  {
+    "id": 592,
+    "review_rating": 5.0,
+    "positive_score": 0.9953991770744324,
+    "negative_score": 0.00460084667429328
+  },
+  {
+    "id": 593,
+    "review_rating": 5.0,
+    "positive_score": 0.9589223861694336,
+    "negative_score": 0.041077621281147
+  },
+  {
+    "id": 594,
+    "review_rating": 5.0,
+    "positive_score": 0.8697622418403625,
+    "negative_score": 0.13023774325847626
+  },
+  {
+    "id": 595,
+    "review_rating": 5.0,
+    "positive_score": 0.8665912747383118,
+    "negative_score": 0.13340875506401062
+  },
+  {
+    "id": 596,
+    "review_rating": 5.0,
+    "positive_score": 0.9613125920295715,
+    "negative_score": 0.0386873334646225
+  },
+  {
+    "id": 597,
+    "review_rating": 5.0,
+    "positive_score": 0.3282414972782135,
+    "negative_score": 0.6717585325241089
+  },
+  {
+    "id": 598,
+    "review_rating": 5.0,
+    "positive_score": 0.9782254695892334,
+    "negative_score": 0.021774519234895706
+  },
+  {
+    "id": 599,
+    "review_rating": 5.0,
+    "positive_score": 0.9937050938606262,
+    "negative_score": 0.006294928956776857
+  },
+  {
+    "id": 600,
+    "review_rating": 4.0,
+    "positive_score": 0.9561764597892761,
+    "negative_score": 0.043823521584272385
+  },
+  {
+    "id": 601,
+    "review_rating": 5.0,
+    "positive_score": 0.9918256998062134,
+    "negative_score": 0.008174240589141846
+  },
+  {
+    "id": 602,
+    "review_rating": 5.0,
+    "positive_score": 0.8498115539550781,
+    "negative_score": 0.15018847584724426
+  },
+  {
+    "id": 603,
+    "review_rating": 1.0,
+    "positive_score": 0.09053148329257965,
+    "negative_score": 0.9094684720039368
+  },
+  {
+    "id": 604,
+    "review_rating": 2.0,
+    "positive_score": 0.7086505889892578,
+    "negative_score": 0.2913494110107422
+  },
+  {
+    "id": 605,
+    "review_rating": 5.0,
+    "positive_score": 0.3062046766281128,
+    "negative_score": 0.6937952637672424
+  },
+  {
+    "id": 606,
+    "review_rating": 5.0,
+    "positive_score": 0.9913539290428162,
+    "negative_score": 0.008646070957183838
+  },
+  {
+    "id": 607,
+    "review_rating": 5.0,
+    "positive_score": 0.9942057728767395,
+    "negative_score": 0.005794293712824583
+  },
+  {
+    "id": 608,
+    "review_rating": 5.0,
+    "positive_score": 0.43881407380104065,
+    "negative_score": 0.561185896396637
+  },
+  {
+    "id": 609,
+    "review_rating": 5.0,
+    "positive_score": 0.9942135214805603,
+    "negative_score": 0.005786517169326544
+  },
+  {
+    "id": 610,
+    "review_rating": 5.0,
+    "positive_score": 0.9952521324157715,
+    "negative_score": 0.004747871309518814
+  },
+  {
+    "id": 611,
+    "review_rating": 4.0,
+    "positive_score": 0.06716826558113098,
+    "negative_score": 0.9328317642211914
+  },
+  {
+    "id": 612,
+    "review_rating": 1.0,
+    "positive_score": 0.0090501569211483,
+    "negative_score": 0.990949809551239
+  },
+  {
+    "id": 613,
+    "review_rating": 5.0,
+    "positive_score": 0.9940468072891235,
+    "negative_score": 0.005953239277005196
+  },
+  {
+    "id": 614,
+    "review_rating": 1.0,
+    "positive_score": 0.030048510059714317,
+    "negative_score": 0.9699515104293823
+  },
+  {
+    "id": 615,
+    "review_rating": 1.0,
+    "positive_score": 0.031923942267894745,
+    "negative_score": 0.9680761098861694
+  },
+  {
+    "id": 616,
+    "review_rating": 4.0,
+    "positive_score": 0.9861417412757874,
+    "negative_score": 0.013858218677341938
+  },
+  {
+    "id": 617,
+    "review_rating": 5.0,
+    "positive_score": 0.6783695816993713,
+    "negative_score": 0.3216303586959839
+  },
+  {
+    "id": 618,
+    "review_rating": 1.0,
+    "positive_score": 0.10344838351011276,
+    "negative_score": 0.8965516686439514
+  },
+  {
+    "id": 619,
+    "review_rating": 1.0,
+    "positive_score": 0.04776080325245857,
+    "negative_score": 0.9522391557693481
+  },
+  {
+    "id": 620,
+    "review_rating": 5.0,
+    "positive_score": 0.1230953261256218,
+    "negative_score": 0.8769047260284424
+  },
+  {
+    "id": 621,
+    "review_rating": 5.0,
+    "positive_score": 0.9892987012863159,
+    "negative_score": 0.010701235383749008
+  },
+  {
+    "id": 622,
+    "review_rating": 5.0,
+    "positive_score": 0.99601149559021,
+    "negative_score": 0.003988493699580431
+  },
+  {
+    "id": 623,
+    "review_rating": 5.0,
+    "positive_score": 0.9881709814071655,
+    "negative_score": 0.011829090304672718
+  },
+  {
+    "id": 624,
+    "review_rating": 5.0,
+    "positive_score": 0.950716495513916,
+    "negative_score": 0.049283456057310104
+  },
+  {
+    "id": 625,
+    "review_rating": 3.0,
+    "positive_score": 0.09396850317716599,
+    "negative_score": 0.9060315489768982
+  },
+  {
+    "id": 626,
+    "review_rating": 5.0,
+    "positive_score": 0.9957203269004822,
+    "negative_score": 0.00427968567237258
+  },
+  {
+    "id": 627,
+    "review_rating": 5.0,
+    "positive_score": 0.9885137677192688,
+    "negative_score": 0.011486207135021687
+  },
+  {
+    "id": 628,
+    "review_rating": 5.0,
+    "positive_score": 0.9869368672370911,
+    "negative_score": 0.01306317187845707
+  },
+  {
+    "id": 629,
+    "review_rating": 5.0,
+    "positive_score": 0.98956698179245,
+    "negative_score": 0.01043303869664669
+  },
+  {
+    "id": 630,
+    "review_rating": 5.0,
+    "positive_score": 0.9792565107345581,
+    "negative_score": 0.02074352651834488
+  },
+  {
+    "id": 631,
+    "review_rating": 5.0,
+    "positive_score": 0.9872466325759888,
+    "negative_score": 0.012753339484333992
+  },
+  {
+    "id": 632,
+    "review_rating": 5.0,
+    "positive_score": 0.9786790013313293,
+    "negative_score": 0.0213210079818964
+  },
+  {
+    "id": 633,
+    "review_rating": 5.0,
+    "positive_score": 0.9904258847236633,
+    "negative_score": 0.009574160911142826
+  },
+  {
+    "id": 634,
+    "review_rating": 5.0,
+    "positive_score": 0.13264811038970947,
+    "negative_score": 0.8673519492149353
+  },
+  {
+    "id": 635,
+    "review_rating": 5.0,
+    "positive_score": 0.9872461557388306,
+    "negative_score": 0.012753807008266449
+  },
+  {
+    "id": 636,
+    "review_rating": 5.0,
+    "positive_score": 0.9372003674507141,
+    "negative_score": 0.06279962509870529
+  },
+  {
+    "id": 637,
+    "review_rating": 5.0,
+    "positive_score": 0.9519511461257935,
+    "negative_score": 0.04804885387420654
+  },
+  {
+    "id": 638,
+    "review_rating": 5.0,
+    "positive_score": 0.9448145627975464,
+    "negative_score": 0.05518543720245361
+  },
+  {
+    "id": 639,
+    "review_rating": 5.0,
+    "positive_score": 0.9880980849266052,
+    "negative_score": 0.011901898309588432
+  },
+  {
+    "id": 640,
+    "review_rating": 5.0,
+    "positive_score": 0.9798060059547424,
+    "negative_score": 0.02019396238029003
+  },
+  {
+    "id": 641,
+    "review_rating": 5.0,
+    "positive_score": 0.7622077465057373,
+    "negative_score": 0.2377922534942627
+  },
+  {
+    "id": 642,
+    "review_rating": 5.0,
+    "positive_score": 0.9500404000282288,
+    "negative_score": 0.04995952546596527
+  },
+  {
+    "id": 643,
+    "review_rating": 5.0,
+    "positive_score": 0.9589312672615051,
+    "negative_score": 0.041068773716688156
+  },
+  {
+    "id": 644,
+    "review_rating": 5.0,
+    "positive_score": 0.967627227306366,
+    "negative_score": 0.032372791320085526
+  },
+  {
+    "id": 645,
+    "review_rating": 5.0,
+    "positive_score": 0.9488326907157898,
+    "negative_score": 0.051167260855436325
+  },
+  {
+    "id": 646,
+    "review_rating": 5.0,
+    "positive_score": 0.9809144735336304,
+    "negative_score": 0.019085576757788658
+  },
+  {
+    "id": 647,
+    "review_rating": 5.0,
+    "positive_score": 0.05482719838619232,
+    "negative_score": 0.9451727867126465
+  },
+  {
+    "id": 648,
+    "review_rating": 3.0,
+    "positive_score": 0.0386478528380394,
+    "negative_score": 0.9613521695137024
+  },
+  {
+    "id": 649,
+    "review_rating": 5.0,
+    "positive_score": 0.9913152456283569,
+    "negative_score": 0.008684725500643253
+  },
+  {
+    "id": 650,
+    "review_rating": 5.0,
+    "positive_score": 0.9290238618850708,
+    "negative_score": 0.07097616791725159
+  },
+  {
+    "id": 651,
+    "review_rating": 5.0,
+    "positive_score": 0.9866559505462646,
+    "negative_score": 0.01334404293447733
+  },
+  {
+    "id": 652,
+    "review_rating": 5.0,
+    "positive_score": 0.9949839115142822,
+    "negative_score": 0.005016126204282045
+  },
+  {
+    "id": 653,
+    "review_rating": 5.0,
+    "positive_score": 0.5747783780097961,
+    "negative_score": 0.42522159218788147
+  },
+  {
+    "id": 654,
+    "review_rating": 5.0,
+    "positive_score": 0.09908492863178253,
+    "negative_score": 0.9009150862693787
+  },
+  {
+    "id": 655,
+    "review_rating": 5.0,
+    "positive_score": 0.9677401781082153,
+    "negative_score": 0.03225976973772049
+  },
+  {
+    "id": 656,
+    "review_rating": 5.0,
+    "positive_score": 0.9758819341659546,
+    "negative_score": 0.02411806769669056
+  },
+  {
+    "id": 657,
+    "review_rating": 5.0,
+    "positive_score": 0.9917612075805664,
+    "negative_score": 0.00823873933404684
+  },
+  {
+    "id": 658,
+    "review_rating": 5.0,
+    "positive_score": 0.9861409664154053,
+    "negative_score": 0.013859053142368793
+  },
+  {
+    "id": 659,
+    "review_rating": 5.0,
+    "positive_score": 0.9832203388214111,
+    "negative_score": 0.016779594123363495
+  },
+  {
+    "id": 660,
+    "review_rating": 5.0,
+    "positive_score": 0.9957088232040405,
+    "negative_score": 0.00429114094004035
+  },
+  {
+    "id": 661,
+    "review_rating": 5.0,
+    "positive_score": 0.9939048886299133,
+    "negative_score": 0.006095076911151409
+  },
+  {
+    "id": 662,
+    "review_rating": 5.0,
+    "positive_score": 0.9933311343193054,
+    "negative_score": 0.006668846122920513
+  },
+  {
+    "id": 663,
+    "review_rating": 5.0,
+    "positive_score": 0.9682264924049377,
+    "negative_score": 0.03177348151803017
+  },
+  {
+    "id": 664,
+    "review_rating": 5.0,
+    "positive_score": 0.4827556014060974,
+    "negative_score": 0.5172443985939026
+  },
+  {
+    "id": 665,
+    "review_rating": 5.0,
+    "positive_score": 0.21557138860225677,
+    "negative_score": 0.784428596496582
+  },
+  {
+    "id": 666,
+    "review_rating": 5.0,
+    "positive_score": 0.9668411612510681,
+    "negative_score": 0.033158861100673676
+  },
+  {
+    "id": 667,
+    "review_rating": 5.0,
+    "positive_score": 0.5787522792816162,
+    "negative_score": 0.4212476909160614
+  },
+  {
+    "id": 668,
+    "review_rating": 5.0,
+    "positive_score": 0.9060603976249695,
+    "negative_score": 0.09393957257270813
+  },
+  {
+    "id": 669,
+    "review_rating": 5.0,
+    "positive_score": 0.9954642653465271,
+    "negative_score": 0.004535765387117863
+  },
+  {
+    "id": 670,
+    "review_rating": 5.0,
+    "positive_score": 0.9209418892860413,
+    "negative_score": 0.07905816286802292
+  },
+  {
+    "id": 671,
+    "review_rating": 5.0,
+    "positive_score": 0.9818711280822754,
+    "negative_score": 0.01812892220914364
+  },
+  {
+    "id": 672,
+    "review_rating": 5.0,
+    "positive_score": 0.9909632802009583,
+    "negative_score": 0.00903670396655798
+  },
+  {
+    "id": 673,
+    "review_rating": 5.0,
+    "positive_score": 0.9922425746917725,
+    "negative_score": 0.007757444866001606
+  },
+  {
+    "id": 674,
+    "review_rating": 3.0,
+    "positive_score": 0.7264140844345093,
+    "negative_score": 0.27358588576316833
+  },
+  {
+    "id": 675,
+    "review_rating": 5.0,
+    "positive_score": 0.984954833984375,
+    "negative_score": 0.015045229345560074
+  },
+  {
+    "id": 676,
+    "review_rating": 5.0,
+    "positive_score": 0.9934957027435303,
+    "negative_score": 0.006504318676888943
+  },
+  {
+    "id": 677,
+    "review_rating": 5.0,
+    "positive_score": 0.5329582691192627,
+    "negative_score": 0.46704167127609253
+  },
+  {
+    "id": 678,
+    "review_rating": 5.0,
+    "positive_score": 0.6972388625144958,
+    "negative_score": 0.30276113748550415
+  },
+  {
+    "id": 679,
+    "review_rating": 5.0,
+    "positive_score": 0.993435263633728,
+    "negative_score": 0.006564790848642588
+  },
+  {
+    "id": 680,
+    "review_rating": 5.0,
+    "positive_score": 0.9921407103538513,
+    "negative_score": 0.007859298028051853
+  },
+  {
+    "id": 681,
+    "review_rating": 5.0,
+    "positive_score": 0.9828893542289734,
+    "negative_score": 0.017110664397478104
+  },
+  {
+    "id": 682,
+    "review_rating": 5.0,
+    "positive_score": 0.9401291608810425,
+    "negative_score": 0.05987081676721573
+  },
+  {
+    "id": 683,
+    "review_rating": 5.0,
+    "positive_score": 0.9629619717597961,
+    "negative_score": 0.03703801706433296
+  },
+  {
+    "id": 684,
+    "review_rating": 5.0,
+    "positive_score": 0.9835435152053833,
+    "negative_score": 0.0164564847946167
+  },
+  {
+    "id": 685,
+    "review_rating": 5.0,
+    "positive_score": 0.9808121919631958,
+    "negative_score": 0.01918787695467472
+  },
+  {
+    "id": 686,
+    "review_rating": 5.0,
+    "positive_score": 0.9623969793319702,
+    "negative_score": 0.0376029871404171
+  },
+  {
+    "id": 687,
+    "review_rating": 5.0,
+    "positive_score": 0.9493167400360107,
+    "negative_score": 0.050683215260505676
+  },
+  {
+    "id": 688,
+    "review_rating": 5.0,
+    "positive_score": 0.9954168796539307,
+    "negative_score": 0.004583087284117937
+  },
+  {
+    "id": 689,
+    "review_rating": 5.0,
+    "positive_score": 0.9813531637191772,
+    "negative_score": 0.01864679530262947
+  },
+  {
+    "id": 690,
+    "review_rating": 5.0,
+    "positive_score": 0.9586243033409119,
+    "negative_score": 0.041375722736120224
+  },
+  {
+    "id": 691,
+    "review_rating": 5.0,
+    "positive_score": 0.5068455338478088,
+    "negative_score": 0.4931544363498688
+  },
+  {
+    "id": 692,
+    "review_rating": 5.0,
+    "positive_score": 0.9541208744049072,
+    "negative_score": 0.045879065990448
+  },
+  {
+    "id": 693,
+    "review_rating": 5.0,
+    "positive_score": 0.9751987457275391,
+    "negative_score": 0.024801285937428474
+  },
+  {
+    "id": 694,
+    "review_rating": 5.0,
+    "positive_score": 0.5708938241004944,
+    "negative_score": 0.4291061460971832
+  },
+  {
+    "id": 695,
+    "review_rating": 5.0,
+    "positive_score": 0.3500431180000305,
+    "negative_score": 0.6499568819999695
+  },
+  {
+    "id": 696,
+    "review_rating": 5.0,
+    "positive_score": 0.9950685501098633,
+    "negative_score": 0.004931422416120768
+  },
+  {
+    "id": 697,
+    "review_rating": 5.0,
+    "positive_score": 0.9852123260498047,
+    "negative_score": 0.014787664636969566
+  },
+  {
+    "id": 698,
+    "review_rating": 5.0,
+    "positive_score": 0.9717117547988892,
+    "negative_score": 0.028288213536143303
+  },
+  {
+    "id": 699,
+    "review_rating": 5.0,
+    "positive_score": 0.8026583194732666,
+    "negative_score": 0.19734162092208862
+  },
+  {
+    "id": 700,
+    "review_rating": 5.0,
+    "positive_score": 0.758082389831543,
+    "negative_score": 0.24191762506961823
+  },
+  {
+    "id": 701,
+    "review_rating": 5.0,
+    "positive_score": 0.9955315589904785,
+    "negative_score": 0.004468467552214861
+  },
+  {
+    "id": 702,
+    "review_rating": 4.0,
+    "positive_score": 0.6011505126953125,
+    "negative_score": 0.3988494873046875
+  },
+  {
+    "id": 703,
+    "review_rating": 5.0,
+    "positive_score": 0.8681331872940063,
+    "negative_score": 0.13186676800251007
+  },
+  {
+    "id": 704,
+    "review_rating": 5.0,
+    "positive_score": 0.6803910732269287,
+    "negative_score": 0.3196088969707489
+  },
+  {
+    "id": 705,
+    "review_rating": 5.0,
+    "positive_score": 0.9917293190956116,
+    "negative_score": 0.008270627819001675
+  },
+  {
+    "id": 706,
+    "review_rating": 5.0,
+    "positive_score": 0.96663898229599,
+    "negative_score": 0.03336106613278389
+  },
+  {
+    "id": 707,
+    "review_rating": 5.0,
+    "positive_score": 0.9963843822479248,
+    "negative_score": 0.003615599125623703
+  },
+  {
+    "id": 708,
+    "review_rating": 5.0,
+    "positive_score": 0.8951542973518372,
+    "negative_score": 0.10484568029642105
+  },
+  {
+    "id": 709,
+    "review_rating": 5.0,
+    "positive_score": 0.9871042370796204,
+    "negative_score": 0.01289583183825016
+  },
+  {
+    "id": 710,
+    "review_rating": 5.0,
+    "positive_score": 0.994354248046875,
+    "negative_score": 0.005645820405334234
+  },
+  {
+    "id": 711,
+    "review_rating": 5.0,
+    "positive_score": 0.9944632649421692,
+    "negative_score": 0.005536684300750494
+  },
+  {
+    "id": 712,
+    "review_rating": 5.0,
+    "positive_score": 0.9664653539657593,
+    "negative_score": 0.033534713089466095
+  },
+  {
+    "id": 713,
+    "review_rating": 5.0,
+    "positive_score": 0.9958751797676086,
+    "negative_score": 0.004124816507101059
+  },
+  {
+    "id": 714,
+    "review_rating": 5.0,
+    "positive_score": 0.4915291666984558,
+    "negative_score": 0.5084708333015442
+  },
+  {
+    "id": 715,
+    "review_rating": 5.0,
+    "positive_score": 0.963415265083313,
+    "negative_score": 0.03658469393849373
+  },
+  {
+    "id": 716,
+    "review_rating": 5.0,
+    "positive_score": 0.9792675971984863,
+    "negative_score": 0.020732389762997627
+  },
+  {
+    "id": 717,
+    "review_rating": 5.0,
+    "positive_score": 0.9946693778038025,
+    "negative_score": 0.005330619867891073
+  },
+  {
+    "id": 718,
+    "review_rating": 5.0,
+    "positive_score": 0.9934345483779907,
+    "negative_score": 0.006565487012267113
+  },
+  {
+    "id": 719,
+    "review_rating": 5.0,
+    "positive_score": 0.6557506918907166,
+    "negative_score": 0.34424927830696106
+  },
+  {
+    "id": 720,
+    "review_rating": 5.0,
+    "positive_score": 0.3340776860713959,
+    "negative_score": 0.6659222841262817
+  },
+  {
+    "id": 721,
+    "review_rating": 5.0,
+    "positive_score": 0.3341559171676636,
+    "negative_score": 0.6658440828323364
+  },
+  {
+    "id": 722,
+    "review_rating": 5.0,
+    "positive_score": 0.9954909682273865,
+    "negative_score": 0.0045090350322425365
+  },
+  {
+    "id": 723,
+    "review_rating": 5.0,
+    "positive_score": 0.9930211901664734,
+    "negative_score": 0.006978844758123159
+  },
+  {
+    "id": 724,
+    "review_rating": 5.0,
+    "positive_score": 0.9929591417312622,
+    "negative_score": 0.007040882017463446
+  },
+  {
+    "id": 725,
+    "review_rating": 5.0,
+    "positive_score": 0.9917098879814148,
+    "negative_score": 0.008290108293294907
+  },
+  {
+    "id": 726,
+    "review_rating": 5.0,
+    "positive_score": 0.9961110949516296,
+    "negative_score": 0.0038888773415237665
+  },
+  {
+    "id": 727,
+    "review_rating": 5.0,
+    "positive_score": 0.9939759373664856,
+    "negative_score": 0.006024132948368788
+  },
+  {
+    "id": 728,
+    "review_rating": 5.0,
+    "positive_score": 0.9962586164474487,
+    "negative_score": 0.0037413924001157284
+  },
+  {
+    "id": 729,
+    "review_rating": 5.0,
+    "positive_score": 0.9933887720108032,
+    "negative_score": 0.006611230317503214
+  },
+  {
+    "id": 730,
+    "review_rating": 5.0,
+    "positive_score": 0.9966377019882202,
+    "negative_score": 0.0033623052295297384
+  },
+  {
+    "id": 731,
+    "review_rating": 5.0,
+    "positive_score": 0.9914299845695496,
+    "negative_score": 0.008569978177547455
+  },
+  {
+    "id": 732,
+    "review_rating": 5.0,
+    "positive_score": 0.9887775778770447,
+    "negative_score": 0.011222475208342075
+  },
+  {
+    "id": 733,
+    "review_rating": 5.0,
+    "positive_score": 0.9916155934333801,
+    "negative_score": 0.008384441025555134
+  },
+  {
+    "id": 734,
+    "review_rating": 5.0,
+    "positive_score": 0.9963512420654297,
+    "negative_score": 0.0036486932076513767
+  },
+  {
+    "id": 735,
+    "review_rating": 5.0,
+    "positive_score": 0.9960461258888245,
+    "negative_score": 0.003953882493078709
+  },
+  {
+    "id": 736,
+    "review_rating": 5.0,
+    "positive_score": 0.662395179271698,
+    "negative_score": 0.3376047909259796
+  },
+  {
+    "id": 737,
+    "review_rating": 2.0,
+    "positive_score": 0.002792349550873041,
+    "negative_score": 0.9972075819969177
+  },
+  {
+    "id": 738,
+    "review_rating": 5.0,
+    "positive_score": 0.9954120516777039,
+    "negative_score": 0.004588006529957056
+  },
+  {
+    "id": 739,
+    "review_rating": 5.0,
+    "positive_score": 0.9931811690330505,
+    "negative_score": 0.00681880209594965
+  },
+  {
+    "id": 740,
+    "review_rating": 5.0,
+    "positive_score": 0.7149083018302917,
+    "negative_score": 0.28509172797203064
+  },
+  {
+    "id": 741,
+    "review_rating": 5.0,
+    "positive_score": 0.993751585483551,
+    "negative_score": 0.006248366553336382
+  },
+  {
+    "id": 742,
+    "review_rating": 5.0,
+    "positive_score": 0.9936920404434204,
+    "negative_score": 0.006307925563305616
+  },
+  {
+    "id": 743,
+    "review_rating": 5.0,
+    "positive_score": 0.8910520076751709,
+    "negative_score": 0.10894801467657089
+  },
+  {
+    "id": 744,
+    "review_rating": 5.0,
+    "positive_score": 0.9902052283287048,
+    "negative_score": 0.009794775396585464
+  },
+  {
+    "id": 745,
+    "review_rating": 5.0,
+    "positive_score": 0.9956426620483398,
+    "negative_score": 0.004357300233095884
+  },
+  {
+    "id": 746,
+    "review_rating": 5.0,
+    "positive_score": 0.9551935195922852,
+    "negative_score": 0.04480641707777977
+  },
+  {
+    "id": 747,
+    "review_rating": 5.0,
+    "positive_score": 0.9787771701812744,
+    "negative_score": 0.0212227925658226
+  },
+  {
+    "id": 748,
+    "review_rating": 5.0,
+    "positive_score": 0.994996190071106,
+    "negative_score": 0.005003825295716524
+  },
+  {
+    "id": 749,
+    "review_rating": 5.0,
+    "positive_score": 0.9892838597297668,
+    "negative_score": 0.01071613933891058
+  },
+  {
+    "id": 750,
+    "review_rating": 5.0,
+    "positive_score": 0.9928377270698547,
+    "negative_score": 0.007162272930145264
+  },
+  {
+    "id": 751,
+    "review_rating": 5.0,
+    "positive_score": 0.9911818504333496,
+    "negative_score": 0.008818100206553936
+  },
+  {
+    "id": 752,
+    "review_rating": 5.0,
+    "positive_score": 0.9861490726470947,
+    "negative_score": 0.013850875198841095
+  },
+  {
+    "id": 753,
+    "review_rating": 1.0,
+    "positive_score": 0.9321401715278625,
+    "negative_score": 0.06785986572504044
+  },
+  {
+    "id": 754,
+    "review_rating": 5.0,
+    "positive_score": 0.5133205056190491,
+    "negative_score": 0.48667943477630615
+  },
+  {
+    "id": 755,
+    "review_rating": 5.0,
+    "positive_score": 0.9786750078201294,
+    "negative_score": 0.021324966102838516
+  },
+  {
+    "id": 756,
+    "review_rating": 1.0,
+    "positive_score": 0.044271036982536316,
+    "negative_score": 0.9557289481163025
+  },
+  {
+    "id": 757,
+    "review_rating": 4.0,
+    "positive_score": 0.2347637563943863,
+    "negative_score": 0.7652362585067749
+  },
+  {
+    "id": 758,
+    "review_rating": 1.0,
+    "positive_score": 0.016475528478622437,
+    "negative_score": 0.9835244417190552
+  },
+  {
+    "id": 759,
+    "review_rating": 5.0,
+    "positive_score": 0.9967337846755981,
+    "negative_score": 0.003266275627538562
+  },
+  {
+    "id": 760,
+    "review_rating": 5.0,
+    "positive_score": 0.9958490133285522,
+    "negative_score": 0.0041510071605443954
+  },
+  {
+    "id": 761,
+    "review_rating": 1.0,
+    "positive_score": 0.10748479515314102,
+    "negative_score": 0.892515242099762
+  },
+  {
+    "id": 762,
+    "review_rating": 5.0,
+    "positive_score": 0.9943912625312805,
+    "negative_score": 0.005608749110251665
+  },
+  {
+    "id": 763,
+    "review_rating": 5.0,
+    "positive_score": 0.9770326614379883,
+    "negative_score": 0.022967340424656868
+  },
+  {
+    "id": 764,
+    "review_rating": 2.0,
+    "positive_score": 0.2895568609237671,
+    "negative_score": 0.7104431390762329
+  },
+  {
+    "id": 765,
+    "review_rating": 5.0,
+    "positive_score": 0.9440707564353943,
+    "negative_score": 0.055929169058799744
+  },
+  {
+    "id": 766,
+    "review_rating": 5.0,
+    "positive_score": 0.9809158444404602,
+    "negative_score": 0.019084185361862183
+  },
+  {
+    "id": 767,
+    "review_rating": 5.0,
+    "positive_score": 0.9941332936286926,
+    "negative_score": 0.005866675172001123
+  },
+  {
+    "id": 768,
+    "review_rating": 5.0,
+    "positive_score": 0.9314754605293274,
+    "negative_score": 0.0685245618224144
+  },
+  {
+    "id": 769,
+    "review_rating": 5.0,
+    "positive_score": 0.9928600192070007,
+    "negative_score": 0.007139941677451134
+  },
+  {
+    "id": 770,
+    "review_rating": 5.0,
+    "positive_score": 0.9386504292488098,
+    "negative_score": 0.061349548399448395
+  },
+  {
+    "id": 771,
+    "review_rating": 5.0,
+    "positive_score": 0.9871359467506409,
+    "negative_score": 0.012864025309681892
+  },
+  {
+    "id": 772,
+    "review_rating": 5.0,
+    "positive_score": 0.9860177636146545,
+    "negative_score": 0.013982251286506653
+  },
+  {
+    "id": 773,
+    "review_rating": 5.0,
+    "positive_score": 0.9931574463844299,
+    "negative_score": 0.0068425522185862064
+  },
+  {
+    "id": 774,
+    "review_rating": 5.0,
+    "positive_score": 0.7858183979988098,
+    "negative_score": 0.21418163180351257
+  },
+  {
+    "id": 775,
+    "review_rating": 5.0,
+    "positive_score": 0.6825006008148193,
+    "negative_score": 0.31749942898750305
+  },
+  {
+    "id": 776,
+    "review_rating": 5.0,
+    "positive_score": 0.890653669834137,
+    "negative_score": 0.10934634506702423
+  },
+  {
+    "id": 777,
+    "review_rating": 5.0,
+    "positive_score": 0.2816524803638458,
+    "negative_score": 0.7183474898338318
+  },
+  {
+    "id": 778,
+    "review_rating": 5.0,
+    "positive_score": 0.9163018465042114,
+    "negative_score": 0.08369815349578857
+  },
+  {
+    "id": 779,
+    "review_rating": 5.0,
+    "positive_score": 0.7269521951675415,
+    "negative_score": 0.27304786443710327
+  },
+  {
+    "id": 780,
+    "review_rating": 5.0,
+    "positive_score": 0.9846936464309692,
+    "negative_score": 0.015306325629353523
+  },
+  {
+    "id": 781,
+    "review_rating": 5.0,
+    "positive_score": 0.9420202970504761,
+    "negative_score": 0.057979732751846313
+  },
+  {
+    "id": 782,
+    "review_rating": 5.0,
+    "positive_score": 0.9917705059051514,
+    "negative_score": 0.008229503408074379
+  },
+  {
+    "id": 783,
+    "review_rating": 4.0,
+    "positive_score": 0.5239643454551697,
+    "negative_score": 0.4760356545448303
+  },
+  {
+    "id": 784,
+    "review_rating": 5.0,
+    "positive_score": 0.20010598003864288,
+    "negative_score": 0.7998939752578735
+  },
+  {
+    "id": 785,
+    "review_rating": 5.0,
+    "positive_score": 0.9756386876106262,
+    "negative_score": 0.024361316114664078
+  },
+  {
+    "id": 786,
+    "review_rating": 5.0,
+    "positive_score": 0.45484840869903564,
+    "negative_score": 0.5451515913009644
+  },
+  {
+    "id": 787,
+    "review_rating": 5.0,
+    "positive_score": 0.9295761585235596,
+    "negative_score": 0.07042384892702103
+  },
+  {
+    "id": 788,
+    "review_rating": 5.0,
+    "positive_score": 0.8534680604934692,
+    "negative_score": 0.14653196930885315
+  },
+  {
+    "id": 789,
+    "review_rating": 5.0,
+    "positive_score": 0.03567148372530937,
+    "negative_score": 0.9643285274505615
+  },
+  {
+    "id": 790,
+    "review_rating": 5.0,
+    "positive_score": 0.9856764078140259,
+    "negative_score": 0.014323544688522816
+  },
+  {
+    "id": 791,
+    "review_rating": 5.0,
+    "positive_score": 0.9911001324653625,
+    "negative_score": 0.008899851702153683
+  },
+  {
+    "id": 792,
+    "review_rating": 5.0,
+    "positive_score": 0.9848983883857727,
+    "negative_score": 0.015101571567356586
+  },
+  {
+    "id": 793,
+    "review_rating": 5.0,
+    "positive_score": 0.9946763515472412,
+    "negative_score": 0.005323699209839106
+  },
+  {
+    "id": 794,
+    "review_rating": 5.0,
+    "positive_score": 0.9061835408210754,
+    "negative_score": 0.09381651878356934
+  },
+  {
+    "id": 795,
+    "review_rating": 5.0,
+    "positive_score": 0.9635453224182129,
+    "negative_score": 0.036454711109399796
+  },
+  {
+    "id": 796,
+    "review_rating": 5.0,
+    "positive_score": 0.5133205056190491,
+    "negative_score": 0.48667943477630615
+  },
+  {
+    "id": 797,
+    "review_rating": 5.0,
+    "positive_score": 0.9960642457008362,
+    "negative_score": 0.003935790620744228
+  },
+  {
+    "id": 798,
+    "review_rating": 5.0,
+    "positive_score": 0.9786750078201294,
+    "negative_score": 0.021324966102838516
+  },
+  {
+    "id": 799,
+    "review_rating": 5.0,
+    "positive_score": 0.9783350825309753,
+    "negative_score": 0.021664880216121674
+  },
+  {
+    "id": 800,
+    "review_rating": 5.0,
+    "positive_score": 0.4190064072608948,
+    "negative_score": 0.5809935927391052
+  },
+  {
+    "id": 801,
+    "review_rating": 5.0,
+    "positive_score": 0.9750016331672668,
+    "negative_score": 0.024998297914862633
+  },
+  {
+    "id": 802,
+    "review_rating": 1.0,
+    "positive_score": 0.044271036982536316,
+    "negative_score": 0.9557289481163025
+  },
+  {
+    "id": 803,
+    "review_rating": 5.0,
+    "positive_score": 0.9723377823829651,
+    "negative_score": 0.027662182226777077
+  },
+  {
+    "id": 804,
+    "review_rating": 5.0,
+    "positive_score": 0.9663582444190979,
+    "negative_score": 0.03364173695445061
+  },
+  {
+    "id": 805,
+    "review_rating": 5.0,
+    "positive_score": 0.9466444253921509,
+    "negative_score": 0.05335564538836479
+  },
+  {
+    "id": 806,
+    "review_rating": 5.0,
+    "positive_score": 0.9434842467308044,
+    "negative_score": 0.056515756994485855
+  },
+  {
+    "id": 807,
+    "review_rating": 5.0,
+    "positive_score": 0.9916591048240662,
+    "negative_score": 0.008340920321643353
+  },
+  {
+    "id": 808,
+    "review_rating": 5.0,
+    "positive_score": 0.9833747148513794,
+    "negative_score": 0.01662527397274971
+  },
+  {
+    "id": 809,
+    "review_rating": 5.0,
+    "positive_score": 0.4220224618911743,
+    "negative_score": 0.5779775381088257
+  },
+  {
+    "id": 810,
+    "review_rating": 5.0,
+    "positive_score": 0.8809677362442017,
+    "negative_score": 0.11903230100870132
+  },
+  {
+    "id": 811,
+    "review_rating": 5.0,
+    "positive_score": 0.9763063788414001,
+    "negative_score": 0.023693589493632317
+  },
+  {
+    "id": 812,
+    "review_rating": 5.0,
+    "positive_score": 0.9944469928741455,
+    "negative_score": 0.005552961956709623
+  },
+  {
+    "id": 813,
+    "review_rating": 5.0,
+    "positive_score": 0.9952102303504944,
+    "negative_score": 0.0047897291369736195
+  },
+  {
+    "id": 814,
+    "review_rating": 5.0,
+    "positive_score": 0.46603357791900635,
+    "negative_score": 0.5339664220809937
+  },
+  {
+    "id": 815,
+    "review_rating": 5.0,
+    "positive_score": 0.039744846522808075,
+    "negative_score": 0.9602552056312561
+  },
+  {
+    "id": 816,
+    "review_rating": 5.0,
+    "positive_score": 0.14103803038597107,
+    "negative_score": 0.8589619994163513
+  },
+  {
+    "id": 817,
+    "review_rating": 5.0,
+    "positive_score": 0.9954387545585632,
+    "negative_score": 0.004561315756291151
+  },
+  {
+    "id": 818,
+    "review_rating": 5.0,
+    "positive_score": 0.8556336164474487,
+    "negative_score": 0.14436638355255127
+  },
+  {
+    "id": 819,
+    "review_rating": 3.0,
+    "positive_score": 0.5617354512214661,
+    "negative_score": 0.4382645785808563
+  },
+  {
+    "id": 820,
+    "review_rating": 4.0,
+    "positive_score": 0.8810604214668274,
+    "negative_score": 0.11893956363201141
+  },
+  {
+    "id": 821,
+    "review_rating": 5.0,
+    "positive_score": 0.96380215883255,
+    "negative_score": 0.03619788587093353
+  },
+  {
+    "id": 822,
+    "review_rating": 5.0,
+    "positive_score": 0.0991469994187355,
+    "negative_score": 0.9008529782295227
+  },
+  {
+    "id": 823,
+    "review_rating": 5.0,
+    "positive_score": 0.8763972520828247,
+    "negative_score": 0.12360275536775589
+  },
+  {
+    "id": 824,
+    "review_rating": 5.0,
+    "positive_score": 0.9712656736373901,
+    "negative_score": 0.028734279796481133
+  },
+  {
+    "id": 825,
+    "review_rating": 3.0,
+    "positive_score": 0.9918591380119324,
+    "negative_score": 0.00814090296626091
+  },
+  {
+    "id": 826,
+    "review_rating": 5.0,
+    "positive_score": 0.9953836798667908,
+    "negative_score": 0.004616350866854191
+  },
+  {
+    "id": 827,
+    "review_rating": 2.0,
+    "positive_score": 0.8390009999275208,
+    "negative_score": 0.16099898517131805
+  },
+  {
+    "id": 828,
+    "review_rating": 5.0,
+    "positive_score": 0.9722511172294617,
+    "negative_score": 0.02774883806705475
+  },
+  {
+    "id": 829,
+    "review_rating": 5.0,
+    "positive_score": 0.9910310506820679,
+    "negative_score": 0.008969016373157501
+  },
+  {
+    "id": 830,
+    "review_rating": 5.0,
+    "positive_score": 0.3949469029903412,
+    "negative_score": 0.6050531268119812
+  },
+  {
+    "id": 831,
+    "review_rating": 5.0,
+    "positive_score": 0.9917218089103699,
+    "negative_score": 0.008278128691017628
+  },
+  {
+    "id": 832,
+    "review_rating": 4.0,
+    "positive_score": 0.7841293811798096,
+    "negative_score": 0.215870663523674
+  },
+  {
+    "id": 833,
+    "review_rating": 5.0,
+    "positive_score": 0.5281314849853516,
+    "negative_score": 0.47186851501464844
+  },
+  {
+    "id": 834,
+    "review_rating": 5.0,
+    "positive_score": 0.09759224951267242,
+    "negative_score": 0.902407705783844
+  },
+  {
+    "id": 835,
+    "review_rating": 5.0,
+    "positive_score": 0.9266242384910583,
+    "negative_score": 0.07337569445371628
+  },
+  {
+    "id": 836,
+    "review_rating": 5.0,
+    "positive_score": 0.8316129446029663,
+    "negative_score": 0.16838699579238892
+  },
+  {
+    "id": 837,
+    "review_rating": 5.0,
+    "positive_score": 0.9961473941802979,
+    "negative_score": 0.0038526211865246296
+  },
+  {
+    "id": 838,
+    "review_rating": 5.0,
+    "positive_score": 0.9920965433120728,
+    "negative_score": 0.00790341291576624
+  },
+  {
+    "id": 839,
+    "review_rating": 5.0,
+    "positive_score": 0.9960657954216003,
+    "negative_score": 0.003934183157980442
+  },
+  {
+    "id": 840,
+    "review_rating": 5.0,
+    "positive_score": 0.9948338270187378,
+    "negative_score": 0.005166123155504465
+  },
+  {
+    "id": 841,
+    "review_rating": 5.0,
+    "positive_score": 0.9958000779151917,
+    "negative_score": 0.004199907649308443
+  },
+  {
+    "id": 842,
+    "review_rating": 5.0,
+    "positive_score": 0.9107668399810791,
+    "negative_score": 0.0892331674695015
+  },
+  {
+    "id": 843,
+    "review_rating": 5.0,
+    "positive_score": 0.46564817428588867,
+    "negative_score": 0.5343518257141113
+  },
+  {
+    "id": 844,
+    "review_rating": 5.0,
+    "positive_score": 0.8737764954566956,
+    "negative_score": 0.12622351944446564
+  },
+  {
+    "id": 845,
+    "review_rating": 5.0,
+    "positive_score": 0.9956089854240417,
+    "negative_score": 0.004391012713313103
+  },
+  {
+    "id": 846,
+    "review_rating": 5.0,
+    "positive_score": 0.9669976830482483,
+    "negative_score": 0.03300230950117111
+  },
+  {
+    "id": 847,
+    "review_rating": 5.0,
+    "positive_score": 0.9915982484817505,
+    "negative_score": 0.008401744067668915
+  },
+  {
+    "id": 848,
+    "review_rating": 5.0,
+    "positive_score": 0.9937068819999695,
+    "negative_score": 0.006293196696788073
+  },
+  {
+    "id": 849,
+    "review_rating": 5.0,
+    "positive_score": 0.8828511834144592,
+    "negative_score": 0.11714889854192734
+  },
+  {
+    "id": 850,
+    "review_rating": 5.0,
+    "positive_score": 0.9564712643623352,
+    "negative_score": 0.0435287170112133
+  },
+  {
+    "id": 851,
+    "review_rating": 5.0,
+    "positive_score": 0.9938284754753113,
+    "negative_score": 0.006171580404043198
+  },
+  {
+    "id": 852,
+    "review_rating": 5.0,
+    "positive_score": 0.9918884634971619,
+    "negative_score": 0.008111527189612389
+  },
+  {
+    "id": 853,
+    "review_rating": 5.0,
+    "positive_score": 0.9818834066390991,
+    "negative_score": 0.0181165412068367
+  },
+  {
+    "id": 854,
+    "review_rating": 5.0,
+    "positive_score": 0.19694069027900696,
+    "negative_score": 0.8030592799186707
+  },
+  {
+    "id": 855,
+    "review_rating": 5.0,
+    "positive_score": 0.9797374606132507,
+    "negative_score": 0.02026251144707203
+  },
+  {
+    "id": 856,
+    "review_rating": 5.0,
+    "positive_score": 0.9611725211143494,
+    "negative_score": 0.03882749006152153
+  },
+  {
+    "id": 857,
+    "review_rating": 5.0,
+    "positive_score": 0.9928109049797058,
+    "negative_score": 0.007189035415649414
+  },
+  {
+    "id": 858,
+    "review_rating": 5.0,
+    "positive_score": 0.9892479777336121,
+    "negative_score": 0.010752038098871708
+  },
+  {
+    "id": 859,
+    "review_rating": 3.0,
+    "positive_score": 0.8732045292854309,
+    "negative_score": 0.1267954409122467
+  },
+  {
+    "id": 860,
+    "review_rating": 5.0,
+    "positive_score": 0.9956820011138916,
+    "negative_score": 0.004317964892834425
+  },
+  {
+    "id": 861,
+    "review_rating": 5.0,
+    "positive_score": 0.9919431209564209,
+    "negative_score": 0.008056837134063244
+  },
+  {
+    "id": 862,
+    "review_rating": 5.0,
+    "positive_score": 0.9893655776977539,
+    "negative_score": 0.010634449310600758
+  },
+  {
+    "id": 863,
+    "review_rating": 5.0,
+    "positive_score": 0.9939736723899841,
+    "negative_score": 0.006026371382176876
+  },
+  {
+    "id": 864,
+    "review_rating": 5.0,
+    "positive_score": 0.3042685091495514,
+    "negative_score": 0.6957314610481262
+  },
+  {
+    "id": 865,
+    "review_rating": 4.0,
+    "positive_score": 0.7022615075111389,
+    "negative_score": 0.2977384626865387
+  },
+  {
+    "id": 866,
+    "review_rating": 5.0,
+    "positive_score": 0.8643233180046082,
+    "negative_score": 0.13567665219306946
+  },
+  {
+    "id": 867,
+    "review_rating": 5.0,
+    "positive_score": 0.9462055563926697,
+    "negative_score": 0.05379442498087883
+  },
+  {
+    "id": 868,
+    "review_rating": 5.0,
+    "positive_score": 0.9960119724273682,
+    "negative_score": 0.0039880662225186825
+  },
+  {
+    "id": 869,
+    "review_rating": 5.0,
+    "positive_score": 0.9957711100578308,
+    "negative_score": 0.004228874109685421
+  },
+  {
+    "id": 870,
+    "review_rating": 5.0,
+    "positive_score": 0.9940906167030334,
+    "negative_score": 0.00590940797701478
+  },
+  {
+    "id": 871,
+    "review_rating": 4.0,
+    "positive_score": 0.39722204208374023,
+    "negative_score": 0.6027779579162598
+  },
+  {
+    "id": 872,
+    "review_rating": 5.0,
+    "positive_score": 0.8359723687171936,
+    "negative_score": 0.1640276312828064
+  },
+  {
+    "id": 873,
+    "review_rating": 5.0,
+    "positive_score": 0.8512960076332092,
+    "negative_score": 0.14870400726795197
+  },
+  {
+    "id": 874,
+    "review_rating": 5.0,
+    "positive_score": 0.6576171517372131,
+    "negative_score": 0.3423827886581421
+  },
+  {
+    "id": 875,
+    "review_rating": 5.0,
+    "positive_score": 0.9153052568435669,
+    "negative_score": 0.08469468355178833
+  },
+  {
+    "id": 876,
+    "review_rating": 5.0,
+    "positive_score": 0.44702357053756714,
+    "negative_score": 0.5529764294624329
+  },
+  {
+    "id": 877,
+    "review_rating": 5.0,
+    "positive_score": 0.9690872430801392,
+    "negative_score": 0.030912719666957855
+  },
+  {
+    "id": 878,
+    "review_rating": 5.0,
+    "positive_score": 0.9953376054763794,
+    "negative_score": 0.0046623265370726585
+  },
+  {
+    "id": 879,
+    "review_rating": 5.0,
+    "positive_score": 0.9948481321334839,
+    "negative_score": 0.005151891615241766
+  },
+  {
+    "id": 880,
+    "review_rating": 5.0,
+    "positive_score": 0.9092718362808228,
+    "negative_score": 0.09072820842266083
+  },
+  {
+    "id": 881,
+    "review_rating": 5.0,
+    "positive_score": 0.9811537861824036,
+    "negative_score": 0.018846193328499794
+  },
+  {
+    "id": 882,
+    "review_rating": 5.0,
+    "positive_score": 0.9877820611000061,
+    "negative_score": 0.012217894196510315
+  },
+  {
+    "id": 883,
+    "review_rating": 4.0,
+    "positive_score": 0.9934337139129639,
+    "negative_score": 0.006566286087036133
+  },
+  {
+    "id": 884,
+    "review_rating": 5.0,
+    "positive_score": 0.9859877228736877,
+    "negative_score": 0.014012266881763935
+  },
+  {
+    "id": 885,
+    "review_rating": 5.0,
+    "positive_score": 0.7470267415046692,
+    "negative_score": 0.2529732882976532
+  },
+  {
+    "id": 886,
+    "review_rating": 5.0,
+    "positive_score": 0.9875807762145996,
+    "negative_score": 0.012419205158948898
+  },
+  {
+    "id": 887,
+    "review_rating": 5.0,
+    "positive_score": 0.9927005767822266,
+    "negative_score": 0.007299419492483139
+  },
+  {
+    "id": 888,
+    "review_rating": 5.0,
+    "positive_score": 0.9946511387825012,
+    "negative_score": 0.005348869599401951
+  },
+  {
+    "id": 889,
+    "review_rating": 5.0,
+    "positive_score": 0.9797986745834351,
+    "negative_score": 0.0202013049274683
+  },
+  {
+    "id": 890,
+    "review_rating": 5.0,
+    "positive_score": 0.9753177165985107,
+    "negative_score": 0.024682283401489258
+  },
+  {
+    "id": 891,
+    "review_rating": 5.0,
+    "positive_score": 0.8333911895751953,
+    "negative_score": 0.1666087955236435
+  },
+  {
+    "id": 892,
+    "review_rating": 5.0,
+    "positive_score": 0.9967197775840759,
+    "negative_score": 0.003280234755948186
+  },
+  {
+    "id": 893,
+    "review_rating": 5.0,
+    "positive_score": 0.9907991290092468,
+    "negative_score": 0.009200829081237316
+  },
+  {
+    "id": 894,
+    "review_rating": 5.0,
+    "positive_score": 0.9966158270835876,
+    "negative_score": 0.003384146373718977
+  },
+  {
+    "id": 895,
+    "review_rating": 4.0,
+    "positive_score": 0.6808009147644043,
+    "negative_score": 0.3191990554332733
+  },
+  {
+    "id": 896,
+    "review_rating": 5.0,
+    "positive_score": 0.9833686947822571,
+    "negative_score": 0.01663125306367874
+  },
+  {
+    "id": 897,
+    "review_rating": 5.0,
+    "positive_score": 0.977707028388977,
+    "negative_score": 0.02229299210011959
+  },
+  {
+    "id": 898,
+    "review_rating": 5.0,
+    "positive_score": 0.81411212682724,
+    "negative_score": 0.1858878880739212
+  },
+  {
+    "id": 899,
+    "review_rating": 5.0,
+    "positive_score": 0.9810414910316467,
+    "negative_score": 0.018958542495965958
+  },
+  {
+    "id": 900,
+    "review_rating": 5.0,
+    "positive_score": 0.9964004755020142,
+    "negative_score": 0.003599492833018303
+  },
+  {
+    "id": 901,
+    "review_rating": 5.0,
+    "positive_score": 0.12458726763725281,
+    "negative_score": 0.8754127621650696
+  },
+  {
+    "id": 902,
+    "review_rating": 4.0,
+    "positive_score": 0.06623218953609467,
+    "negative_score": 0.9337678551673889
+  },
+  {
+    "id": 903,
+    "review_rating": 5.0,
+    "positive_score": 0.995867133140564,
+    "negative_score": 0.0041329083032906055
+  },
+  {
+    "id": 904,
+    "review_rating": 5.0,
+    "positive_score": 0.44918906688690186,
+    "negative_score": 0.5508109331130981
+  },
+  {
+    "id": 905,
+    "review_rating": 5.0,
+    "positive_score": 0.9902052283287048,
+    "negative_score": 0.009794775396585464
+  },
+  {
+    "id": 906,
+    "review_rating": 5.0,
+    "positive_score": 0.9956426620483398,
+    "negative_score": 0.004357300233095884
+  },
+  {
+    "id": 907,
+    "review_rating": 5.0,
+    "positive_score": 0.9922903180122375,
+    "negative_score": 0.0077097006142139435
+  },
+  {
+    "id": 908,
+    "review_rating": 5.0,
+    "positive_score": 0.9887582063674927,
+    "negative_score": 0.01124171819537878
+  },
+  {
+    "id": 909,
+    "review_rating": 5.0,
+    "positive_score": 0.9551935195922852,
+    "negative_score": 0.04480641707777977
+  },
+  {
+    "id": 910,
+    "review_rating": 5.0,
+    "positive_score": 0.9828202724456787,
+    "negative_score": 0.017179742455482483
+  },
+  {
+    "id": 911,
+    "review_rating": 5.0,
+    "positive_score": 0.9787771701812744,
+    "negative_score": 0.0212227925658226
+  },
+  {
+    "id": 912,
+    "review_rating": 5.0,
+    "positive_score": 0.23593279719352722,
+    "negative_score": 0.7640671730041504
+  },
+  {
+    "id": 913,
+    "review_rating": 5.0,
+    "positive_score": 0.994996190071106,
+    "negative_score": 0.005003825295716524
+  },
+  {
+    "id": 914,
+    "review_rating": 5.0,
+    "positive_score": 0.9959967136383057,
+    "negative_score": 0.004003269597887993
+  },
+  {
+    "id": 915,
+    "review_rating": 5.0,
+    "positive_score": 0.9927122592926025,
+    "negative_score": 0.007287790533155203
+  },
+  {
+    "id": 916,
+    "review_rating": 5.0,
+    "positive_score": 0.9914621114730835,
+    "negative_score": 0.008537959307432175
+  },
+  {
+    "id": 917,
+    "review_rating": 5.0,
+    "positive_score": 0.1547456532716751,
+    "negative_score": 0.8452543020248413
+  },
+  {
+    "id": 918,
+    "review_rating": 5.0,
+    "positive_score": 0.9869135022163391,
+    "negative_score": 0.013086466118693352
+  },
+  {
+    "id": 919,
+    "review_rating": 5.0,
+    "positive_score": 0.9795134663581848,
+    "negative_score": 0.020486580207943916
+  },
+  {
+    "id": 920,
+    "review_rating": 5.0,
+    "positive_score": 0.9503809809684753,
+    "negative_score": 0.04961906746029854
+  },
+  {
+    "id": 921,
+    "review_rating": 5.0,
+    "positive_score": 0.9953639507293701,
+    "negative_score": 0.004636073485016823
+  },
+  {
+    "id": 922,
+    "review_rating": 5.0,
+    "positive_score": 0.9419276714324951,
+    "negative_score": 0.05807231739163399
+  },
+  {
+    "id": 923,
+    "review_rating": 5.0,
+    "positive_score": 0.9938943982124329,
+    "negative_score": 0.006105571985244751
+  },
+  {
+    "id": 924,
+    "review_rating": 5.0,
+    "positive_score": 0.8083150386810303,
+    "negative_score": 0.19168488681316376
+  },
+  {
+    "id": 925,
+    "review_rating": 5.0,
+    "positive_score": 0.8481228947639465,
+    "negative_score": 0.15187707543373108
+  },
+  {
+    "id": 926,
+    "review_rating": 5.0,
+    "positive_score": 0.9035074710845947,
+    "negative_score": 0.09649250656366348
+  },
+  {
+    "id": 927,
+    "review_rating": 5.0,
+    "positive_score": 0.7089934945106506,
+    "negative_score": 0.29100653529167175
+  },
+  {
+    "id": 928,
+    "review_rating": 4.0,
+    "positive_score": 0.9928747415542603,
+    "negative_score": 0.007125252857804298
+  },
+  {
+    "id": 929,
+    "review_rating": 5.0,
+    "positive_score": 0.994610071182251,
+    "negative_score": 0.005389873869717121
+  },
+  {
+    "id": 930,
+    "review_rating": 5.0,
+    "positive_score": 0.9928838014602661,
+    "negative_score": 0.007116241846233606
+  },
+  {
+    "id": 931,
+    "review_rating": 5.0,
+    "positive_score": 0.7297792434692383,
+    "negative_score": 0.2702207565307617
+  },
+  {
+    "id": 932,
+    "review_rating": 5.0,
+    "positive_score": 0.9905960559844971,
+    "negative_score": 0.009403915144503117
+  },
+  {
+    "id": 933,
+    "review_rating": 2.0,
+    "positive_score": 0.07295994460582733,
+    "negative_score": 0.9270400404930115
+  },
+  {
+    "id": 934,
+    "review_rating": 5.0,
+    "positive_score": 0.740081250667572,
+    "negative_score": 0.2599186897277832
+  },
+  {
+    "id": 935,
+    "review_rating": 5.0,
+    "positive_score": 0.9156558513641357,
+    "negative_score": 0.08434411138296127
+  },
+  {
+    "id": 936,
+    "review_rating": 5.0,
+    "positive_score": 0.9939393997192383,
+    "negative_score": 0.006060566287487745
+  },
+  {
+    "id": 937,
+    "review_rating": 5.0,
+    "positive_score": 0.9903226494789124,
+    "negative_score": 0.00967731885612011
+  },
+  {
+    "id": 938,
+    "review_rating": 5.0,
+    "positive_score": 0.9851035475730896,
+    "negative_score": 0.014896394684910774
+  },
+  {
+    "id": 939,
+    "review_rating": 5.0,
+    "positive_score": 0.9956173896789551,
+    "negative_score": 0.004382674116641283
+  },
+  {
+    "id": 940,
+    "review_rating": 5.0,
+    "positive_score": 0.994022786617279,
+    "negative_score": 0.005977212451398373
+  },
+  {
+    "id": 941,
+    "review_rating": 5.0,
+    "positive_score": 0.992427408695221,
+    "negative_score": 0.0075725382193923
+  },
+  {
+    "id": 942,
+    "review_rating": 5.0,
+    "positive_score": 0.9924083948135376,
+    "negative_score": 0.007591620087623596
+  },
+  {
+    "id": 943,
+    "review_rating": 1.0,
+    "positive_score": 0.09077414870262146,
+    "negative_score": 0.9092258810997009
+  },
+  {
+    "id": 944,
+    "review_rating": 5.0,
+    "positive_score": 0.9795875549316406,
+    "negative_score": 0.020412424579262733
+  },
+  {
+    "id": 945,
+    "review_rating": 5.0,
+    "positive_score": 0.9951435327529907,
+    "negative_score": 0.004856542218476534
+  },
+  {
+    "id": 946,
+    "review_rating": 5.0,
+    "positive_score": 0.9949774146080017,
+    "negative_score": 0.005022505298256874
+  },
+  {
+    "id": 947,
+    "review_rating": 5.0,
+    "positive_score": 0.9935349225997925,
+    "negative_score": 0.006465035956352949
+  },
+  {
+    "id": 948,
+    "review_rating": 5.0,
+    "positive_score": 0.9853582382202148,
+    "negative_score": 0.01464174035936594
+  },
+  {
+    "id": 949,
+    "review_rating": 5.0,
+    "positive_score": 0.9943140745162964,
+    "negative_score": 0.0056859953328967094
+  },
+  {
+    "id": 950,
+    "review_rating": 5.0,
+    "positive_score": 0.9896270036697388,
+    "negative_score": 0.010372967459261417
+  },
+  {
+    "id": 951,
+    "review_rating": 5.0,
+    "positive_score": 0.9260116219520569,
+    "negative_score": 0.07398839294910431
+  },
+  {
+    "id": 952,
+    "review_rating": 5.0,
+    "positive_score": 0.9959766268730164,
+    "negative_score": 0.004023391753435135
+  },
+  {
+    "id": 953,
+    "review_rating": 5.0,
+    "positive_score": 0.9952115416526794,
+    "negative_score": 0.004788531921803951
+  },
+  {
+    "id": 954,
+    "review_rating": 5.0,
+    "positive_score": 0.7858183979988098,
+    "negative_score": 0.21418163180351257
+  },
+  {
+    "id": 955,
+    "review_rating": 5.0,
+    "positive_score": 0.6825006008148193,
+    "negative_score": 0.31749942898750305
+  },
+  {
+    "id": 956,
+    "review_rating": 5.0,
+    "positive_score": 0.890653669834137,
+    "negative_score": 0.10934634506702423
+  },
+  {
+    "id": 957,
+    "review_rating": 5.0,
+    "positive_score": 0.2816524803638458,
+    "negative_score": 0.7183474898338318
+  },
+  {
+    "id": 958,
+    "review_rating": 5.0,
+    "positive_score": 0.7269521951675415,
+    "negative_score": 0.27304786443710327
+  },
+  {
+    "id": 959,
+    "review_rating": 5.0,
+    "positive_score": 0.9846936464309692,
+    "negative_score": 0.015306325629353523
+  },
+  {
+    "id": 960,
+    "review_rating": 5.0,
+    "positive_score": 0.9420202970504761,
+    "negative_score": 0.057979732751846313
+  },
+  {
+    "id": 961,
+    "review_rating": 5.0,
+    "positive_score": 0.9917705059051514,
+    "negative_score": 0.008229503408074379
+  },
+  {
+    "id": 962,
+    "review_rating": 4.0,
+    "positive_score": 0.5239643454551697,
+    "negative_score": 0.4760356545448303
+  },
+  {
+    "id": 963,
+    "review_rating": 5.0,
+    "positive_score": 0.9962632060050964,
+    "negative_score": 0.00373684405349195
+  },
+  {
+    "id": 964,
+    "review_rating": 5.0,
+    "positive_score": 0.9955353736877441,
+    "negative_score": 0.004464599769562483
+  },
+  {
+    "id": 965,
+    "review_rating": 5.0,
+    "positive_score": 0.9949185252189636,
+    "negative_score": 0.005081430077552795
+  },
+  {
+    "id": 966,
+    "review_rating": 5.0,
+    "positive_score": 0.9838745594024658,
+    "negative_score": 0.016125448048114777
+  },
+  {
+    "id": 967,
+    "review_rating": 5.0,
+    "positive_score": 0.9952436089515686,
+    "negative_score": 0.004756382666528225
+  },
+  {
+    "id": 968,
+    "review_rating": 5.0,
+    "positive_score": 0.9952174425125122,
+    "negative_score": 0.004782543051987886
+  },
+  {
+    "id": 969,
+    "review_rating": 5.0,
+    "positive_score": 0.9960427284240723,
+    "negative_score": 0.003957235720008612
+  },
+  {
+    "id": 970,
+    "review_rating": 5.0,
+    "positive_score": 0.9943416118621826,
+    "negative_score": 0.005658373236656189
+  },
+  {
+    "id": 971,
+    "review_rating": 5.0,
+    "positive_score": 0.993129312992096,
+    "negative_score": 0.00687065627425909
+  },
+  {
+    "id": 972,
+    "review_rating": 5.0,
+    "positive_score": 0.9611199498176575,
+    "negative_score": 0.03888004273176193
+  },
+  {
+    "id": 973,
+    "review_rating": 5.0,
+    "positive_score": 0.9959057569503784,
+    "negative_score": 0.004094238393008709
+  },
+  {
+    "id": 974,
+    "review_rating": 5.0,
+    "positive_score": 0.8424158096313477,
+    "negative_score": 0.15758416056632996
+  },
+  {
+    "id": 975,
+    "review_rating": 4.0,
+    "positive_score": 0.03775676712393761,
+    "negative_score": 0.9622431993484497
+  },
+  {
+    "id": 976,
+    "review_rating": 5.0,
+    "positive_score": 0.9936031699180603,
+    "negative_score": 0.006396892946213484
+  },
+  {
+    "id": 977,
+    "review_rating": 5.0,
+    "positive_score": 0.6346424221992493,
+    "negative_score": 0.36535754799842834
+  },
+  {
+    "id": 978,
+    "review_rating": 5.0,
+    "positive_score": 0.995662271976471,
+    "negative_score": 0.004337743856012821
+  },
+  {
+    "id": 979,
+    "review_rating": 5.0,
+    "positive_score": 0.9456274509429932,
+    "negative_score": 0.05437256395816803
+  },
+  {
+    "id": 980,
+    "review_rating": 5.0,
+    "positive_score": 0.9074504375457764,
+    "negative_score": 0.09254950284957886
+  },
+  {
+    "id": 981,
+    "review_rating": 5.0,
+    "positive_score": 0.09954067319631577,
+    "negative_score": 0.900459349155426
+  },
+  {
+    "id": 982,
+    "review_rating": 5.0,
+    "positive_score": 0.9883700609207153,
+    "negative_score": 0.0116299232468009
+  },
+  {
+    "id": 983,
+    "review_rating": 5.0,
+    "positive_score": 0.3247949481010437,
+    "negative_score": 0.6752050518989563
+  },
+  {
+    "id": 984,
+    "review_rating": 5.0,
+    "positive_score": 0.4283939599990845,
+    "negative_score": 0.5716060400009155
+  },
+  {
+    "id": 985,
+    "review_rating": 5.0,
+    "positive_score": 0.3295457065105438,
+    "negative_score": 0.6704542636871338
+  },
+  {
+    "id": 986,
+    "review_rating": 5.0,
+    "positive_score": 0.9790971875190735,
+    "negative_score": 0.020902790129184723
+  },
+  {
+    "id": 987,
+    "review_rating": 5.0,
+    "positive_score": 0.9786489605903625,
+    "negative_score": 0.021351046860218048
+  },
+  {
+    "id": 988,
+    "review_rating": 5.0,
+    "positive_score": 0.9899519085884094,
+    "negative_score": 0.010048089548945427
+  },
+  {
+    "id": 989,
+    "review_rating": 5.0,
+    "positive_score": 0.9653593897819519,
+    "negative_score": 0.0346405953168869
+  },
+  {
+    "id": 990,
+    "review_rating": 5.0,
+    "positive_score": 0.9931299090385437,
+    "negative_score": 0.006870037876069546
+  },
+  {
+    "id": 991,
+    "review_rating": 5.0,
+    "positive_score": 0.707913875579834,
+    "negative_score": 0.29208609461784363
+  },
+  {
+    "id": 992,
+    "review_rating": 5.0,
+    "positive_score": 0.9761651754379272,
+    "negative_score": 0.023834874853491783
+  },
+  {
+    "id": 993,
+    "review_rating": 5.0,
+    "positive_score": 0.9883211255073547,
+    "negative_score": 0.011678878217935562
+  },
+  {
+    "id": 994,
+    "review_rating": 5.0,
+    "positive_score": 0.994272768497467,
+    "negative_score": 0.005727187730371952
+  },
+  {
+    "id": 995,
+    "review_rating": 5.0,
+    "positive_score": 0.9944778680801392,
+    "negative_score": 0.005522074177861214
+  },
+  {
+    "id": 996,
+    "review_rating": 5.0,
+    "positive_score": 0.9963890314102173,
+    "negative_score": 0.00361104984767735
+  },
+  {
+    "id": 997,
+    "review_rating": 5.0,
+    "positive_score": 0.9947437047958374,
+    "negative_score": 0.005256340838968754
+  },
+  {
+    "id": 998,
+    "review_rating": 5.0,
+    "positive_score": 0.9927589893341064,
+    "negative_score": 0.007240999955683947
+  },
+  {
+    "id": 999,
+    "review_rating": 5.0,
+    "positive_score": 0.9964572787284851,
+    "negative_score": 0.003542739199474454
+  },
+  {
+    "id": 1000,
+    "review_rating": 5.0,
+    "positive_score": 0.9962345957756042,
+    "negative_score": 0.0037653741892427206
+  },
+  {
+    "id": 1001,
+    "review_rating": 5.0,
+    "positive_score": 0.9949030876159668,
+    "negative_score": 0.005096909124404192
+  },
+  {
+    "id": 1002,
+    "review_rating": 5.0,
+    "positive_score": 0.9964138865470886,
+    "negative_score": 0.0035861898213624954
+  },
+  {
+    "id": 1003,
+    "review_rating": 5.0,
+    "positive_score": 0.6348064541816711,
+    "negative_score": 0.36519351601600647
+  },
+  {
+    "id": 1004,
+    "review_rating": 5.0,
+    "positive_score": 0.994897186756134,
+    "negative_score": 0.005102804861962795
+  },
+  {
+    "id": 1005,
+    "review_rating": 5.0,
+    "positive_score": 0.9960273504257202,
+    "negative_score": 0.003972696606069803
+  },
+  {
+    "id": 1006,
+    "review_rating": 5.0,
+    "positive_score": 0.9961133003234863,
+    "negative_score": 0.0038866878021508455
+  },
+  {
+    "id": 1007,
+    "review_rating": 5.0,
+    "positive_score": 0.9937071204185486,
+    "negative_score": 0.006292948964983225
+  },
+  {
+    "id": 1008,
+    "review_rating": 5.0,
+    "positive_score": 0.9957281947135925,
+    "negative_score": 0.004271772224456072
+  },
+  {
+    "id": 1009,
+    "review_rating": 5.0,
+    "positive_score": 0.9872927665710449,
+    "negative_score": 0.01270726416260004
+  },
+  {
+    "id": 1010,
+    "review_rating": 5.0,
+    "positive_score": 0.996073842048645,
+    "negative_score": 0.003926163539290428
+  },
+  {
+    "id": 1011,
+    "review_rating": 5.0,
+    "positive_score": 0.9935898780822754,
+    "negative_score": 0.006410122383385897
+  },
+  {
+    "id": 1012,
+    "review_rating": 5.0,
+    "positive_score": 0.9916423559188843,
+    "negative_score": 0.008357659913599491
+  },
+  {
+    "id": 1013,
+    "review_rating": 5.0,
+    "positive_score": 0.9334114789962769,
+    "negative_score": 0.06658853590488434
+  }
+]
