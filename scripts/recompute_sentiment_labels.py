@@ -31,7 +31,7 @@ SCORES_PATH = ROOT_DIR / "scripts" / "sentiment_scores.json"
 PAGE_SIZE = 500
 
 POSITIVE_THRESHOLD = 0.65
-NEGATIVE_THRESHOLD = 0.60
+NEGATIVE_THRESHOLD = 0.65
 
 
 def predict_label(positive_score: float, negative_score: float) -> str:
