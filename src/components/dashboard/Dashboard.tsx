@@ -2955,7 +2955,6 @@ export default function Dashboard() {
   const [isSentimentValidationLoading, setIsSentimentValidationLoading] = useState(false);
   const [matrixReviewValidation, setMatrixReviewValidation] = useState<MatrixReviewValidationResult | null>(null);
   const [isMatrixReviewValidationLoading, setIsMatrixReviewValidationLoading] = useState(false);
-  const didRequestMatrixReviewValidation = useRef(false);
   const [selectedReviewIngredient, setSelectedReviewIngredient] = useState("나이아신아마이드");
   const [reviewAnalysis, setReviewAnalysis] = useState<ReviewAnalysisResult | null>(null);
   const [reviewAnalysisState, setReviewAnalysisState] = useState<{ status: ApiState; error: string }>({
@@ -3133,10 +3132,10 @@ export default function Dashboard() {
     }
   }
 
-  async function loadMatrixReviewValidation(matrixItems: DemandSupplyItem[]) {
+  async function loadMatrixReviewValidation() {
     setIsMatrixReviewValidationLoading(true);
     try {
-      const result = await computeMatrixReviewValidation(matrixItems);
+      const result = await computeMatrixReviewValidation();
       setMatrixReviewValidation(result);
     } catch (error) {
       console.error("매트릭스-리뷰 교차검증 계산 실패", error);
@@ -3334,19 +3333,12 @@ export default function Dashboard() {
     void loadDailyAlerts();
     void loadSupabaseEarliestDate();
     void loadSentimentValidation();
+    void loadMatrixReviewValidation();
   }, []);
 
   useEffect(() => {
     void loadReviewAnalysis(selectedReviewIngredient);
   }, [selectedReviewIngredient]);
-
-  useEffect(() => {
-    if (didRequestMatrixReviewValidation.current) return;
-    if (loadState.demandSupplyMatrix !== "ready") return;
-    if (!data.page1.demandSupplyMatrix.length) return;
-    didRequestMatrixReviewValidation.current = true;
-    void loadMatrixReviewValidation(data.page1.demandSupplyMatrix);
-  }, [loadState.demandSupplyMatrix, data.page1.demandSupplyMatrix]);
 
   useEffect(() => {
     const stillLoading = loadState.dashboardSignals === "loading" ||

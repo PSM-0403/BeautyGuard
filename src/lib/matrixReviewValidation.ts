@@ -1,5 +1,9 @@
 import { createClient } from "@/utils/supabase/client";
-import { MATRIX_INGREDIENT_TARGETS } from "@/lib/demand-supply-matrix";
+import {
+  DEFAULT_DEMAND_SUPPLY_MATRIX_CONFIG,
+  MATRIX_INGREDIENT_TARGETS,
+  fetchDemandSupplyMatrixFromSupabase,
+} from "@/lib/demand-supply-matrix";
 import type { DemandSupplyItem } from "@/lib/types";
 
 // 수요-공급 매트릭스는 "검색 관심도(수요)"와 "제품 수(공급)"만으로 성분을 4분면에
@@ -8,6 +12,12 @@ import type { DemandSupplyItem } from "@/lib/types";
 // 데이터로 교차검증한다. 두 신호(수요-공급 매트릭스, 리뷰 반응)는 서로 다른
 // 데이터 소스(네이버 데이터랩 검색량 vs 올리브영 리뷰)에서 독립적으로 계산되므로,
 // 둘이 일치하면 분류의 신뢰도를 보강하는 근거가 된다.
+//
+// 주의: Page 1의 매트릭스 버블차트는 전체 ~25개 후보 성분 중 그날그날 "눈에 띄는"
+// 12개만 뽑아서 보여준다 (limitMetrics). 그 결과를 그대로 재사용하면 레티놀/PDRN처럼
+// 핵심 7개 성분인데도 그날 상위 12개에 못 들면 리뷰 데이터가 멀쩡해도 "매트릭스에
+// 없음"으로 빠지는 문제가 생긴다. 그래서 이 검증은 Page 1 차트 결과를 받지 않고,
+// selectedIngredients를 7개로 고정해서 매번 독립적으로 자체 조회한다.
 export type MatrixReviewValidationItem = {
   ingredient: string;
   status: DemandSupplyItem["status"];
@@ -32,11 +42,20 @@ type ReviewStat = {
   negativeRatio: number;
 };
 
-export async function computeMatrixReviewValidation(
-  matrixItems: DemandSupplyItem[],
-): Promise<MatrixReviewValidationResult> {
-  const reviewStats = await fetchIngredientReviewStats();
-  const matrixByIngredient = new Map(matrixItems.map((item) => [item.ingredient, item]));
+export async function computeMatrixReviewValidation(): Promise<MatrixReviewValidationResult> {
+  const [matrixResult, reviewStats] = await Promise.all([
+    fetchDemandSupplyMatrixFromSupabase({
+      ...DEFAULT_DEMAND_SUPPLY_MATRIX_CONFIG,
+      selectedIngredients: MATRIX_INGREDIENT_TARGETS.map((target) => target.label),
+    }),
+    fetchIngredientReviewStats(),
+  ]);
+
+  if (matrixResult.isUnavailable) {
+    return { items: [], missingIngredients: MATRIX_INGREDIENT_TARGETS.map((target) => target.label) };
+  }
+
+  const matrixByIngredient = new Map(matrixResult.items.map((item: DemandSupplyItem) => [item.ingredient, item]));
   const missingIngredients: string[] = [];
 
   const items: MatrixReviewValidationItem[] = MATRIX_INGREDIENT_TARGETS.flatMap((target) => {
