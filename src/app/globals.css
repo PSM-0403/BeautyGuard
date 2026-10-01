@@ -110,7 +110,7 @@ button, input, select { font: inherit; }
 .search-insight-card { grid-column: 2; }
 .search-grid .plot-shell { min-height: 360px; }
 
-.card-helper { margin: -6px 0 12px; color: #64748b; font-size: 12px; line-height: 1.6; }
+.card-helper { margin: -6px 0 12px; color: #64748b; font-size: 13px; line-height: 1.8; }
 .product-data-note { display: inline-flex; align-items: center; min-height: 28px; padding: 0 10px; border-radius: 999px; background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; font-size: 11px; font-weight: 900; margin-bottom: 10px; }
 .trend-control-stack { display: grid; gap: 8px; margin: -4px 0 12px; }
 .period-control-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 0; }
