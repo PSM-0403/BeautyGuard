@@ -1,5 +1,5 @@
 import { createClient } from "@/utils/supabase/client";
-import { MAIN_INGREDIENT_LIST } from "@/lib/main-ingredients";
+import { MATRIX_INGREDIENT_TARGETS } from "@/lib/demand-supply-matrix";
 import type { DemandSupplyItem } from "@/lib/types";
 
 // 수요-공급 매트릭스는 "검색 관심도(수요)"와 "제품 수(공급)"만으로 성분을 4분면에
@@ -39,17 +39,17 @@ export async function computeMatrixReviewValidation(
   const matrixByIngredient = new Map(matrixItems.map((item) => [item.ingredient, item]));
   const missingIngredients: string[] = [];
 
-  const items: MatrixReviewValidationItem[] = MAIN_INGREDIENT_LIST.flatMap((main) => {
-    const matrixItem = matrixByIngredient.get(main.label);
-    const stats = reviewStats.get(main.label);
+  const items: MatrixReviewValidationItem[] = MATRIX_INGREDIENT_TARGETS.flatMap((target) => {
+    const matrixItem = matrixByIngredient.get(target.label);
+    const stats = reviewStats.get(target.label);
 
     if (!matrixItem || !stats || stats.totalReviews === 0) {
-      missingIngredients.push(main.label);
+      missingIngredients.push(target.label);
       return [];
     }
 
     return [{
-      ingredient: main.label,
+      ingredient: target.label,
       status: matrixItem.status,
       demandScore: matrixItem.demand,
       supplyScore: matrixItem.supply,
@@ -70,8 +70,8 @@ async function fetchIngredientReviewStats(): Promise<Map<string, ReviewStat>> {
   const supabase = createClient();
   const result = new Map<string, ReviewStat>();
 
-  for (const main of MAIN_INGREDIENT_LIST) {
-    const ingredientFilter = main.aliases
+  for (const target of MATRIX_INGREDIENT_TARGETS) {
+    const ingredientFilter = target.aliases
       .map((alias) => `main_ingredients.ilike.%${escapeOrValue(alias)}%`)
       .join(",");
 
@@ -83,7 +83,7 @@ async function fetchIngredientReviewStats(): Promise<Map<string, ReviewStat>> {
       .limit(2000);
 
     if (error) {
-      console.error(`매트릭스 리뷰 검증용 통계 조회 실패 (${main.label})`, error.message);
+      console.error(`매트릭스 리뷰 검증용 통계 조회 실패 (${target.label})`, error.message);
       continue;
     }
 
@@ -96,7 +96,7 @@ async function fetchIngredientReviewStats(): Promise<Map<string, ReviewStat>> {
     const positiveCount = rows.filter((row) => row.sentiment === "positive").length;
     const negativeCount = rows.filter((row) => row.sentiment === "negative").length;
 
-    result.set(main.label, {
+    result.set(target.label, {
       totalReviews: rows.length,
       avgRating: ratings.length ? round(ratings.reduce((sum, value) => sum + value, 0) / ratings.length, 2) : 0,
       positiveRatio: round((positiveCount / rows.length) * 100, 1),

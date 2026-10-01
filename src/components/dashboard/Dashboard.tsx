@@ -3624,8 +3624,9 @@ export default function Dashboard() {
                 <p className="card-helper">
                   수요-공급 매트릭스는 검색 관심도(수요)와 제품 수(공급)만으로 성분을 분류합니다. 이 분류가 실제
                   소비자 반응과도 맞는지 -- &quot;기회&quot; 성분이 정말 반응이 좋아서 기회인지, 단순히 공급이
-                  적을 뿐인지 -- 올리브영 리뷰 감성분석 결과로 교차검증합니다. 핵심 성분 5개 기준이라 사분면별
-                  통계적 비교가 아니라 성분별 개별 비교로 해석하는 것이 적절합니다.
+                  적을 뿐인지 -- 올리브영 리뷰 감성분석 결과로 교차검증합니다. 매트릭스가 다루는 핵심 성분
+                  {matrixReviewValidation ? ` ${matrixReviewValidation.items.length + matrixReviewValidation.missingIngredients.length}개` : " 7개"}
+                  기준이라 사분면별 통계적 비교가 아니라 성분별 개별 비교로 해석하는 것이 적절합니다.
                 </p>
                 <MatrixLegend />
                 <MatrixReviewValidationChart

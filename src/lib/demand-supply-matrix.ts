@@ -1,7 +1,7 @@
 import type { DemandSupplyItem, IngredientMetric } from "@/lib/types";
 import { createClient } from "@/utils/supabase/client";
 
-type MatrixIngredientTarget = {
+export type MatrixIngredientTarget = {
   id: string;
   label: string;
   aliases: string[];
@@ -95,7 +95,7 @@ export const DEFAULT_DEMAND_SUPPLY_MATRIX_CONFIG: DemandSupplyMatrixConfig = {
   selectedIngredients: DEFAULT_SELECTED_INGREDIENTS,
 };
 
-const MATRIX_INGREDIENT_TARGETS: MatrixIngredientTarget[] = [
+export const MATRIX_INGREDIENT_TARGETS: MatrixIngredientTarget[] = [
   { id: "retinol", label: "레티놀", aliases: ["레티놀", "레티날", "레틴알", "retinol", "retinal"] },
   { id: "pdrn", label: "PDRN", aliases: ["PDRN", "피디알엔", "pdrn"] },
   { id: "niacinamide", label: "나이아신아마이드", aliases: ["나이아신아마이드", "나이아신 아마이드", "niacinamide"] },
