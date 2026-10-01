@@ -25,6 +25,7 @@ import { IngredientTooltip } from "@/components/dashboard/IngredientTooltip";
 import { getIngredientDescription } from "@/lib/ingredient-descriptions";
 import type { ReviewAnalysisResult } from "@/lib/reviewAnalysis";
 import type { SentimentValidationResult } from "@/lib/sentimentValidation";
+import { computeMatrixReviewValidation, type MatrixReviewValidationItem, type MatrixReviewValidationResult } from "@/lib/matrixReviewValidation";
 import type {
   AlertItem,
   ConcernMetric,
@@ -2326,6 +2327,123 @@ function DemandSupplyPlot({
   );
 }
 
+type MatrixReviewTooltipState = {
+  item: MatrixReviewValidationItem;
+  x: number;
+  y: number;
+};
+
+function MatrixReviewTooltip({ tooltip }: { tooltip: MatrixReviewTooltipState }) {
+  const { item } = tooltip;
+
+  return (
+    <div role="tooltip" className="matrix-tooltip" style={{ left: tooltip.x, top: tooltip.y }}>
+      <div className="matrix-tooltip-title">{item.ingredient}</div>
+      <div className="matrix-tooltip-grid">
+        <span>사분면</span>
+        <strong>{STATUS_LABELS[item.status]}</strong>
+        <span>수요-공급 격차</span>
+        <strong className={item.gap >= 0 ? "positive" : "negative"}>{formatMatrixScore(item.gap)}</strong>
+        <span>리뷰 긍정 비율</span>
+        <strong className="positive">{item.positiveRatio.toFixed(1)}%</strong>
+        <span>리뷰 부정 비율</span>
+        <strong className="negative">{item.negativeRatio.toFixed(1)}%</strong>
+        <span>평균 평점</span>
+        <strong>{item.avgRating.toFixed(2)}</strong>
+        <span>리뷰 표본</span>
+        <strong>{item.totalReviews.toLocaleString()}건</strong>
+      </div>
+    </div>
+  );
+}
+
+function MatrixReviewValidationChart({
+  items,
+  isLoading,
+}: {
+  items: MatrixReviewValidationItem[];
+  isLoading: boolean;
+}) {
+  const [tooltip, setTooltip] = useState<MatrixReviewTooltipState | null>(null);
+  const shellRef = useRef<HTMLDivElement | null>(null);
+  const rowHeight = 54;
+  const width = 720;
+  const padding = { top: 16, right: 56, bottom: 32, left: 150 };
+  const plotWidth = width - padding.left - padding.right;
+  const height = padding.top + padding.bottom + Math.max(1, items.length) * rowHeight;
+  const xFor = (value: number) => padding.left + (Math.max(0, Math.min(100, value)) / 100) * plotWidth;
+
+  const clampTooltipPosition = (x: number, y: number) => {
+    const rect = shellRef.current?.getBoundingClientRect();
+    const maxX = Math.max(12, (rect?.width || 0) - 300);
+    const maxY = Math.max(12, (rect?.height || 0) - 220);
+    return { x: Math.min(Math.max(x, 12), maxX), y: Math.min(Math.max(y, 12), maxY) };
+  };
+
+  const showTooltip = (item: MatrixReviewValidationItem, event: MouseEvent<SVGElement> | { clientX: number; clientY: number }) => {
+    const rect = shellRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const position = clampTooltipPosition(event.clientX - rect.left + 14, event.clientY - rect.top + 14);
+    setTooltip({ item, ...position });
+  };
+
+  if (!items.length) {
+    return (
+      <div className="plot-shell chart-shell">
+        <div className="empty-state api-state">
+          {isLoading ? "리뷰 교차검증 데이터를 계산 중입니다." : "표시할 교차검증 데이터가 없습니다."}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="plot-shell chart-shell review-validation-chart-shell" ref={shellRef} style={{ minHeight: height }}>
+      <svg className="chart-svg" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="수요-공급 매트릭스와 리뷰 반응 교차검증">
+        {[0, 25, 50, 75, 100].map((tick) => (
+          <g key={`grid-${tick}`}>
+            <line x1={xFor(tick)} x2={xFor(tick)} y1={padding.top} y2={height - padding.bottom} className="chart-grid-line" />
+            <text x={xFor(tick)} y={height - padding.bottom + 18} className="chart-axis-label" textAnchor="middle">{tick}%</text>
+          </g>
+        ))}
+        {items.map((item, index) => {
+          const y = padding.top + index * rowHeight;
+          const barHeight = 22;
+          const barY = y + (rowHeight - barHeight) / 2 - 6;
+          const barWidth = xFor(item.positiveRatio) - padding.left;
+
+          return (
+            <g
+              key={item.ingredient}
+              tabIndex={0}
+              role="button"
+              aria-label={`${item.ingredient}, ${STATUS_LABELS[item.status]}, 긍정 리뷰 비율 ${item.positiveRatio}%, 표본 ${item.totalReviews}건`}
+              onMouseEnter={(event) => showTooltip(item, event)}
+              onMouseMove={(event) => showTooltip(item, event)}
+              onMouseLeave={() => setTooltip(null)}
+              onFocus={() => showTooltip(item, { clientX: (shellRef.current?.getBoundingClientRect().left || 0) + 40, clientY: (shellRef.current?.getBoundingClientRect().top || 0) + y })}
+              onBlur={() => setTooltip(null)}
+            >
+              <text x={padding.left - 12} y={barY + barHeight / 2 - 2} className="chart-axis-label" textAnchor="end" style={{ fontSize: 12, fill: "#334155", fontWeight: 800 }}>
+                {item.ingredient}
+              </text>
+              <text x={padding.left - 12} y={barY + barHeight + 12} className="chart-axis-label" textAnchor="end" style={{ fontSize: 10 }}>
+                {STATUS_LABELS[item.status]}
+              </text>
+              <rect x={padding.left} y={barY} width={Math.max(0, plotWidth)} height={barHeight} fill="#f1f4f9" rx={4} />
+              <rect x={padding.left} y={barY} width={Math.max(2, barWidth)} height={barHeight} fill={STATUS_COLORS[item.status]} opacity={0.9} rx={4} />
+              <text x={xFor(item.positiveRatio) + 8} y={barY + barHeight / 2 + 4} className="chart-axis-label" style={{ fontSize: 12, fontWeight: 800, fill: "#0f1f48" }}>
+                {item.positiveRatio.toFixed(1)}% · n={item.totalReviews}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      {tooltip ? <MatrixReviewTooltip tooltip={tooltip} /> : null}
+    </div>
+  );
+}
+
 function formatTrendDateLabel(date: string) {
   const match = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return date;
@@ -2835,6 +2953,9 @@ export default function Dashboard() {
   const [supabaseLatestDate, setSupabaseLatestDate] = useState<string | null>(null);
   const [sentimentValidation, setSentimentValidation] = useState<SentimentValidationResult | null>(null);
   const [isSentimentValidationLoading, setIsSentimentValidationLoading] = useState(false);
+  const [matrixReviewValidation, setMatrixReviewValidation] = useState<MatrixReviewValidationResult | null>(null);
+  const [isMatrixReviewValidationLoading, setIsMatrixReviewValidationLoading] = useState(false);
+  const didRequestMatrixReviewValidation = useRef(false);
   const [selectedReviewIngredient, setSelectedReviewIngredient] = useState("나이아신아마이드");
   const [reviewAnalysis, setReviewAnalysis] = useState<ReviewAnalysisResult | null>(null);
   const [reviewAnalysisState, setReviewAnalysisState] = useState<{ status: ApiState; error: string }>({
@@ -3009,6 +3130,18 @@ export default function Dashboard() {
       console.error("감성분석 모델 검증 조회 실패", error);
     } finally {
       setIsSentimentValidationLoading(false);
+    }
+  }
+
+  async function loadMatrixReviewValidation(matrixItems: DemandSupplyItem[]) {
+    setIsMatrixReviewValidationLoading(true);
+    try {
+      const result = await computeMatrixReviewValidation(matrixItems);
+      setMatrixReviewValidation(result);
+    } catch (error) {
+      console.error("매트릭스-리뷰 교차검증 계산 실패", error);
+    } finally {
+      setIsMatrixReviewValidationLoading(false);
     }
   }
 
@@ -3206,6 +3339,14 @@ export default function Dashboard() {
   useEffect(() => {
     void loadReviewAnalysis(selectedReviewIngredient);
   }, [selectedReviewIngredient]);
+
+  useEffect(() => {
+    if (didRequestMatrixReviewValidation.current) return;
+    if (loadState.demandSupplyMatrix !== "ready") return;
+    if (!data.page1.demandSupplyMatrix.length) return;
+    didRequestMatrixReviewValidation.current = true;
+    void loadMatrixReviewValidation(data.page1.demandSupplyMatrix);
+  }, [loadState.demandSupplyMatrix, data.page1.demandSupplyMatrix]);
 
   useEffect(() => {
     const stillLoading = loadState.dashboardSignals === "loading" ||
@@ -3469,6 +3610,34 @@ export default function Dashboard() {
                   items={data.page1.insights}
                   fallback={isPage1InsightsLoading ? "인사이트 요약을 생성 중입니다." : loadState.page1InsightsError || INSIGHT_GENERATION_ERROR_MESSAGE}
                 />
+              </section>
+
+              <section className="card matrix-review-validation-card">
+                <div className="card-header">
+                  <span>매트릭스 × 리뷰 교차검증</span>
+                  <span className="card-meta">
+                    {isMatrixReviewValidationLoading
+                      ? "리뷰 통계 계산 중"
+                      : `핵심 성분 ${matrixReviewValidation?.items.length ?? 0}개 비교`}
+                  </span>
+                </div>
+                <p className="card-helper">
+                  수요-공급 매트릭스는 검색 관심도(수요)와 제품 수(공급)만으로 성분을 분류합니다. 이 분류가 실제
+                  소비자 반응과도 맞는지 -- &quot;기회&quot; 성분이 정말 반응이 좋아서 기회인지, 단순히 공급이
+                  적을 뿐인지 -- 올리브영 리뷰 감성분석 결과로 교차검증합니다. 핵심 성분 5개 기준이라 사분면별
+                  통계적 비교가 아니라 성분별 개별 비교로 해석하는 것이 적절합니다.
+                </p>
+                <MatrixLegend />
+                <MatrixReviewValidationChart
+                  items={matrixReviewValidation?.items ?? []}
+                  isLoading={isMatrixReviewValidationLoading}
+                />
+                {matrixReviewValidation && matrixReviewValidation.missingIngredients.length > 0 ? (
+                  <p className="card-helper">
+                    {matrixReviewValidation.missingIngredients.join(", ")}은(는) 현재 매트릭스 스냅샷 또는 리뷰
+                    데이터가 없어 비교에서 제외했습니다.
+                  </p>
+                ) : null}
               </section>
             </div>
           </article>

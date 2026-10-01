@@ -55,6 +55,7 @@ button, input, select { font: inherit; }
 .market-grid { grid-template-columns: minmax(260px, .9fr) minmax(260px, .9fr) minmax(360px, 1.25fr); }
 .market-matrix-card { grid-column: 1 / span 2; }
 .market-insight-card { grid-column: 3; }
+.matrix-review-validation-card { grid-column: 1 / -1; }
 .card { background: #fff; border-radius: 14px; border: 1px solid #dfe6f2; padding: 20px 22px; min-width: 0; box-shadow: 0 8px 20px rgba(15,23,42,.025); }
 .card-header { font-size: 18px; font-weight: 900; color: #0f1f48; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .card-meta { font-size: 11px; color: #7c8ba4; font-weight: 800; white-space: nowrap; }
