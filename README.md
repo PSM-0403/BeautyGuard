@@ -87,6 +87,7 @@ npm run dev
 - 성분별 **수요-공급 매트릭스** (기회 / 성장 / 공급 과잉 / 관찰)
 - 기능 급상승 TOP 5 · 성분 인기 TOP 5 (네이버 주간·월간 / 올리브영)
 - 주요 성분 **가격 분포** (10ml 기준, 바이올린 차트)
+- **매트릭스 × 리뷰 교차검증** — 수요-공급 분류를 독립적인 리뷰 감성 데이터로 검증
 - GPT 기반 MD 인사이트 (선택적)
 
 ### 02 검색 트렌드 분석
@@ -99,6 +100,7 @@ npm run dev
 - 긍·부정 키워드 TOP 5, 피부 타입별 감정 비율
 - 리뷰 반응 상위 제품 TOP 3
 - 기회 성분 자동 드롭다운 추가 (2페이지 매트릭스 연동)
+- **감성분석 모델 신뢰도 검증** — 리뷰 별점을 근사 정답으로 삼아 모델 정확도 검증
 
 ### 04 경보
 - 수요-공급 격차 → **신제품 기획 후보 / 재고 리스크** 감지
@@ -107,6 +109,18 @@ npm run dev
 
 ### 05 AI Agent
 - 대시보드 데이터 기반 자연어 질의 → 타깃 전략 생성
+
+---
+
+## 페이지별 분석 내용
+
+| 페이지 | 분석 내용 |
+|---|---|
+| 01 시장 요약 | 수요-공급 매트릭스 분류를 리뷰 감성 데이터로 교차검증. 레티놀이 7개 핵심 성분 중 리뷰 긍정 비율 최저(67.1%)·부정 비율 최고(18.6%)로 나타나, "자극 이슈가 뚜렷하다"는 기존 전제를 독립적인 리뷰 데이터로 재확인 |
+| 02 검색 트렌드 분석 | 네이버 검색 관심도 시각화 (분석보다는 조회 도구) |
+| 03 소비자 리뷰 분석 | 리뷰 별점을 근사 정답으로 삼아 감성분석 모델(KoELECTRA)의 신뢰도 검증. 전체 정확도 83.5%, negative recall 86.8% |
+| 04 경보 | 수요-공급 격차·부정 키워드 기준 룰 기반 자동 감지 (분석보다는 자동화) |
+| 05 AI Agent | 대시보드 데이터를 GPT에 전달해 전략 생성 (분석보다는 위임) |
 
 ---
 
@@ -191,24 +205,31 @@ MD 의사결정에 바로 쓸 수 있는 문장 2~5개를 JSON Schema로 강제 
 ├── 올리브영 크롤러/
 │   └── [Module]oliveyoung_crawler/  # 상품/리뷰 수집 크롤러 (Selenium)
 ├── scripts/
-│   ├── import_csv_to_supabase.py     # 크롤러 CSV → Supabase 적재 (리뷰는 감성분석까지 계산해서 저장)
-│   └── backfill_review_sentiment.py  # 기존에 sentiment 없이 적재된 리뷰 일괄 백필 (일회성)
+│   ├── import_csv_to_supabase.py       # 크롤러 CSV → Supabase 적재 (리뷰는 감성분석까지 계산해서 저장)
+│   ├── backfill_review_sentiment.py    # 기존에 sentiment 없이 적재된 리뷰 일괄 백필 (일회성)
+│   ├── collect_sentiment_scores.py     # 전체 리뷰의 원본 확률 점수 수집 (임계값 튜닝용, 일회성)
+│   ├── tune_sentiment_threshold.py     # 수집된 점수로 임계값 오프라인 스윕 (일회성 분석)
+│   └── recompute_sentiment_labels.py   # 새 임계값으로 전체 sentiment 라벨 재계산 (일회성)
 ├── src/
 │   ├── app/
 │   │   └── api/
-│   │       ├── dashboard/        # 각 페이지 GPT 인사이트 API
-│   │       ├── review-analysis/  # 리뷰 분석 API
-│   │       └── alerts/daily/     # 경보 생성 API
+│   │       ├── dashboard/                       # 각 페이지 GPT 인사이트 API
+│   │       │   └── sentiment-validation/        # 감성분석 모델 신뢰도 검증 API
+│   │       ├── review-analysis/                 # 리뷰 분석 API
+│   │       └── alerts/daily/                    # 경보 생성 API
 │   ├── components/
 │   │   ├── dashboard/Dashboard.tsx
 │   │   └── review-analysis/
+│   │       └── SentimentValidationCard.tsx      # 감성분석 모델 검증 결과 표
 │   └── lib/
-│       ├── main-ingredients.ts   # 주요 성분 단일 소스 (여기만 수정)
-│       ├── reviewAnalysis.ts     # 리뷰 조회(적재 시 계산된 sentiment 사용)·키워드·스코어링
-│       ├── reviewConstants.ts    # 긍/부정 키워드 사전
-│       ├── generateInsights.ts   # OpenAI 인사이트 생성
-│       ├── daily-alert-service.ts # 경보 계산 서비스
-│       ├── demand-supply-matrix.ts
+│       ├── main-ingredients.ts       # 주요 성분 단일 소스 (여기만 수정)
+│       ├── reviewAnalysis.ts         # 리뷰 조회(적재 시 계산된 sentiment 사용)·키워드·스코어링
+│       ├── reviewConstants.ts        # 긍/부정 키워드 사전
+│       ├── generateInsights.ts       # OpenAI 인사이트 생성
+│       ├── daily-alert-service.ts    # 경보 계산 서비스
+│       ├── demand-supply-matrix.ts   # 수요-공급 매트릭스 계산
+│       ├── matrixReviewValidation.ts # 매트릭스 × 리뷰 교차검증 계산
+│       ├── sentimentValidation.ts    # 감성분석 모델 신뢰도 검증 계산
 │       └── alerts.ts
 └── README.md
 ```
