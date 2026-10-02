@@ -2366,8 +2366,24 @@ function MatrixReviewValidationChart({
 }) {
   const [tooltip, setTooltip] = useState<MatrixReviewTooltipState | null>(null);
   const shellRef = useRef<HTMLDivElement | null>(null);
+  const [measuredWidth, setMeasuredWidth] = useState(720);
   const rowHeight = 54;
-  const width = 720;
+  // 이 카드는 그리드 전체 폭(grid-column: 1 / -1)을 쓰는데, viewBox 비율을 그대로
+  // 유지한 채 늘리면 창이 넓어질수록 세로 높이도 비례해서 같이 커져 다른 차트 대비
+  // 압도적으로 커 보이는 문제가 있었다. ResizeObserver로 실제 렌더링 폭을 재서
+  // viewBox 1단위 = 실제 1px로 맞추면, 가로(막대 길이)만 늘어나고 세로 높이는
+  // 줄 수(rowHeight × items.length)로만 결정되어 창 크기와 무관하게 고정된다.
+  useEffect(() => {
+    const el = shellRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (entry) setMeasuredWidth(Math.max(360, Math.round(entry.contentRect.width)));
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  const width = measuredWidth;
   const padding = { top: 16, right: 56, bottom: 32, left: 150 };
   const plotWidth = width - padding.left - padding.right;
   const height = padding.top + padding.bottom + Math.max(1, items.length) * rowHeight;
@@ -2398,8 +2414,17 @@ function MatrixReviewValidationChart({
   }
 
   return (
-    <div className="plot-shell chart-shell review-validation-chart-shell" ref={shellRef} style={{ minHeight: height }}>
-      <svg className="chart-svg" viewBox={`0 0 ${width} ${height}`} role="img" aria-label="수요-공급 매트릭스와 리뷰 반응 교차검증">
+    <div className="plot-shell chart-shell review-validation-chart-shell" ref={shellRef} style={{ height }}>
+      <svg
+        className="chart-svg"
+        width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="xMidYMid meet"
+        role="img"
+        aria-label="수요-공급 매트릭스와 리뷰 반응 교차검증"
+        style={{ width: "100%", height, display: "block", minHeight: 0 }}
+      >
         {[0, 25, 50, 75, 100].map((tick) => (
           <g key={`grid-${tick}`}>
             <line x1={xFor(tick)} x2={xFor(tick)} y1={padding.top} y2={height - padding.bottom} className="chart-grid-line" />
@@ -2418,6 +2443,7 @@ function MatrixReviewValidationChart({
               tabIndex={0}
               role="button"
               aria-label={`${item.ingredient}, ${STATUS_LABELS[item.status]}, 긍정 리뷰 비율 ${item.positiveRatio}%, 표본 ${item.totalReviews}건`}
+              style={{ cursor: "pointer" }}
               onMouseEnter={(event) => showTooltip(item, event)}
               onMouseMove={(event) => showTooltip(item, event)}
               onMouseLeave={() => setTooltip(null)}
@@ -3625,6 +3651,12 @@ export default function Dashboard() {
                   items={matrixReviewValidation?.items ?? []}
                   isLoading={isMatrixReviewValidationLoading}
                 />
+                {matrixReviewValidation && matrixReviewValidation.items.length > 0 ? (
+                  <p className="card-helper">
+                    막대 옆 숫자는 <strong>긍정 리뷰 비율 · 리뷰 표본 수(n)</strong>입니다. 성분 막대에 마우스를
+                    올리면 부정 비율, 평균 평점 등 상세 수치를 확인할 수 있습니다.
+                  </p>
+                ) : null}
                 {matrixReviewValidation && matrixReviewValidation.missingIngredients.length > 0 ? (
                   <p className="card-helper">
                     {matrixReviewValidation.missingIngredients.join(", ")}은(는) 현재 매트릭스 스냅샷 또는 리뷰
