@@ -69,12 +69,13 @@ const SIGNIFICANCE_TEST_TARGET = "레티놀";
 const ALPHA = 0.05;
 
 export async function computeMatrixReviewValidation(): Promise<MatrixReviewValidationResult> {
-  const [matrixResult, reviewStats] = await Promise.all([
+  const [matrixResult, reviewStats, retinolSignificanceTest] = await Promise.all([
     fetchDemandSupplyMatrixFromSupabase({
       ...DEFAULT_DEMAND_SUPPLY_MATRIX_CONFIG,
       selectedIngredients: MATRIX_INGREDIENT_TARGETS.map((target) => target.label),
     }),
     fetchIngredientReviewStats(),
+    computeRetinolSignificanceTest(),
   ]);
 
   if (matrixResult.isUnavailable) {
@@ -113,25 +114,39 @@ export async function computeMatrixReviewValidation(): Promise<MatrixReviewValid
 
   items.sort((a, b) => b.gap - a.gap);
 
-  return { items, missingIngredients, retinolSignificanceTest: computeRetinolSignificanceTest(items) };
+  return { items, missingIngredients, retinolSignificanceTest };
 }
 
-function computeRetinolSignificanceTest(items: MatrixReviewValidationItem[]): ProportionSignificanceTest | null {
-  const target = items.find((item) => item.ingredient === SIGNIFICANCE_TEST_TARGET);
-  const rest = items.filter((item) => item.ingredient !== SIGNIFICANCE_TEST_TARGET);
-  if (!target || !rest.length) return null;
+// 비교 그룹은 "레티놀 제품 리뷰를 뺀 나머지 리뷰 전체"다. 예전에는 다른 6개 성분의
+// 성분별 리뷰 수를 그냥 더했는데, 한 상품에 성분이 여러 개 들어 있으면(예: 나이아신아마이드
+// + 판테놀) 같은 리뷰가 여러 번 세어져 표본이 실제보다 커졌다(973건 중 1,106건으로 집계).
+// 그래서 리뷰 한 건씩 레티놀 포함 여부로 나눠 각 리뷰가 정확히 한 그룹에만 들어가게 한다.
+async function computeRetinolSignificanceTest(): Promise<ProportionSignificanceTest | null> {
+  const target = MATRIX_INGREDIENT_TARGETS.find((item) => item.label === SIGNIFICANCE_TEST_TARGET);
+  if (!target) return null;
 
-  const restNegativeCount = rest.reduce((sum, item) => sum + item.negativeCount, 0);
-  const restTotal = rest.reduce((sum, item) => sum + item.totalReviews, 0);
-  if (!restTotal || !target.totalReviews) return null;
+  const rows = await fetchAllSentimentReviews();
+  const aliases = target.aliases.map((alias) => alias.toLowerCase());
+  const isTarget = (row: SentimentReviewRow) => {
+    const ingredients = String(row.main_ingredients || "").toLowerCase();
+    return aliases.some((alias) => ingredients.includes(alias));
+  };
 
-  const { z, p } = twoProportionZTest(target.negativeCount, target.totalReviews, restNegativeCount, restTotal);
+  const targetRows = rows.filter(isTarget);
+  const restRows = rows.filter((row) => !isTarget(row));
+  const targetNegativeCount = targetRows.filter((row) => row.sentiment === "negative").length;
+  const restNegativeCount = restRows.filter((row) => row.sentiment === "negative").length;
+  const targetTotal = targetRows.length;
+  const restTotal = restRows.length;
+  if (!restTotal || !targetTotal) return null;
+
+  const { z, p } = twoProportionZTest(targetNegativeCount, targetTotal, restNegativeCount, restTotal);
 
   return {
-    targetIngredient: target.ingredient,
-    targetNegativeCount: target.negativeCount,
-    targetTotal: target.totalReviews,
-    targetRatio: target.negativeRatio,
+    targetIngredient: target.label,
+    targetNegativeCount,
+    targetTotal,
+    targetRatio: round((targetNegativeCount / targetTotal) * 100, 1),
     restNegativeCount,
     restTotal,
     restRatio: round((restNegativeCount / restTotal) * 100, 1),
@@ -171,6 +186,35 @@ function erf(x: number) {
   const t = 1 / (1 + p * absX);
   const y = 1 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-absX * absX);
   return sign * y;
+}
+
+type SentimentReviewRow = { main_ingredients: string | null; sentiment: string | null };
+
+const REVIEW_PAGE_SIZE = 1000;
+
+async function fetchAllSentimentReviews(): Promise<SentimentReviewRow[]> {
+  const supabase = createClient();
+  const rows: SentimentReviewRow[] = [];
+
+  for (let from = 0; ; from += REVIEW_PAGE_SIZE) {
+    const { data, error } = await supabase
+      .from("product_reviews")
+      .select("main_ingredients, sentiment")
+      .not("sentiment", "is", null)
+      .order("id")
+      .range(from, from + REVIEW_PAGE_SIZE - 1);
+
+    if (error) {
+      console.error("레티놀 유의성 검정용 리뷰 조회 실패", error.message);
+      return [];
+    }
+
+    const page = (data || []) as SentimentReviewRow[];
+    rows.push(...page);
+    if (page.length < REVIEW_PAGE_SIZE) break;
+  }
+
+  return rows;
 }
 
 async function fetchIngredientReviewStats(): Promise<Map<string, ReviewStat>> {

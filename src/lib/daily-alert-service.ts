@@ -18,6 +18,7 @@ import {
 } from "@/lib/alerts";
 import type { AlertsRepository } from "@/lib/alert-repository";
 import { createServerSupabaseClient, SupabaseAlertsRepository } from "@/lib/alert-repository";
+import { MAIN_INGREDIENT_TABLE } from "@/lib/main-ingredients";
 
 type EnsureDailyAlertsOptions = {
   alertDate?: string;
@@ -128,7 +129,7 @@ async function fetchSupplyRowsForAlerts() {
   const goodsNos = Array.from(new Set(ingredientRows.map((row) => normalizeGoodsNo(row.goods_no)).filter(Boolean)));
 
   if (!ingredientRows.length || !goodsNos.length) {
-    throw new Error("product_main_ingredients에서 경보 계산용 성분 데이터를 찾지 못했습니다.");
+    throw new Error(`${MAIN_INGREDIENT_TABLE}에서 경보 계산용 성분 데이터를 찾지 못했습니다.`);
   }
 
   const snapshotRows = await fetchSnapshotRows(supabase, goodsNos);
@@ -163,11 +164,11 @@ async function fetchAllIngredientRows(supabase: SupabaseClient) {
 
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase
-      .from("product_main_ingredients")
+      .from(MAIN_INGREDIENT_TABLE)
       .select("goods_no, ingredient_name")
       .range(from, from + PAGE_SIZE - 1);
 
-    if (error) throw new Error(`product_main_ingredients 조회 실패: ${error.message}`);
+    if (error) throw new Error(`${MAIN_INGREDIENT_TABLE} 조회 실패: ${error.message}`);
 
     const page = (data || []) as unknown as IngredientRow[];
     rows.push(...page);
@@ -213,7 +214,7 @@ async function fetchSnapshotRows(supabase: SupabaseClient, goodsNos: string[]) {
 }
 
 async function fetchDemandRowsForAlerts(requestUrl: string): Promise<DemandRawDatum[]> {
-  const response = await fetch(new URL("/api/dashboard/datalab-weekly-interest", requestUrl), {
+  const response = await fetch(new URL("/api/dashboard/datalab-weekly-interest?align=supply", requestUrl), {
     cache: "no-store",
   });
   const payload = await response.json().catch(() => ({}));

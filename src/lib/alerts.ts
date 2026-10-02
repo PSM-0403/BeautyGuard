@@ -171,7 +171,7 @@ function buildIngredientMatrixAlerts(items: DemandSupplyItem[], alertDate: strin
           reasons: [
             `수요 점수가 ${formatScore(demandScore)}로 60 이상입니다.`,
             `공급 점수가 ${formatScore(supplyScore)}로 40 이하입니다.`,
-            typeof item.demandWow === "number" ? `수요 전주 대비 변화율은 ${formatSignedPct(item.demandWow)}입니다.` : "",
+            typeof item.demandWow === "number" ? `수요 직전 기간 대비 변화율은 ${formatSignedPct(item.demandWow)}입니다.` : "",
           ].filter(Boolean),
           metrics: getMatrixMetrics(item),
           threshold: "Medium: demand_score >= 60 AND supply_score <= 40 / High: demand_score >= 80 AND supply_score <= 40",
@@ -200,7 +200,7 @@ function buildIngredientMatrixAlerts(items: DemandSupplyItem[], alertDate: strin
           reasons: [
             `공급 점수가 ${formatScore(supplyScore)}로 60 이상입니다.`,
             `수요 점수가 ${formatScore(demandScore)}로 40 이하입니다.`,
-            typeof item.supplyWow === "number" ? `공급 전주 대비 변화율은 ${formatSignedPct(item.supplyWow)}입니다.` : "",
+            typeof item.supplyWow === "number" ? `공급 이전 수집일 대비 변화율은 ${formatSignedPct(item.supplyWow)}입니다.` : "",
           ].filter(Boolean),
           metrics: getMatrixMetrics(item),
           threshold: "Medium: supply_score >= 60 AND demand_score <= 40 / High: supply_score >= 80 AND demand_score <= 40",
@@ -270,8 +270,8 @@ function getMatrixMetrics(item: DemandSupplyItem) {
     "수요 점수": formatScore(item.demand),
     "공급 점수": formatScore(item.supply),
     "수요-공급 격차": formatScore(item.gap ?? Number(item.demand || 0) - Number(item.supply || 0)),
-    "수요 전주 대비": typeof item.demandWow === "number" ? formatSignedPct(item.demandWow) : "-",
-    "공급 전주 대비": typeof item.supplyWow === "number" ? formatSignedPct(item.supplyWow) : "-",
+    "수요 직전 기간 대비": typeof item.demandWow === "number" ? formatSignedPct(item.demandWow) : "-",
+    "공급 이전 수집일 대비": typeof item.supplyWow === "number" ? formatSignedPct(item.supplyWow) : "-",
     "공급 상품 수": typeof item.supplyCount === "number" ? `${item.supplyCount}개` : "-",
   };
 }

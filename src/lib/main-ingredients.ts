@@ -16,6 +16,11 @@
  *                  |                        | 대시보드의 "기회 성분 발굴" 목적을 보여주기 좋음
  */
 
+// 성분별 상품 수(공급)를 셀 때 읽는 테이블. 원본 product_main_ingredients는 GPT OCR
+// 추출 결과가 날마다 누적돼 있어서, 수집일 과반에서 추출된 성분만 남긴 정제본을 읽는다
+// (scripts/build_main_ingredients_majority.py 참고).
+export const MAIN_INGREDIENT_TABLE = "product_main_ingredients_majority";
+
 export type MainIngredient = {
   key: string;
   label: string;

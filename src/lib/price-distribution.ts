@@ -68,7 +68,7 @@ const PRODUCT_SELECT_CANDIDATES = [
   "goods_no, volume_ml",
 ] as const;
 
-import { MAIN_INGREDIENT_LIST } from "@/lib/main-ingredients";
+import { MAIN_INGREDIENT_LIST, MAIN_INGREDIENT_TABLE } from "@/lib/main-ingredients";
 
 export const PRICE_INGREDIENT_TARGETS: PriceIngredientTarget[] = MAIN_INGREDIENT_LIST.map(({ key, label, aliases }) => ({ key, label, aliases }));
 
@@ -165,12 +165,12 @@ async function fetchIngredientRows(supabase: ReturnType<typeof createClient>) {
 
   for (let from = 0; ; from += PAGE_SIZE) {
     const { data, error } = await supabase
-      .from("product_main_ingredients")
+      .from(MAIN_INGREDIENT_TABLE)
       .select(`goods_no, ${INGREDIENT_NAME_COLUMN}`)
       .or(ingredientFilter)
       .range(from, from + PAGE_SIZE - 1);
 
-    if (error) throw new Error(`product_main_ingredients 조회 실패: ${error.message}`);
+    if (error) throw new Error(`${MAIN_INGREDIENT_TABLE} 조회 실패: ${error.message}`);
 
     const page = (data || []) as ProductIngredientRow[];
     rows.push(...page);

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { createServerSupabaseClient } from "@/lib/alert-repository";
 import {
   AGE_GROUPS,
   ANCHOR_GROUP,
@@ -100,7 +101,9 @@ export async function GET(request: Request) {
     }
 
     const page1Period = (url.searchParams.get("period") || "month") as "week" | "month";
-    const { startDate, endDate, splitDate, comparisonLabel } = getWeeklyRange(page1Period);
+    const { startDate, endDate, splitDate, comparisonLabel } = url.searchParams.get("align") === "supply"
+      ? await getSupplyAlignedRange()
+      : getWeeklyRange(page1Period);
     const [functionRows, ingredientRows] = await Promise.all([
       fetchWeeklyInterestRows(FUNCTION_SIGNAL_GROUPS, startDate, endDate, clientId, clientSecret, splitDate),
       fetchWeeklyInterestRows(buildIngredientKeywordGroups(), startDate, endDate, clientId, clientSecret, splitDate),
@@ -364,6 +367,41 @@ function normalizeSearchIndexes(rows: WeeklyInterestRow[]) {
       searchIndex: round(normalizedCurrent, 1),
     };
   });
+}
+
+// 수요-공급 매트릭스는 수요(검색 지수)와 공급(상품 수)을 같은 기간끼리 비교해야 한다.
+// 공급은 올리브영 크롤링 기간(product_snapshots의 수집일)으로 고정돼 있으므로, 수요도
+// 같은 기간을 "현재"로 잡고 바로 앞의 같은 길이 기간을 "이전"으로 잡는다.
+// 예: 수집일 9/11~9/15 → 현재 9/11~9/15, 이전 9/6~9/10.
+async function getSupplyAlignedRange() {
+  const supabase = createServerSupabaseClient();
+  const [first, last] = await Promise.all([
+    supabase.from("product_snapshots").select("collected_date").order("collected_date", { ascending: true }).limit(1),
+    supabase.from("product_snapshots").select("collected_date").order("collected_date", { ascending: false }).limit(1),
+  ]);
+
+  if (first.error || last.error) {
+    throw new Error(`공급 수집 기간 조회 실패: ${(first.error || last.error)?.message}`);
+  }
+
+  const firstDate = (first.data?.[0] as { collected_date?: string } | undefined)?.collected_date;
+  const lastDate = (last.data?.[0] as { collected_date?: string } | undefined)?.collected_date;
+  if (!firstDate || !lastDate) {
+    throw new Error("product_snapshots에 수집일이 없어 수요 기간을 맞출 수 없습니다.");
+  }
+
+  const dayMs = 24 * 60 * 60 * 1000;
+  const firstTime = new Date(`${firstDate}T00:00:00Z`).getTime();
+  const lastTime = new Date(`${lastDate}T00:00:00Z`).getTime();
+  const dayCount = Math.round((lastTime - firstTime) / dayMs) + 1;
+  const isoDate = (time: number) => new Date(time).toISOString().slice(0, 10);
+
+  return {
+    startDate: isoDate(firstTime - dayCount * dayMs),
+    endDate: lastDate,
+    splitDate: firstDate,
+    comparisonLabel: `직전 ${dayCount}일 대비 증감률`,
+  };
 }
 
 function getWeeklyRange(period: "week" | "month" = "month") {

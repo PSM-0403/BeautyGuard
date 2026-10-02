@@ -12,6 +12,7 @@ import {
   type DailyAlertsPayload,
 } from "@/lib/alerts";
 import { fetchPriceDistributionFromSupabase, getEmptyPriceDistribution } from "@/lib/price-distribution";
+import { MAIN_INGREDIENT_TABLE } from "@/lib/main-ingredients";
 import { IngredientSelect } from "@/components/review-analysis/IngredientSelect";
 import { getReviewIngredientOptions } from "@/lib/reviewConstants";
 import { KeywordCards } from "@/components/review-analysis/KeywordCards";
@@ -651,7 +652,7 @@ function calculateSeriesGrowth(series?: SearchTrendSeries, fallback = 0) {
   return start ? ((end - start) / start) * 100 : fallback;
 }
 
-const MARKET_PRODUCT_TABLE_CANDIDATES = ["product_main_ingredients", "main_ingrdients", "main_ingredients"] as const;
+const MARKET_PRODUCT_TABLE_CANDIDATES = [MAIN_INGREDIENT_TABLE, "main_ingrdients", "main_ingredients"] as const;
 const MARKET_INGREDIENT_SELECT_CANDIDATES = [
   "goods_no, ingredient_name",
   "goods_no, main_ingredients",
@@ -982,7 +983,7 @@ async function fetchIngredientRowsForGoodsNos(goodsNos: string[]) {
 
     for (const goodsNoChunk of chunkArray(goodsNos, 180)) {
       const { data, error } = await supabase
-        .from("product_main_ingredients")
+        .from(MAIN_INGREDIENT_TABLE)
         .select(selectQuery as string)
         .in("goods_no", goodsNoChunk)
         .limit(10000);
@@ -990,7 +991,7 @@ async function fetchIngredientRowsForGoodsNos(goodsNos: string[]) {
       if (error) {
         lastError = error.message;
         hasError = true;
-        console.error("Supabase product_main_ingredients 조인 조회 실패", { selectQuery, message: error.message });
+        console.error(`Supabase ${MAIN_INGREDIENT_TABLE} 조인 조회 실패`, { selectQuery, message: error.message });
         break;
       }
 
@@ -1000,7 +1001,7 @@ async function fetchIngredientRowsForGoodsNos(goodsNos: string[]) {
     if (!hasError) return rows;
   }
 
-  throw new Error(lastError || "product_main_ingredients에서 성분 컬럼을 찾지 못했습니다.");
+  throw new Error(lastError || `${MAIN_INGREDIENT_TABLE}에서 성분 컬럼을 찾지 못했습니다.`);
 }
 
 function filterLatestRankingRows(rows: OliveYoungRankingRow[]) {
@@ -2112,15 +2113,6 @@ function formatMatrixScore(value?: number) {
   return Number(value).toFixed(1);
 }
 
-function buildRestBreakdownTitle(items: MatrixReviewValidationItem[]) {
-  const rest = items.filter((item) => item.ingredient !== "레티놀");
-  const lines = rest.map((item) => `${item.ingredient} ${item.negativeCount}/${item.totalReviews}`);
-  const totalNegative = rest.reduce((sum, item) => sum + item.negativeCount, 0);
-  const totalReviews = rest.reduce((sum, item) => sum + item.totalReviews, 0);
-  const ratio = totalReviews ? ((totalNegative / totalReviews) * 100).toFixed(1) : "0";
-  return [...lines, `합계 ${totalNegative}/${totalReviews} = ${ratio}%`].join("\n");
-}
-
 function formatMatrixChange(value?: number) {
   if (!Number.isFinite(Number(value))) return "-";
   const number = Number(value);
@@ -2719,16 +2711,15 @@ function MarketProductPlot({ products }: { products: MarketProduct[] }) {
     <div className="plot-shell compact bar-chart">
       {rows.map((item, index) => {
         const hasPreviousBaseline = !String(item.source || "").includes("no_previous_snapshot");
-        const growth = hasPreviousBaseline
-          ? getGrowthDisplay(getProductGrowth(item))
-          : { text: "전주 데이터 없음", color: "#64748b" };
+        // 비교할 이전 스냅샷이 없으면 증감률 줄을 아예 표시하지 않는다.
+        const growth = hasPreviousBaseline ? getGrowthDisplay(getProductGrowth(item)) : null;
         return (
           <div className="bar-chart-row" key={item.ingredient_key}>
             <div className="bar-chart-label">
               <strong>
                 <IngredientTooltip label={item.ingredient_label}>{item.ingredient_label}</IngredientTooltip>
               </strong>
-              <span style={{ color: growth.color }}>{growth.text}</span>
+              {growth ? <span style={{ color: growth.color }}>{growth.text}</span> : null}
             </div>
             <div className="bar-track">
               <span
@@ -3662,16 +3653,18 @@ export default function Dashboard() {
                       <strong className="positive">{matrixReviewValidation.retinolSignificanceTest.targetRatio.toFixed(1)}%</strong>
                     </div>
                     <div className="mini-summary hover-tooltip-anchor" tabIndex={0}>
-                      <span>나머지 6개 성분 부정 비율 (n={matrixReviewValidation.retinolSignificanceTest.restTotal})</span>
+                      <span>레티놀 외 리뷰 부정 비율 (n={matrixReviewValidation.retinolSignificanceTest.restTotal})</span>
                       <strong>{matrixReviewValidation.retinolSignificanceTest.restRatio.toFixed(1)}%</strong>
-                      <div className="hover-tooltip-panel">{buildRestBreakdownTitle(matrixReviewValidation.items)}</div>
+                      <div className="hover-tooltip-panel">
+                        {`레티놀 제품 리뷰를 뺀 나머지 리뷰 전체\n부정 ${matrixReviewValidation.retinolSignificanceTest.restNegativeCount}/${matrixReviewValidation.retinolSignificanceTest.restTotal}건\n(한 리뷰가 여러 성분에 중복 집계되지 않도록 리뷰 단위로 계산)`}
+                      </div>
                     </div>
                     <p className="card-helper" style={{ marginTop: -2 }}>
                       2-proportion z-test: z={matrixReviewValidation.retinolSignificanceTest.zScore}, p=
                       {matrixReviewValidation.retinolSignificanceTest.pValue} —
                       {matrixReviewValidation.retinolSignificanceTest.isSignificant
                         ? ` α=${matrixReviewValidation.retinolSignificanceTest.alpha} 기준으로 유의한 차이입니다.`
-                        : ` α=${matrixReviewValidation.retinolSignificanceTest.alpha}를 살짝 못 넘겨 유의하다고 보기는 어렵습니다.`}{" "}
+                        : ` α=${matrixReviewValidation.retinolSignificanceTest.alpha} 기준으로 유의한 차이라고 보기 어렵습니다.`}{" "}
                       레티놀을 고른 건 원래 자극 성분으로 알려져 있기도 하고, 7개 중 가장 튀는 것도 확인했기
                       때문입니다.
                     </p>

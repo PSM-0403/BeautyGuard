@@ -22,6 +22,19 @@ create table if not exists product_main_ingredients (
 create index if not exists idx_pmi_goods_no on product_main_ingredients (goods_no);
 create index if not exists idx_pmi_ingredient on product_main_ingredients (ingredient_name);
 
+-- GPT OCR 주성분 추출이 같은 상품에서도 날마다 달라, product_main_ingredients에는 5일 중
+-- 하루라도 추출된 성분이 모두 누적돼 있다. 원본은 그대로 두고, 수집일 과반에서 추출된
+-- 성분만 남긴 정제본을 따로 둔다 (scripts/build_main_ingredients_majority.py로 채움).
+-- 매트릭스·경보 계산은 이 정제본을 읽는다.
+create table if not exists product_main_ingredients_majority (
+  id bigserial primary key,
+  goods_no text not null references products(goods_no) on delete cascade,
+  ingredient_name text not null,
+  unique (goods_no, ingredient_name)
+);
+create index if not exists idx_pmim_goods_no on product_main_ingredients_majority (goods_no);
+create index if not exists idx_pmim_ingredient on product_main_ingredients_majority (ingredient_name);
+
 create table if not exists product_snapshots (
   id bigserial primary key,
   goods_no text not null references products(goods_no) on delete cascade,
@@ -100,6 +113,7 @@ create index if not exists idx_alerts_date on alerts (alert_date);
 -- (Supabase 보안 어드바이저가 critical로 잡는 항목), 절대 disable로 두지 않습니다.
 alter table products enable row level security;
 alter table product_main_ingredients enable row level security;
+alter table product_main_ingredients_majority enable row level security;
 alter table product_snapshots enable row level security;
 alter table product_rankings enable row level security;
 alter table product_reviews enable row level security;
@@ -108,6 +122,7 @@ alter table alerts enable row level security;
 
 create policy "Public read access" on products for select using (true);
 create policy "Public read access" on product_main_ingredients for select using (true);
+create policy "Public read access" on product_main_ingredients_majority for select using (true);
 create policy "Public read access" on product_snapshots for select using (true);
 create policy "Public read access" on product_rankings for select using (true);
 create policy "Public read access" on product_reviews for select using (true);

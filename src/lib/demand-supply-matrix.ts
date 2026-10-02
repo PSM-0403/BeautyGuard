@@ -1,5 +1,6 @@
 import type { DemandSupplyItem, IngredientMetric } from "@/lib/types";
 import { createClient } from "@/utils/supabase/client";
+import { MAIN_INGREDIENT_TABLE } from "@/lib/main-ingredients";
 
 export type MatrixIngredientTarget = {
   id: string;
@@ -129,7 +130,8 @@ export async function fetchNaverDemandData(config: Partial<DemandSupplyMatrixCon
   const configuredTargets = getSelectedTargets(resolvedConfig.selectedIngredients);
 
   try {
-    const response = await fetch("/api/dashboard/datalab-weekly-interest");
+    // align=supply: 수요 기간을 공급 수집 기간에 맞춘다 (route.ts getSupplyAlignedRange 참고).
+    const response = await fetch("/api/dashboard/datalab-weekly-interest?align=supply");
     const payload = await response.json().catch(() => ({}));
 
     if (!response.ok) {
@@ -303,7 +305,7 @@ async function fetchIngredientRows(supabase: ReturnType<typeof createClient>, in
 
   for (let from = 0; ; from += PAGE_SIZE) {
     let query = supabase
-      .from("product_main_ingredients")
+      .from(MAIN_INGREDIENT_TABLE)
       .select(`goods_no, ${INGREDIENT_NAME_COLUMN}`)
       .range(from, from + PAGE_SIZE - 1);
 
@@ -313,7 +315,7 @@ async function fetchIngredientRows(supabase: ReturnType<typeof createClient>, in
 
     const { data, error } = await query;
 
-    if (error) throw new Error(`product_main_ingredients 조회 실패: ${error.message}`);
+    if (error) throw new Error(`${MAIN_INGREDIENT_TABLE} 조회 실패: ${error.message}`);
 
     const page = (data || []) as ProductIngredientRow[];
     rows.push(...page);
