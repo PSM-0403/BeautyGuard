@@ -2112,6 +2112,15 @@ function formatMatrixScore(value?: number) {
   return Number(value).toFixed(1);
 }
 
+function buildRestBreakdownTitle(items: MatrixReviewValidationItem[]) {
+  const rest = items.filter((item) => item.ingredient !== "레티놀");
+  const lines = rest.map((item) => `${item.ingredient} ${item.negativeCount}/${item.totalReviews}`);
+  const totalNegative = rest.reduce((sum, item) => sum + item.negativeCount, 0);
+  const totalReviews = rest.reduce((sum, item) => sum + item.totalReviews, 0);
+  const ratio = totalReviews ? ((totalNegative / totalReviews) * 100).toFixed(1) : "0";
+  return [...lines, `합계 ${totalNegative}/${totalReviews} = ${ratio}%`].join("\n");
+}
+
 function formatMatrixChange(value?: number) {
   if (!Number.isFinite(Number(value))) return "-";
   const number = Number(value);
@@ -3656,6 +3665,28 @@ export default function Dashboard() {
                     막대 옆 숫자는 <strong>긍정 리뷰 비율 · 리뷰 표본 수(n)</strong>입니다. 성분 막대에 마우스를
                     올리면 부정 비율, 평균 평점 등 상세 수치를 확인할 수 있습니다.
                   </p>
+                ) : null}
+                {matrixReviewValidation?.retinolSignificanceTest ? (
+                  <div className="summary-mini-grid" style={{ marginBottom: 10 }}>
+                    <div className="mini-summary">
+                      <span>레티놀 부정 비율 (n={matrixReviewValidation.retinolSignificanceTest.targetTotal})</span>
+                      <strong className="positive">{matrixReviewValidation.retinolSignificanceTest.targetRatio.toFixed(1)}%</strong>
+                    </div>
+                    <div className="mini-summary hover-tooltip-anchor" tabIndex={0}>
+                      <span>나머지 6개 성분 부정 비율 (n={matrixReviewValidation.retinolSignificanceTest.restTotal})</span>
+                      <strong>{matrixReviewValidation.retinolSignificanceTest.restRatio.toFixed(1)}%</strong>
+                      <div className="hover-tooltip-panel">{buildRestBreakdownTitle(matrixReviewValidation.items)}</div>
+                    </div>
+                    <p className="card-helper" style={{ marginTop: -2 }}>
+                      2-proportion z-test: z={matrixReviewValidation.retinolSignificanceTest.zScore}, p=
+                      {matrixReviewValidation.retinolSignificanceTest.pValue} —
+                      {matrixReviewValidation.retinolSignificanceTest.isSignificant
+                        ? ` α=${matrixReviewValidation.retinolSignificanceTest.alpha} 기준으로 유의한 차이입니다.`
+                        : ` α=${matrixReviewValidation.retinolSignificanceTest.alpha}를 살짝 못 넘겨 유의하다고 보기는 어렵습니다.`}{" "}
+                      레티놀을 고른 건 원래 자극 성분으로 알려져 있기도 하고, 7개 중 가장 튀는 것도 확인했기
+                      때문입니다.
+                    </p>
+                  </div>
                 ) : null}
                 {matrixReviewValidation && matrixReviewValidation.missingIngredients.length > 0 ? (
                   <p className="card-helper">

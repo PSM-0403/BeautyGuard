@@ -402,6 +402,33 @@ tbody tr:hover { background: #fbfdff; }
 .matrix-tooltip-grid span {
   color: #64748b;
 }
+.hover-tooltip-anchor { position: relative; cursor: help; }
+.hover-tooltip-panel {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  max-width: 280px;
+  padding: 12px 14px;
+  border: 1px solid #d8e0ee;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .98);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, .16);
+  color: #263244;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: pre-line;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .15s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+.hover-tooltip-anchor:hover .hover-tooltip-panel,
+.hover-tooltip-anchor:focus-within .hover-tooltip-panel {
+  opacity: 1;
+  visibility: visible;
+}
 .matrix-tooltip-grid strong {
   color: #18233f;
   text-align: right;

@@ -28,11 +28,33 @@ export type MatrixReviewValidationItem = {
   avgRating: number;
   positiveRatio: number;
   negativeRatio: number;
+  negativeCount: number;
+};
+
+// 레티놀의 부정 리뷰 비율이 나머지 성분 전체보다 통계적으로 유의하게 높은지
+// 2-proportion z-test로 검증한다. 레티놀을 검정 대상으로 고른 이유는 두 가지다:
+// (1) main-ingredients.ts에 애초에 "자극·건조 부정 리뷰 뚜렷"이라는 이유로
+// 선정되어 있었고, (2) 실제로 7개 성분 리뷰 데이터를 보니 레티놀이 가장 튀었다.
+// (2)는 같은 데이터를 보고 나서 검정 대상을 정한 것이라, 순수한 사전 가설 검정
+// 보다는 느슨하다 -- 참고용 유의성 검정으로 해석하는 것이 안전하다.
+export type ProportionSignificanceTest = {
+  targetIngredient: string;
+  targetNegativeCount: number;
+  targetTotal: number;
+  targetRatio: number;
+  restNegativeCount: number;
+  restTotal: number;
+  restRatio: number;
+  zScore: number;
+  pValue: number;
+  alpha: number;
+  isSignificant: boolean;
 };
 
 export type MatrixReviewValidationResult = {
   items: MatrixReviewValidationItem[];
   missingIngredients: string[];
+  retinolSignificanceTest: ProportionSignificanceTest | null;
 };
 
 type ReviewStat = {
@@ -40,7 +62,11 @@ type ReviewStat = {
   avgRating: number;
   positiveRatio: number;
   negativeRatio: number;
+  negativeCount: number;
 };
+
+const SIGNIFICANCE_TEST_TARGET = "레티놀";
+const ALPHA = 0.05;
 
 export async function computeMatrixReviewValidation(): Promise<MatrixReviewValidationResult> {
   const [matrixResult, reviewStats] = await Promise.all([
@@ -52,7 +78,11 @@ export async function computeMatrixReviewValidation(): Promise<MatrixReviewValid
   ]);
 
   if (matrixResult.isUnavailable) {
-    return { items: [], missingIngredients: MATRIX_INGREDIENT_TARGETS.map((target) => target.label) };
+    return {
+      items: [],
+      missingIngredients: MATRIX_INGREDIENT_TARGETS.map((target) => target.label),
+      retinolSignificanceTest: null,
+    };
   }
 
   const matrixByIngredient = new Map(matrixResult.items.map((item: DemandSupplyItem) => [item.ingredient, item]));
@@ -77,12 +107,70 @@ export async function computeMatrixReviewValidation(): Promise<MatrixReviewValid
       avgRating: stats.avgRating,
       positiveRatio: stats.positiveRatio,
       negativeRatio: stats.negativeRatio,
+      negativeCount: stats.negativeCount,
     }];
   });
 
   items.sort((a, b) => b.gap - a.gap);
 
-  return { items, missingIngredients };
+  return { items, missingIngredients, retinolSignificanceTest: computeRetinolSignificanceTest(items) };
+}
+
+function computeRetinolSignificanceTest(items: MatrixReviewValidationItem[]): ProportionSignificanceTest | null {
+  const target = items.find((item) => item.ingredient === SIGNIFICANCE_TEST_TARGET);
+  const rest = items.filter((item) => item.ingredient !== SIGNIFICANCE_TEST_TARGET);
+  if (!target || !rest.length) return null;
+
+  const restNegativeCount = rest.reduce((sum, item) => sum + item.negativeCount, 0);
+  const restTotal = rest.reduce((sum, item) => sum + item.totalReviews, 0);
+  if (!restTotal || !target.totalReviews) return null;
+
+  const { z, p } = twoProportionZTest(target.negativeCount, target.totalReviews, restNegativeCount, restTotal);
+
+  return {
+    targetIngredient: target.ingredient,
+    targetNegativeCount: target.negativeCount,
+    targetTotal: target.totalReviews,
+    targetRatio: target.negativeRatio,
+    restNegativeCount,
+    restTotal,
+    restRatio: round((restNegativeCount / restTotal) * 100, 1),
+    zScore: round(z, 2),
+    pValue: round(p, 4),
+    alpha: ALPHA,
+    isSignificant: p < ALPHA,
+  };
+}
+
+function twoProportionZTest(x1: number, n1: number, x2: number, n2: number) {
+  const p1 = x1 / n1;
+  const p2 = x2 / n2;
+  const pooled = (x1 + x2) / (n1 + n2);
+  const se = Math.sqrt(pooled * (1 - pooled) * (1 / n1 + 1 / n2));
+  if (se === 0) return { z: 0, p: 1 };
+
+  const z = (p1 - p2) / se;
+  const p = 2 * (1 - normalCdf(Math.abs(z)));
+  return { z, p };
+}
+
+function normalCdf(x: number) {
+  return 0.5 * (1 + erf(x / Math.SQRT2));
+}
+
+// Abramowitz-Stegun 근사식 (오차 1.5e-7 이내) -- 표준정규분포 CDF 계산용.
+function erf(x: number) {
+  const sign = x < 0 ? -1 : 1;
+  const absX = Math.abs(x);
+  const a1 = 0.254829592;
+  const a2 = -0.284496736;
+  const a3 = 1.421413741;
+  const a4 = -1.453152027;
+  const a5 = 1.061405429;
+  const p = 0.3275911;
+  const t = 1 / (1 + p * absX);
+  const y = 1 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-absX * absX);
+  return sign * y;
 }
 
 async function fetchIngredientReviewStats(): Promise<Map<string, ReviewStat>> {
@@ -120,6 +208,7 @@ async function fetchIngredientReviewStats(): Promise<Map<string, ReviewStat>> {
       avgRating: ratings.length ? round(ratings.reduce((sum, value) => sum + value, 0) / ratings.length, 2) : 0,
       positiveRatio: round((positiveCount / rows.length) * 100, 1),
       negativeRatio: round((negativeCount / rows.length) * 100, 1),
+      negativeCount,
     });
   }
 
