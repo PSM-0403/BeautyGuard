@@ -8,7 +8,6 @@ export type AlertsRepository = {
   saveDailyMetricSnapshot: (snapshot: DailyMetricSnapshot) => Promise<void>;
   listAlertsByDate: (alertDate: string) => Promise<AlertItem[]>;
   replaceDailyAlerts: (alertDate: string, alerts: AlertItem[]) => Promise<void>;
-  markAlertsSent: (alertIds: string[], channel: string) => Promise<void>;
 };
 
 type DailyMetricSnapshotRow = {
@@ -76,8 +75,6 @@ export class SupabaseAlertsRepository implements AlertsRepository {
       baseline_metric_value: alert.baseline_metric_value ?? null,
       reason_json: alert.reason_json,
       action_items_json: alert.action_items_json,
-      is_sent: alert.is_sent,
-      sent_channel: alert.sent_channel || null,
       created_at: alert.created_at,
     }));
 
@@ -102,16 +99,6 @@ export class SupabaseAlertsRepository implements AlertsRepository {
     }
   }
 
-  async markAlertsSent(alertIds: string[], channel: string) {
-    if (!alertIds.length) return;
-
-    const { error } = await this.supabase
-      .from("alerts")
-      .update({ is_sent: true, sent_channel: channel })
-      .in("id", alertIds);
-
-    if (error) throw new Error(`alerts 발송 상태 업데이트 실패: ${error.message}`);
-  }
 }
 
 export function createServerSupabaseClient() {
@@ -162,8 +149,6 @@ function alertFromRow(row: unknown): AlertItem {
     baseline_metric_value: value.baseline_metric_value ?? null,
     reason_json: isRecord(value.reason_json) ? value.reason_json : {},
     action_items_json: Array.isArray(value.action_items_json) ? value.action_items_json.map(String) : [],
-    is_sent: Boolean(value.is_sent),
-    sent_channel: value.sent_channel || null,
     created_at: String(value.created_at || ""),
   };
 }

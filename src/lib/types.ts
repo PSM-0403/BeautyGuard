@@ -188,8 +188,6 @@ export type AlertItem = {
   baseline_metric_value?: number | string | null;
   reason_json: Record<string, unknown>;
   action_items_json: string[];
-  is_sent: boolean;
-  sent_channel?: string | null;
   created_at: string;
 };
 

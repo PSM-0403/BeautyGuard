@@ -29,7 +29,6 @@ export type DailyAlertsPayload = {
   alertDate: string;
   summary: AlertSummary;
   alerts: AlertItem[];
-  notificationTargets: AlertItem[];
 };
 
 const ALERT_TYPE_ORDER: Record<AlertType, number> = {
@@ -98,12 +97,7 @@ export function buildDailyAlertsPayload(alertDate: string, alerts: AlertItem[]):
     alertDate,
     summary: buildAlertSummary(sortedAlerts),
     alerts: sortedAlerts,
-    notificationTargets: getHighSeverityNotificationTargets(sortedAlerts),
   };
-}
-
-export function getHighSeverityNotificationTargets(alerts: AlertItem[]) {
-  return alerts.filter((alert) => alert.severity === "high" && !alert.is_sent);
 }
 
 const MIN_REVIEWS_FOR_ALERT = 30;
@@ -157,8 +151,6 @@ function buildIngredientMatrixAlerts(items: DemandSupplyItem[], alertDate: strin
       alert_date: alertDate,
       ingredient_name: item.ingredient,
       product_name: null,
-      is_sent: false,
-      sent_channel: null,
       created_at: createdAt,
     };
 
@@ -262,8 +254,6 @@ function buildReviewIssueAlerts(items: ReviewIssueSummaryItem[], alertDate: stri
         notificationEligible: severity === "high",
       },
       action_items_json: ALERT_ACTION_ITEMS.review_issue,
-      is_sent: false,
-      sent_channel: null,
       created_at: createdAt,
     }];
   });

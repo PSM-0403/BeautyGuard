@@ -18,7 +18,6 @@ from typing import Any
 
 import requests
 import uvicorn
-import pandas as pd
 from dotenv import load_dotenv
 from fastapi import Body, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -121,7 +120,6 @@ CONCERN_SIGNAL_GROUPS = [
 
 INGREDIENT_DEFINITIONS = INGREDIENT_SIGNAL_GROUPS
 MAIN_INGREDIENT_KEYS = ["niacinamide", "hyaluronic_acid", "centella", "pdrn", "retinol"]
-MARKET_PRODUCT_KEY_BY_DATALAB_KEY = {"centella": "cica"}
 
 
 AGE_GROUPS = [
@@ -425,47 +423,6 @@ def build_concern_table(warnings: list[str] | None = None) -> list[dict[str, Any
     return normalized
 
 
-def build_market_products() -> list[dict[str, Any]]:
-    stats_path = next(
-        (
-            path
-            for path in [
-                PROJECT_DIR / "data" / "processed" / "ingredient_candidate_stats.csv",
-                BASE_DIR / "data" / "processed" / "ingredient_candidate_stats.csv",
-            ]
-            if path.exists()
-        ),
-        BASE_DIR / "data" / "processed" / "ingredient_candidate_stats.csv",
-    )
-    if not stats_path.exists():
-        return []
-    stats = pd.read_csv(stats_path)
-    if stats.empty or "canonical_id" not in stats.columns:
-        return []
-
-    stats = stats.set_index("canonical_id")
-    group_lookup = {group["key"]: group for group in INGREDIENT_SIGNAL_GROUPS}
-    rows: list[dict[str, Any]] = []
-    for datalab_key in MAIN_INGREDIENT_KEYS:
-        stats_key = MARKET_PRODUCT_KEY_BY_DATALAB_KEY.get(datalab_key, datalab_key)
-        if stats_key not in stats.index or datalab_key not in group_lookup:
-            continue
-        source = stats.loc[stats_key]
-        product_count = int(source.get("product_occurrence", 0) or 0)
-        rows.append(
-            {
-                "ingredient_key": datalab_key,
-                "ingredient_label": group_lookup[datalab_key]["label"],
-                "product_count": product_count,
-                "unique_product_count": product_count,
-                "brand_count": 0,
-                "source": str(source.get("retailers", "processed_retailer_data") or "processed_retailer_data"),
-                "is_mock": False,
-            }
-        )
-    return sorted(rows, key=lambda row: row["product_count"], reverse=True)
-
-
 def build_ingredient_trend(period_key: str) -> dict[str, Any]:
     option = PERIOD_OPTIONS.get(period_key, PERIOD_OPTIONS["snapshot"])
     group_lookup = {group["key"]: build_compact_ingredient_keyword_group(group) for group in INGREDIENT_SIGNAL_GROUPS}
@@ -566,7 +523,6 @@ def datalab_dashboard_signals() -> JSONResponse:
         concern_table = build_concern_table(warnings)
         if not function_risers and not ingredient_popularity and not concern_table:
             raise RuntimeError(_compact_error_message(warnings))
-        market_products = build_market_products()
         concern_metrics = [{"key": item["key"], "legacyKey": item.get("legacyKey", ""), "label": item["label"]} for item in CONCERN_SIGNAL_GROUPS]
         start_date, end_date = snapshot_date_range()
         payload = {
@@ -587,7 +543,10 @@ def datalab_dashboard_signals() -> JSONResponse:
             "page2": {
                 "concernMetrics": concern_metrics,
                 "concernTable": concern_table,
-                "marketProducts": market_products,
+                # 프론트엔드는 marketProducts가 비어있으면 Supabase 기반 fetchMarketProductsFromSupabase로
+                # 대체한다 (Dashboard.tsx). 이 필드를 채우려면 data/processed/ingredient_candidate_stats.csv가
+                # 필요한데 생성 파이프라인이 없어서 항상 비워 둔다.
+                "marketProducts": [],
                 "insights": [
                     "연령대별 피부 고민 집중도는 주름/탄력, 잡티/톤, 트러블/진정, 건조/장벽, 모공/피지 키워드 그룹의 DataLab ratio를 정규화한 값입니다.",
                     "기능 급상승 순위와 성분 인기 순위는 현재 서버의 FUNCTION_SIGNAL_GROUPS, INGREDIENT_SIGNAL_GROUPS 기준으로 네이버 DataLab API에서 산출됩니다.",

@@ -2852,12 +2852,6 @@ function getRelatedLowKeywordText(alert: AlertItem) {
     .join(", ");
 }
 
-function getNotificationStatus(alert: AlertItem) {
-  if (alert.severity !== "high") return "High 등급만 Slack/email 발송 대상입니다.";
-  if (alert.is_sent) return `${alert.sent_channel || "알림"} 발송 완료`;
-  return "Slack/email 발송 대기 대상";
-}
-
 function getAlertMetricLabel(metricName: string) {
   const labels: Record<string, string> = {
     demand_supply_gap: "수요-공급 격차",
@@ -2914,10 +2908,6 @@ function AlertDetail({ alert }: { alert: AlertItem }) {
         <div>
           <span>성분/상품</span>
           <strong>{alert.product_name ? `${alert.ingredient_name} · ${alert.product_name}` : alert.ingredient_name}</strong>
-        </div>
-        <div>
-          <span>알림 상태</span>
-          <strong>{getNotificationStatus(alert)}</strong>
         </div>
       </div>
 
@@ -3295,7 +3285,6 @@ export default function Dashboard() {
           reviewIssueCount: 0,
         },
         alerts: [],
-        notificationTargets: [],
       }));
       setActiveAlertId("");
       setAlertState({
