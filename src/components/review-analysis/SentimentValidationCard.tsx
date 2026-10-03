@@ -7,6 +7,13 @@ const LABEL_KO: Record<string, string> = {
 };
 
 export function SentimentValidationCard({ result }: { result: SentimentValidationResult }) {
+  // 리뷰가 긍정에 크게 쏠려 있어서, 가장 많은 구간 하나로만 찍어도 나오는 일치율을 함께 보여준다.
+  // 전체 일치율이 이 값보다 낮으면 전체 일치율만으로는 모델을 평가할 수 없다는 뜻이다.
+  const majorityGroup = result.groups.reduce((max, group) => (group.sampleSize > max.sampleSize ? group : max), result.groups[0]);
+  const majorityBaseline = result.totalReviews && majorityGroup
+    ? Math.round((majorityGroup.sampleSize / result.totalReviews) * 1000) / 10
+    : 0;
+
   return (
     <div className="table-wrap">
       <p className="card-helper">
@@ -17,6 +24,16 @@ export function SentimentValidationCard({ result }: { result: SentimentValidatio
         <span>전체 일치율 (표본 {result.totalReviews.toLocaleString()}건)</span>
         <strong>{result.overallAccuracy.toFixed(1)}%</strong>
       </div>
+      {majorityGroup ? (
+        <div className="mini-summary">
+          <span>비교 기준: 모든 리뷰를 {LABEL_KO[majorityGroup.expected]}으로 예측했을 때</span>
+          <strong>{majorityBaseline.toFixed(1)}%</strong>
+        </div>
+      ) : null}
+      <p className="card-helper">
+        리뷰가 {LABEL_KO[majorityGroup?.expected ?? "positive"]}에 쏠려 있어 전체 일치율보다 구간별 일치율로 보는 것이 정확합니다.
+        특히 부정(1~2점) 리뷰를 얼마나 찾아내는지가 MD에게 가장 중요한 지표입니다.
+      </p>
       <table className="skin-sentiment-table">
         <thead>
           <tr>

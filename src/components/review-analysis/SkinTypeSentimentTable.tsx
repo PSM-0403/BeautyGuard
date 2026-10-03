@@ -14,15 +14,19 @@ export function SkinTypeSentimentTable({ rows }: { rows: SkinTypeAnalysis[] }) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row) => (
-            <tr key={row.skinType}>
-              <td>{row.skinType}</td>
-              <td>{row.positive.toFixed(1)}%</td>
-              <td>{row.neutral.toFixed(1)}%</td>
-              <td>{row.negative.toFixed(1)}%</td>
-              <td>{row.issue}</td>
-            </tr>
-          ))}
+          {rows.map((row) => {
+            // 리뷰가 0건이면 비율이 0%로 계산돼 "이슈 없음"처럼 보이므로, 값 대신 "리뷰 없음"으로 표시한다.
+            const hasReviews = row.reviewCount > 0;
+            return (
+              <tr key={row.skinType}>
+                <td>{row.skinType} <span className="card-helper">(n={row.reviewCount})</span></td>
+                <td>{hasReviews ? `${row.positive.toFixed(1)}%` : "-"}</td>
+                <td>{hasReviews ? `${row.neutral.toFixed(1)}%` : "-"}</td>
+                <td>{hasReviews ? `${row.negative.toFixed(1)}%` : "-"}</td>
+                <td>{hasReviews ? row.issue : "리뷰 없음"}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

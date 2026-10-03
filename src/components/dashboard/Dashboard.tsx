@@ -2811,7 +2811,15 @@ function getAlertMetricEntries(alert: AlertItem) {
   ];
 
   if (alert.baseline_metric_value !== null && alert.baseline_metric_value !== undefined && alert.baseline_metric_value !== "") {
-    entries.push(["비교 기준", formatAlertMetricValue(alert.baseline_metric_value, "baseline")]);
+    // baseline 값의 의미는 경보 종류마다 다르다: 매트릭스 경보는 이전 기간 격차(점수),
+    // 리뷰 이슈 경보는 부정 리뷰 비율(%). 값 크기로 단위를 추측하지 않고 종류로 정한다.
+    const isRatioBaseline = alert.detected_metric_name === "negative_keyword_count";
+    entries.push([
+      isRatioBaseline ? "부정 리뷰 비율" : "이전 기간 격차",
+      isRatioBaseline
+        ? `${Number(alert.baseline_metric_value).toFixed(1)}%`
+        : formatAlertMetricValue(alert.baseline_metric_value),
+    ]);
   }
 
   if (metrics && typeof metrics === "object" && !Array.isArray(metrics)) {
@@ -2858,7 +2866,6 @@ function formatAlertMetricValue(value: number | string | null | undefined, metri
   const number = Number(value);
   if (!Number.isFinite(number)) return String(value);
   if (metricName === "negative_keyword_count") return `${formatNumber(number)}건`;
-  if (metricName === "baseline") return number > 0 && number <= 100 ? `${number.toFixed(1)}%` : number.toFixed(1);
   return number.toFixed(1);
 }
 
@@ -3629,11 +3636,10 @@ export default function Dashboard() {
                   </span>
                 </div>
                 <p className="card-helper">
-                  수요-공급 매트릭스는 검색 관심도(수요)와 제품 수(공급)만으로 성분을 분류합니다. 이 분류가 실제
-                  소비자 반응과도 맞는지 -- &quot;기회&quot; 성분이 정말 반응이 좋아서 기회인지, 단순히 공급이
-                  적을 뿐인지 -- 올리브영 리뷰 감성분석 결과로 교차검증합니다. 매트릭스가 다루는 핵심 성분
+                  매트릭스는 검색량과 제품 수만으로 성분을 나눕니다. 그래서 이 분류가 실제 소비자 반응과도 맞는지
+                  올리브영 리뷰 감성분석 결과와 비교해 봅니다. 성분이
                   {matrixReviewValidation ? ` ${matrixReviewValidation.items.length + matrixReviewValidation.missingIngredients.length}개` : " 7개"}
-                  기준이라 사분면별 통계적 비교가 아니라 성분별 개별 비교로 해석하는 것이 적절합니다.
+                  뿐이라 영역별로 묶어 비교하지 않고 성분별로 봅니다.
                 </p>
                 <MatrixLegend />
                 <MatrixReviewValidationChart

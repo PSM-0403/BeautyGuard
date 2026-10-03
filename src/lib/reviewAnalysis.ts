@@ -66,6 +66,7 @@ export type ReviewTopProduct = {
 
 export type SkinTypeAnalysis = {
   skinType: string;
+  reviewCount: number;
   positive: number;
   neutral: number;
   negative: number;
@@ -379,6 +380,7 @@ function buildSkinTypeAnalysis(rows: AnalyzedReview[]): SkinTypeAnalysis[] {
 
     return {
       skinType: skinType.label,
+      reviewCount: group.length,
       positive: counts.positiveRatio,
       neutral: counts.neutralRatio,
       negative: counts.negativeRatio,
